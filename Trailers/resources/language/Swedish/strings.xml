@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Language file translated with Team XBMC Translator-->
+<!--Translator: blittan-->
+<!--Email: blittan@xbmc.org-->
+<!--Date of translation: 07/27/2009-->
+<!--$Revision$-->
+<strings>
+  <string id="30000">Använd DVD spelaren istället för den vanliga</string>
+  <string id="30001">Ladda ner och spela video</string>
+  <string id="30002">Nedladdningsmapp</string>
+  <string id="30003">Fråga om nedladdning innan uppspelning av video</string>
+  <string id="30004">Nästa sida</string>
+  <string id="30005">Vad vill du göra?</string>
+  <string id="30006">Avsluta</string>
+  <string id="30007">Strömma</string>
+  <string id="30008">Fråga efter nedladdningsfilnamn</string>
+</strings>

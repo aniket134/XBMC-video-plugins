@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>   <!--  8.7.2009 Finnish   -->
+    <string id="30000">Käytä DVD Player-soitinta</string>
+    <string id="30001">Lataa ja toista video</string>
+    <string id="30002">Latauspolku</string>
+    <string id="30003">Kysy latauksesta ennen toistoa</string>
+
+    <string id="30004">Seuraava sivu</string>
+    <string id="30005">Mitä haluat tehdä?</string>
+    <string id="30006">Poistu</string>
+    <string id="30007">Katso</string>
+    <string id="30008">Kysy tallennusnimi</string>
+</strings>

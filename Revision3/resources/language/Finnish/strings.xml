@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>   <!--  28.1.2009 Finnish   -->
+    <string id="30000">Käytä DVD Player-soitinta</string>
+    <string id="30001">Lataa ja toista video</string>
+    <string id="30002">Latauspolku</string>
+    <string id="30003">Kysy latauksesta ennen toistoa</string>
+    <string id="30004">Videolaatu (Käynnistä lisäke uudelleen)</string>
+	<!--  Don't translate the quality, it breaks the plugin  -->
+    <string id="30005">quicktime-high-definition</string>
+    <string id="30006">quicktime-large</string>
+    <string id="30007">quicktime-small</string>
+    <string id="30008">wmv-large</string>
+    <string id="30009">wmv-small</string>
+    <string id="30010">xvid-large</string>
+    <string id="30011">xvid-small</string>
+    <string id="30012">Näytä kaikki jaksot (Käynnistä lisäke uudelleen)</string>
+</strings>
