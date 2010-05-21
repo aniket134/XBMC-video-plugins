@@ -78,5 +78,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-#    'Django2.xbmc_videos',
+    'Django2.video_lec',
 )

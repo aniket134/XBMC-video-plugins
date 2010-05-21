@@ -13,19 +13,24 @@ from django.db.backends.sqlite3.client import DatabaseClient
 from django.db.backends.sqlite3.creation import DatabaseCreation
 from django.db.backends.sqlite3.introspection import DatabaseIntrospection
 from django.utils.safestring import SafeString
-
+print('success -1')
 try:
+    print('success 0')
     try:
         from pysqlite2 import dbapi2 as Database
+	print('success 1')
     except ImportError, e1:
-        from sqlite3 import dbapi2 as Database
+        from sqlite3_for_xbmc import dbapi2 as Database
+	print('success 2')
 except ImportError, exc:
     import sys
     from django.core.exceptions import ImproperlyConfigured
     if sys.version_info < (2, 5, 0):
+	print(sys.version_info+('****************************','*********'))
         module = 'pysqlite2 module'
         exc = e1
     else:
+	print(sys.version_info+('****************************','*********'))
         module = 'either pysqlite2 or sqlite3 modules (tried in that order)'
     raise ImproperlyConfigured, "Error loading %s: %s" % (module, exc)
 
