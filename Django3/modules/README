@@ -1,0 +1,10 @@
+This folder contains python modules to be used by this plugin.
+
+The only thing to be kept in mind is that the module placed
+in this directory is not already present in python2.4.5.
+If this happens than the module in theis directory will not
+be loaded and python2.4.5 module will be loaded.
+To avoid this, you can rename your module and then import
+it. Of course the thing to be kept in mind is that that
+module should only refer to modules inside this folder or
+inside python2.4.5.

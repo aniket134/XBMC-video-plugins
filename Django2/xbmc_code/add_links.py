@@ -1,4 +1,4 @@
-import xbmc,xbmcgui,xbmcplugin,sys,django
+import xbmc,xbmcgui,xbmcplugin,sys,django,db_interaction
 
 def addDir(name,url,mode,iconimage):
 	u=url
@@ -19,5 +19,5 @@ def addLink(name,url,iconImage):
 
 
 def main():
-	addDir("folder1", "/home/sh1n0b1/.xbmc/plugins/Django2/",1,"")
+	addDir(db_interaction.get_link(), "/home/sh1n0b1/.xbmc/plugins/Django2/",1,"")
 	addLink("DSH Video 1","/home/sh1n0b1/Downloads/Videos/0326shashi2_withtext.avi","")
