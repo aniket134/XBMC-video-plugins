@@ -12,7 +12,8 @@ Prerequisites:
     Platform: GNU/Linux.
     Built on Dec 24 2009 (SVN:26018) 
 + MySQL 5.1.0
-    Edit db_name, user etc. info in settings.py
+    Edit db_name, user etc. info in settings.py as per your preferences.
+    Create a Database in mysql before running: python manage.py syncdb
 + Django 1.1.1
 + python 2.6
 + MySQLdb
