@@ -3,7 +3,7 @@ sys.path.append("/home/sh1n0b1/.xbmc/plugins/video/Django2/")
 #Used by Django. 
 sys.path.append("/home/sh1n0b1/.xbmc/plugins/video/")
 #Sets the environment variable for Django.
-os.environ['DJANGO_SETTINGS_MODULE']='Django2.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'Django2.settings'
 
 import django
 from video_lec.models import video_description
