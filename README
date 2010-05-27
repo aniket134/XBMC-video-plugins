@@ -1,4 +1,6 @@
 All the video plugins I've built and used as reference.
+
 Django3 is the current stable version of a basic-XBMC-Django-MySQL video plugin.
+
 Make sure that master branch is checked out:
 	git checkout master

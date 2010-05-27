@@ -13,6 +13,4 @@ from Django3.video_lec.models import video
 
 def get_link():
 	title = video.objects.get(id=1).title
-	print(title)
 	return title
-get_link()
