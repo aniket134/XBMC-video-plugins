@@ -12,5 +12,6 @@ sys.path.append(CP.PLUGIN_PATH)
 
 import db_interaction as db
 print('-----------')
+print(sys.path)
 
 xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ), succeeded=True )
