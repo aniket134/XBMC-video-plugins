@@ -1,4 +1,5 @@
 # Django settings for Django3 project.
+import xbmc_code.constants_plugin as CP
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -69,6 +70,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    CP.PLUGIN_PATH + '/' + CP.PLUGIN_NAME + '/templates',
 )
 
 INSTALLED_APPS = (
