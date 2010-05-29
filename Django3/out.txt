@@ -1,0 +1,10 @@
+./urls.py:    # (r'^Django3/', include('Django3.foo.urls')),
+./urls.py:    (r'^dsh_video/', include('Django3.video_lec.urls')),
+./settings.py:# Django settings for Django3 project.
+./settings.py:ROOT_URLCONF = 'Django3.urls'
+./settings.py:    'Django3.video_lec',
+./video_lec/urls.py:urlpatterns = patterns('Django3.video_lec.views',
+./video_lec/views.py:from Django3.video_lec.models import course, course_video, random_video
+./video_lec/admin.py:from Django3.video_lec.models import random_video, course_video, course
+./xbmc_code/db_interaction.py:from Django3.video_lec.models import video
+./xbmc_code/constants_plugin.py:# We need to pop only once, as this script is run from Django3 directory... Don't know why or how
