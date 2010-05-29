@@ -1,0 +1,9 @@
+{% if course_list %}
+	<ul>
+	{% for course in course_list %}
+		<li>{{ course.name }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No courses are available.</p>
+{% endif %}
