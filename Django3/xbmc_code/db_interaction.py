@@ -9,8 +9,8 @@ import constants_plugin as CP
 os.environ['DJANGO_SETTINGS_MODULE'] = CP.DJANGO_SETTINGS_MODULE
 
 import django
-from Django3.video_lec.models import video
+from video_lec.models import course, course_video, random_video
 
 def get_link():
-	title = video.objects.get(id=1).title
-	return title
+	name = course.objects.get(id=1).name
+	return name

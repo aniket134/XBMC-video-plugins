@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
+from xbmc_code import constants_plugin as CP
 
-urlpatterns = patterns('Django3.video_lec.views',
+urlpatterns = patterns(CP.PLUGIN_NAME + '.video_lec.views',
 	(r'^$', 'index'),
 
 	(r'^course/(?P<course_id>\d+)/$', 'course_view'),

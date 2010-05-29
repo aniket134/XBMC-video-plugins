@@ -1,4 +1,4 @@
-# Django settings for Django3 project.
+# Django settings for this project.
 import xbmc_code.constants_plugin as CP
 
 DEBUG = True
@@ -64,7 +64,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'Django3.urls'
+ROOT_URLCONF = CP.PLUGIN_NAME + '.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -79,5 +79,5 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'Django3.video_lec',
+    CP.PLUGIN_NAME + '.video_lec',
 )

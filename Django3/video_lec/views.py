@@ -1,5 +1,9 @@
 from django.shortcuts import render_to_response, get_object_or_404
-from Django3.video_lec.models import course, course_video, random_video
+from xbmc_code import constants_plugin as CP
+PN = __import__(CP.PLUGIN_NAME)
+course = PN.video_lec.models.course
+course_video = PN.video_lec.models.course_video
+random_video = PN.video_lec.models.random_video
 
 def index(request):
 	course_list = course.objects.all().order_by('-date_last_modified')[:10]

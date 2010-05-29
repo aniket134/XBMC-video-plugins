@@ -1,8 +1,10 @@
 import xbmc, xbmcgui,xbmcplugin,sys,os,urllib
 
-# This is used to import plugin specific modules
+# Used to import django plugins and make plugin name irrelevant
+sys.path.append(os.getcwd())
+# Used to import plugin specific modules
 sys.path.append(os.getcwd() + '/modules/')
-# This is used to import plugin related code
+# Used to import plugin related code
 sys.path.append(os.getcwd() + '/xbmc_code/')
 
 import constants_plugin as CP

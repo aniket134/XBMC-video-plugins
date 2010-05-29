@@ -11,7 +11,7 @@ spls =  cwd.split('/')
 
 #: The name of plugin and also the name of Django project
 PLUGIN_NAME = spls.pop(len(spls)-1)
-# We need to pop only once, as this script is run from Django3 directory... Don't know why or how
+# We need to pop only once, as this script is run from plugin home directory... Don't know why or how. Weird thing is this works for both Django and XBMC!
 PLUGIN_PATH = '/'
 
 #: The path to all XBMC video plugins and more importantly it is the path to Django's projects. Used for DJANGO_SETTINGS_MODULE. There is no '/' at the end.

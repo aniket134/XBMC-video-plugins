@@ -1,4 +1,9 @@
-from Django3.video_lec.models import random_video, course_video, course
+from xbmc_code import constants_plugin as CP
+PN = __import__(CP.PLUGIN_NAME)
+course = PN.video_lec.models.course
+course_video = PN.video_lec.models.course_video
+random_video = PN.video_lec.models.random_video
+
 from django.contrib import admin
 
 class CourseVideoInline(admin.StackedInline):
