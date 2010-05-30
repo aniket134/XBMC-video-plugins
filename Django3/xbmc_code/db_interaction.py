@@ -14,7 +14,25 @@ def get_course_objects():
 	course_objects = course.objects.all().order_by('-date_last_modified')[:10]
 	return course_objects
 
-def get_info_labels(c):
+def get_course_video_objects(course_id):
+	course_video_objects = course.objects.get(id = course_id).course_video_set.all()
+	return course_video_objects
+
+def get_random_video_objects():
+	random_video_objects = random_video.objects.all()
+	return random_video_objects
+
+def get_course_info_labels(c):
 	dict = {}
-	dict['title'] = c.name
+	dict['name'] = c.name
+	return dict
+
+def get_course_video_info_labels(cv):
+	dict = {}
+	dict['title'] = cv.title
+	return dict
+
+def get_random_video_info_labels(rv):
+	dict = {}
+	dict['title'] = rv.title
 	return dict
