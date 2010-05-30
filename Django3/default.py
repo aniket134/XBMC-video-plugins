@@ -14,23 +14,35 @@ sys.path.append(CP.PLUGIN_PATH)
 
 import db_interaction as db
 
-def addDir(name,url,mode,iconimage):
-	u=url
+def addDir(name, url, mode, iconimage, infoLabels):
+	"""
+	Add a directory item in XBMC list. Returns a boolean True if successful.
+	"""
 	ok=True
 	liz=xbmcgui.ListItem(label=name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
-	liz.setInfo( type="Video", infoLabels={ "Title": name } )
-	ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
-	xbmc.log("asdf"+sys.argv[0]+"--"+sys.argv[1]+"--"+sys.argv[2])
-	xbmc.log("zxcv:::"+u)
+	liz.setInfo(type="Video", infoLabels=infoLabels)
+	ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url, listitem=liz, isFolder=True)
 	return ok
 
-def addLink(name,url,iconImage):
+def addLink(name, url, iconImage, infoLabels):
+	"""
+	Add a Link item in XBMC list. Returns a boolean True if successful.
+	"""
 	ok=True
 	liz=xbmcgui.ListItem(label=name,label2="",iconImage="DefaultVideo.png",thumbnailImage=iconImage)
-	liz.setInfo(type="Video",infoLabels={"Title":name})
-	ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=url,listitem=liz)
+	liz.setInfo(type="Video", infoLabels=infoLabels)
+	ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url, listitem=liz)
 	return ok
 
+course_objects = db.get_course_objects()
+for course in course_objects:
+	info_labels = db.get_info_labels(course)
+	addDir(course.name, os.getcwd(), 1, "", info_labels)
 
-addDir(db.get_link(), os.getcwd(),1,"")
+
+
+
+
+
+
 xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ), succeeded=True )

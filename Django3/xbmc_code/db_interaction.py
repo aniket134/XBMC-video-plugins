@@ -1,16 +1,20 @@
-import sys,os
+import sys, os, django
 import constants_plugin as CP
 
 # Very important environment variable used by Django.
 # It is set in this file because unlike sys.path it is not carried
-# forward from one python script to scriipt.
-# So we have to set it in any python file we have to use django DB.
-# It has to be set before any Django model is imported
+# forward when one python script calls another python script.
+# So we have to set it in every python file we have to use django DB.
+# Remember, it must be set before any Django model is imported.
 os.environ['DJANGO_SETTINGS_MODULE'] = CP.DJANGO_SETTINGS_MODULE
 
-import django
 from video_lec.models import course, course_video, random_video
 
-def get_link():
-	name = course.objects.get(id=1).name
-	return name
+def get_course_objects():
+	course_objects = course.objects.all().order_by('-date_last_modified')[:10]
+	return course_objects
+
+def get_info_labels(c):
+	dict = {}
+	dict['title'] = c.name
+	return dict
