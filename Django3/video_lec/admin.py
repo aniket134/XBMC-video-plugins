@@ -27,8 +27,8 @@ class CourseVideoAdmin(admin.ModelAdmin):
 
 class RandomVideoAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None, {'fields': ['title']}),
-		('Video Information', {'fields': ['subject', 'description', 'author_name', 'grade_level', 'alias'], 'classes': ['collapse']}),
+		(None, {'fields': ['title', 'subject']}),
+		('Video Information', {'fields': ['file', 'description', 'author_name', 'grade_level', 'alias'], 'classes': ['collapse']}),
 	]
 	list_display = ('title', 'subject', 'author_name', 'was_published_today', 'date_added')
 	list_filter = ['date_added', 'title']

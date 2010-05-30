@@ -18,6 +18,8 @@ class course_video(models.Model):
 	description = models.CharField(max_length=100, blank=True, verbose_name='Course Video Descrition')
 	author_name = models.CharField(max_length=100, blank=True)
 	date_added = models.DateTimeField(auto_now_add=True)
+	file = models.FileField(upload_to='course_video')
+	
 	def was_published_today(self):
 		return self.date_added.date() == datetime.date.today()
 	was_published_today.short_descrition = 'Uploaded Today?'	
@@ -32,6 +34,8 @@ class random_video(models.Model):
 	grade_level = models.CharField(max_length=100, blank=True)
 	alias = models.CharField(max_length=100, blank=True)
 	date_added = models.DateTimeField(auto_now_add=True)
+	file = models.FileField(upload_to='random_video')
+	
 	def was_published_today(self):
 		return self.date_added.date() == datetime.date.today()
 	was_published_today.short_descrition = 'Uploaded Today?'	
