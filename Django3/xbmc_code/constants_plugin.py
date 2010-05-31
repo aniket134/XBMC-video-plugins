@@ -20,5 +20,5 @@ PLUGIN_PATH = PLUGIN_PATH.join(spls)
 #: The environment variable which is used by Django to figure out the for which project it is being used.
 DJANGO_SETTINGS_MODULE = PLUGIN_NAME + '.settings'
 
-#: The path where all videos are stored. Link to the videos relative to this path is stored in DB.
-MEDIA_ROOT = PLUGIN_PATH + '/../../../Downloads/Videos/django_upload/'
+#: The path where all videos are stored. Link to the videos relative to this path is stored in DB. Absolute path and trailing slash.
+MEDIA_ROOT = '/media/OS/MOVIES/TV-SERIES/django_upload/'
