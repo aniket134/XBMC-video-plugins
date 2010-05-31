@@ -11,10 +11,12 @@ class Search_class(xbmcgui.Window):
 		info_labels['name'] = 'Back to Search'
 		FS.ADD_DIR(0, 1, "", info_labels)
 		xbmcplugin.endOfDirectory(handle = 0)
+		#self.f = open('keymap.xml', 'w+')
 
 	def onAction(self, action):
 		try:
 			print('Action called is: ' + str(action.getId()))
+			#self.f.write('\n' + str(action.getId()))
 			if action.getId() == ACTION_PREVIOUS_MENU:
 				self.close()
 			if action.getId() == ACTION_SELECT_ITEM:
@@ -23,8 +25,11 @@ class Search_class(xbmcgui.Window):
 				self.str_action.setLabel('Hello World!')
 		except Exception,e:
 			print(e)
+	def file_close(self):
+		self.f.close()
 
 def show():
 	search_display = Search_class()
 	search_display.doModal()
+	#search_display.file_close()
 	del search_display
