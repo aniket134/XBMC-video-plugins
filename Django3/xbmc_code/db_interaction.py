@@ -1,4 +1,4 @@
-import sys, os, django
+import sys, os, django, re
 import constants_plugin as CP
 
 # Very important environment variable used by Django.
@@ -36,3 +36,7 @@ def get_random_video_info_labels(rv):
 	dict = {}
 	dict['title'] = rv.title
 	return dict
+
+def search(text):
+	links = ['str', 'lkj']
+	return links
