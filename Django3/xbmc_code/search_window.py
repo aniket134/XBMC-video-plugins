@@ -1,38 +1,48 @@
 import xbmc, xbmcgui, xbmcplugin, sys
 import functions as FS
 import constants_plugin as CP
+import db_interaction as DB
 
 #get actioncodes from keymap.xml
 ACTION_PREVIOUS_MENU = 10
 ACTION_SELECT_ITEM = 7
 ACTION_PARENT_DIR = 9
-RESOURCE_PATH = CP.PLUGIN_PATH + '/' + CP.PLUGIN_NAME + '/' + 'resources/'
 
 class Search_class(xbmcgui.Window):
 	def __init__(self):
-		print(str(self.getWidth()))
-		print(str(self.getHeight()))
 		print(str(xbmc.getLocalizedString(10000)))
 		print(str(xbmc.getSkinDir()))
+		self.width = self.getWidth()
+		self.height = self.getHeight()
+		self.button_width = 200
+		self.button_height = 30
 		# Add atleast one dir to make it work correctly
 		info_labels = {}
 		info_labels['name'] = 'Back to Search'
 		FS.ADD_DIR(0, 1, "", info_labels)
 		xbmcplugin.endOfDirectory(handle = 0)
 		#self.f = open('keymap.xml', 'w+')
-		self.addControl(xbmcgui.ControlImage(0, 0, 720, 480, RESOURCE_PATH + 'images/background2.jpg'))
-		self.strActionInfo = xbmcgui.ControlLabel(100, 200, 200, 200, '', 'font13', '0xFFFF00FF')
+		self.addControl(xbmcgui.ControlImage(0, 0, self.width, self.height, CP.RESOURCE_PATH + 'images/background2.jpg'))
+		self.strActionInfo = xbmcgui.ControlLabel(100, 200, 200, 200, 'Push Esc to Quit', 'font13', '0xFF000000')
 		self.addControl(self.strActionInfo)
-		self.strActionInfo.setLabel('Push Esc to quit.')
 		
-		# Make a List
-		self.list = xbmcgui.ControlList(300, 250, 200, 200)
-		self.addControl(self.list)
-		self.list.addItem('Item 1')
-		self.list.addItem('Item 2')
-		self.list.addItem('Item 3')
-		self.setFocus(self.list)
+		# Make a Text Field
+		keyboard = xbmc.Keyboard('Enter Search String here')
+		keyboard.doModal()
+		if keyboard.isConfirmed():
+			self.add_search_results(keyboard.getText())
+		else:
+			pass
 		
+	def add_search_results(self, text):
+		self.buttons = []
+		y_button = 40
+		links = DB.search(text)
+		for link in links:
+			button = xbmcgui.ControlButton(10, y_button, self.button_width, self.button_height, link)
+			self.addControl(button)
+			self.buttons.append(button);
+			y_button += self.button_height
 
 	def onAction(self, action):
 		try:
@@ -47,10 +57,10 @@ class Search_class(xbmcgui.Window):
 		except Exception,e:
 			print(e)
 
-	def onControl(self, control):
-		if control == self.list:
-			item = self.list.getSelectedItem()
-			self.message('You selected: ' + item.getLabel())
+	#def onControl(self, control):
+		#if control == self.list:
+			#item = self.list.getSelectedItem()
+			#self.message('You selected: ' + item.getLabel())
 	def message(self, txt):
 		dialog = xbmcgui.Dialog()
 		dialog.ok('My msg title', txt)

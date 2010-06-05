@@ -17,6 +17,7 @@ import search_window as SW
 import functions as FS
 # -----------------------------------------------------------------
 
+
 def add_course_list():
 	"""
 	Add all the courses present in the course table. 
@@ -95,7 +96,7 @@ def get_params():
         return param
 
 # ---------------------------------------------------------
-
+xbmcplugin.setPluginFanart(int(sys.argv[1]), CP.PLUGIN_PATH + '/' + CP.RESOURCE_PATH + 'images/TestPics/white_ball.png', color2='0xFFFF3300')
 
 params = get_params()
 name = None
@@ -130,7 +131,7 @@ elif mode == 3:
         add_random_videos()
 
 elif mode == 4:
-	print('Inside mode 4. With name = ' + name)
+	print('Inside mode 4. With name = ' + str(name))
 	add_course_videos(name)
 
 
