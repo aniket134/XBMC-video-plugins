@@ -1,74 +1,58 @@
-import xbmc, xbmcgui, xbmcplugin, sys
-import functions as FS
-import constants_plugin as CP
-import db_interaction as DB
+#!./modules/jython2.5.1/jython
+from org.lirc import *
+from org.lirc.util import *
+from org.lirc.ui import *
 
-#get actioncodes from keymap.xml
-ACTION_PREVIOUS_MENU = 10
-ACTION_SELECT_ITEM = 7
-ACTION_PARENT_DIR = 9
-
-class Search_class(xbmcgui.Window):
-	def __init__(self):
-		print(str(xbmc.getLocalizedString(10000)))
-		print(str(xbmc.getSkinDir()))
-		self.width = self.getWidth()
-		self.height = self.getHeight()
-		self.button_width = 200
-		self.button_height = 30
-		# Add atleast one dir to make it work correctly
-		info_labels = {}
-		info_labels['name'] = 'Back to Search'
-		FS.ADD_DIR(0, 1, "", info_labels)
-		xbmcplugin.endOfDirectory(handle = 0)
-		#self.f = open('keymap.xml', 'w+')
-		self.addControl(xbmcgui.ControlImage(0, 0, self.width, self.height, CP.RESOURCE_PATH + 'images/background2.jpg'))
-		self.strActionInfo = xbmcgui.ControlLabel(100, 200, 200, 200, 'Push Esc to Quit', 'font13', '0xFF000000')
-		self.addControl(self.strActionInfo)
-		
-		# Make a Text Field
-		keyboard = xbmc.Keyboard('Enter Search String here')
-		keyboard.doModal()
-		if keyboard.isConfirmed():
-			self.add_search_results(keyboard.getText())
-		else:
-			pass
-		
-	def add_search_results(self, text):
-		self.buttons = []
-		y_button = 40
-		links = DB.search(text)
-		for link in links:
-			button = xbmcgui.ControlButton(10, y_button, self.button_width, self.button_height, link)
-			self.addControl(button)
-			self.buttons.append(button);
-			y_button += self.button_height
-
-	def onAction(self, action):
+from java.lang import *
+from javax.swing import *
+from javax.swing.plaf.metal import *
+from java.awt import *
+from java.io import *
+class MoveListener(IRActionListener):
+	def action(self, command):
 		try:
-			print('Action called is: ' + str(action.getId()))
-			#self.f.write('\n' + str(action.getId()))
-			if action.getId() == ACTION_PREVIOUS_MENU:
-				self.close()
-			#if action.getId() == ACTION_SELECT_ITEM:
-				#self.message()
-			#if action.getId() == ACTION_PARENT_DIR:
-				#self.removeControl(self.str_action)
-		except Exception,e:
-			print(e)
+			if command == 'moveUp':
+				label.text = 'MoveUp'
+			elif command == 'exit':
+				exit()
+		except Exception, e:
+			print(str(e))
+def keyPressed(event):
+	print(str(event.keyChar))
+	label.text = field.text
 
-	#def onControl(self, control):
-		#if control == self.list:
-			#item = self.list.getSelectedItem()
-			#self.message('You selected: ' + item.getLabel())
-	def message(self, txt):
-		dialog = xbmcgui.Dialog()
-		dialog.ok('My msg title', txt)
-	def file_close(self):
-		self.f.close()
+def buttonPressed(event):
+	field.text = quotes[event.source.text]
+	print(event.source.text)
+	exit()
+def exit():
+	client.stopListening()
+        System.exit(0)
+lookAndFeel = UIManager.getCrossPlatformLookAndFeelClassName()
+UIManager.setLookAndFeel(lookAndFeel)
+MetalLookAndFeel.setCurrentTheme(OceanTheme())
+UIManager.setLookAndFeel(MetalLookAndFeel())
+JFrame.setDefaultLookAndFeelDecorated(True)
 
-def show():
-	search_display = Search_class()
-	search_display.doModal()
-	#search_display.file_close()
-	del search_display
+win = JFrame('Search Videos...', defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE)
+win.size = (300, 300)
+win.contentPane.layout = GridLayout(0, 2)
+field = JTextField('Type here', SwingConstants.RIGHT)
+field.preferredSize = (200, 20)
+field.size = (200, 200)
+field.keyPressed = keyPressed
+#field.actionPerformed = keyPressed
+win.contentPane.add(field)
+button = JButton('Search')
+button.preferredSize = (100, 20)
+quotes = {"Groucho": "Say the secret word", "Chico": "Viaduct?", "Harpo": "HONK!", "Search": "Harry Potter!"}
+button.actionPerformed = buttonPressed
+win.contentPane.add(button)
+label = JLabel('Search', SwingConstants.LEFT)
+win.contentPane.add(label)
+
+client = SimpleLIRCClient('xbmc_code/search.lirc')
+client.addIRActionListener(MoveListener());
+
+#win.pack()
+win.show()

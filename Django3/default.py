@@ -1,4 +1,4 @@
-import xbmc, xbmcgui, xbmcplugin, sys, os, urllib
+import xbmc, xbmcgui, xbmcplugin, sys, os, urllib, subprocess
 
 # Used to import randon stuff.
 sys.path.append(os.getcwd())
@@ -6,14 +6,14 @@ sys.path.append(os.getcwd())
 sys.path.append(os.getcwd() + '/modules/')
 # Used to import plugin related code.
 sys.path.append(os.getcwd() + '/xbmc_code/')
-
+os.environ['PATH'] += ':' + os.getcwd() + '/modules/jython2.5.1'
 import constants_plugin as CP
 # Used by django to set DJANGO_SETTINGS_MODULE environment variable.
 # See xbmc_code.db_interaction
 sys.path.append(CP.PLUGIN_PATH)
 
 import db_interaction as DB
-import search_window as SW
+import old_search_window as SW
 import functions as FS
 # -----------------------------------------------------------------
 
@@ -121,7 +121,16 @@ elif mode == 1:
 	print('Inside mode 1.')
         #keyboard_search()
 	SW.show()
-        
+	#try:
+		#pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/new_search_window.py')
+		#stdout_value = pipe_stdout.read()
+		#print(stdout_value)
+	#except Exception, e:
+		#print(str(e))
+	#pipe_stdin.close()
+	#pipe_stdout.close()
+	#pipe_stderr.close()
+
 elif mode == 2:
 	print('Inside mode 2.')
 	add_course_list()

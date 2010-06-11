@@ -1,0 +1,60 @@
+<synth>
+
+ <!-- Style that all regions will use -->
+ <!--   cool blue = #3F3DC8 
+	cool grey = #ADADAD -->
+  <style id="backingStyle">
+    
+    <opaque value="TRUE"/>
+    <font name="Aharoni" size="14"/>
+    <state>
+      <color value="#FFFFFF" type="FOREGROUND"/>
+    </state>
+  </style>
+  <bind style="backingStyle" type="region" key=".*"/>
+ 
+
+  <style id="combobox">
+    <state>
+      <color value="#ADADAD" type="BACKGROUND"/>
+      <color value="BLUE" type="FOREGROUND"/>
+    </state>
+  </style>
+  <bind style="combobox" type="region" key="JComboBox"/>
+
+
+  <style id="textfield">
+    <insets top="4" left="6" bottom="4" right="6"/>
+    <state>
+       <font name="Arial" size="14"/>
+       <color value="#ADADAD" type="BACKGROUND"/>       
+       <color value="#FFFFFF" type="TEXT_FOREGROUND"/>
+    </state><!--
+    <imagePainter method="textFieldBorder" path="resources/images/Skull_11.png" sourceInsets="4 6 4 6" paintCenter="false"/>-->
+  </style>
+  <bind style="textfield" type="region" key="JTextField"/>
+    
+  <style id="button">
+  	<!-- Shift the text one pixel when pressed -->
+    <property key="Button.textShiftOffset" type="integer" value="1"/>
+	  <!-- set size of buttons -->
+	  <insets top="15" left="20" bottom="15" right="20"/>
+    <state>
+	    <font name="Verdana" size="16"/>
+	    <color type="TEXT_FOREGROUND" value="BLUE"/>
+<!--	    <color type="BACKGROUND" value="BLACK"/> this does not work-->
+    </state>
+            <!--  
+	  <state value="PRESSED"> 
+	    <imagePainter method="buttonBackground" path="resources/images/Skull_13.png" sourceInsets="10 10 10 10"/>
+	  </state>
+            
+    <state value="MOUSE_OVER">    
+	    <imagePainter method="buttonBackground" path="resources/images/Skull_14.png" sourceInsets="10 10 10 10"/>
+	  </state>
+	-->
+  </style>
+  <bind style="button" type="region" key="button"/>
+      
+      
+</synth>
