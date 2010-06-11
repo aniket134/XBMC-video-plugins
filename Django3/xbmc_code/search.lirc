@@ -1,0 +1,28 @@
+begin
+	button = Up
+	config = moveUp
+	repeat = 1
+end
+
+begin
+   	button = Down
+	config = moveDown
+	repeat = 1
+end
+
+begin
+   	button = Left
+	config = moveLeft
+	repeat = 1
+end
+
+begin
+	button = Right
+	config = moveRight
+	repeat = 1
+end
+
+begin
+   	button = Power
+	config = exit
+end
