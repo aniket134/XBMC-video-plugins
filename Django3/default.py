@@ -122,7 +122,7 @@ elif mode == 1:
         #keyboard_search()
 	#SW.show()
 	try:
-		pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/new_search_window.py')
+		pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/search_window.py')
 		stdout_value = pipe_stdout.read()
 		print(stdout_value)
 	except Exception, e:
