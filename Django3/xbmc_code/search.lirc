@@ -23,6 +23,11 @@ begin
 end
 
 begin
+   	button = Two
+	config = two
+end
+
+begin
    	button = Power
 	config = exit
 end
