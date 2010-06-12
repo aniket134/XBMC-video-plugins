@@ -28,6 +28,61 @@ begin
 end
 
 begin
+   	button = Three
+	config = three
+end
+
+begin
+   	button = Four
+	config = four
+end
+
+begin
+   	button = Five
+	config = five
+end
+
+begin
+   	button = Six
+	config = six
+end
+
+begin
+   	button = Seven
+	config = seven
+end
+
+begin
+   	button = Eight
+	config = eight
+end
+
+begin
+   	button = Nine
+	config = nine
+end
+
+begin
+   	button = Zero
+	config = zero
+end
+
+begin
+   	button = One
+	config = one
+end
+
+begin
+   	button = Star
+	config = star
+end
+
+begin
+   	button = Hash
+	config = hash
+end
+
+begin
    	button = Power
 	config = exit
 end

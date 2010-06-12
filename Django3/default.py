@@ -1,4 +1,4 @@
-import xbmc, xbmcgui, xbmcplugin, sys, os, urllib
+import xbmc, xbmcgui, xbmcplugin, sys, os, urllib, time
 
 # Used to import randon stuff.
 sys.path.append(os.getcwd())
@@ -16,7 +16,7 @@ import db_interaction as DB
 import old_search_window as SW
 import functions as FS
 # -----------------------------------------------------------------
-
+print(str(dir(time)))
 
 def add_course_list():
 	"""
@@ -122,7 +122,7 @@ elif mode == 1:
         #keyboard_search()
 	#SW.show()
 	try:
-		pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/search_window.py')
+		pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/new_search_window.py')
 		stdout_value = pipe_stdout.read()
 		print(stdout_value)
 	except Exception, e:
