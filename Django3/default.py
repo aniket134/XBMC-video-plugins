@@ -1,4 +1,4 @@
-import xbmc, xbmcgui, xbmcplugin, sys, os, urllib, subprocess
+import xbmc, xbmcgui, xbmcplugin, sys, os, urllib
 
 # Used to import randon stuff.
 sys.path.append(os.getcwd())
@@ -120,16 +120,16 @@ if mode == None or mode == 0:
 elif mode == 1:
 	print('Inside mode 1.')
         #keyboard_search()
-	SW.show()
-	#try:
-		#pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/new_search_window.py')
-		#stdout_value = pipe_stdout.read()
-		#print(stdout_value)
-	#except Exception, e:
-		#print(str(e))
-	#pipe_stdin.close()
-	#pipe_stdout.close()
-	#pipe_stderr.close()
+	#SW.show()
+	try:
+		pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/search_window.py')
+		stdout_value = pipe_stdout.read()
+		print(stdout_value)
+	except Exception, e:
+		print(str(e))
+	pipe_stdin.close()
+	pipe_stdout.close()
+	pipe_stderr.close()
 
 elif mode == 2:
 	print('Inside mode 2.')
