@@ -6,8 +6,9 @@ from java.awt import KeyboardFocusManager
 import SearchLogic
 
 class MoveListener(IRActionListener):
-	def __init__(self, searchObject):
+	def __init__(self, searchObject, SD):
 		self.searchObject = searchObject
+		self.SD = SD
 		self.times = []
 		self.prevKey = None
 		self.onTime = False
@@ -37,8 +38,6 @@ class MoveListener(IRActionListener):
 					self.searchObject.buttonPressedAction('Search')
 				elif command == 'enter':
 					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusNextComponent()
-				elif command == 'back':
-					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
 				elif command == 'clear':
 					self.focussedField.getEditor().getEditorComponent().text = ''
 				elif command == 'one' or command == 'two' or command == 'three' or \
@@ -53,13 +52,22 @@ class MoveListener(IRActionListener):
 								newText = oldText
 							if self.allCaps:
 								newKey = newKey.capitalize()
-							if len(newKey):
+							if len(newKey) and newKey != self.SD:
 								newText += newKey
-							self.focussedField.removeAllItems()
-							items = SearchLogic.suggestSearch(self.searchObject.stripColons(newText))
-							for item in items:
-								self.focussedField.addItem(item)
-							self.focussedField.setPopupVisible(True)
+								self.focussedField.removeAllItems()
+								items = SearchLogic.suggestSearch(newText)
+								for item in items:
+									self.focussedField.addItem(item)
+								self.focussedField.setPopupVisible(True)
+				elif command == 'back':
+					self.clearTime()
+					newText = self.focussedField.getEditor().getEditorComponent().text
+					newText = newText[:-1]
+					self.focussedField.removeAllItems()
+					items = SearchLogic.suggestSearch(newText)
+					for item in items:
+						self.focussedField.addItem(item)
+					self.focussedField.setPopupVisible(True)
 			elif self.focussedButtonName != None:
 				if command == 'moveUp':
 					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
@@ -330,3 +338,5 @@ class MoveListener(IRActionListener):
 				else:
 					self.allCaps = True
 				return ''
+		else:
+			return ''

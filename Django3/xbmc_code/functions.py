@@ -1,4 +1,4 @@
-import xbmc, xbmcgui, xbmcplugin, sys, os, urllib
+import xbmc, xbmcgui, xbmcplugin, sys, os, urllib, re
 
 def ADD_DIR(name, mode, iconimage, infoLabels):
 	"""

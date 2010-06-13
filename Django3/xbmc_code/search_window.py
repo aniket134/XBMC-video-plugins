@@ -22,10 +22,11 @@ class Search():
 			text = self.focussedField.getEditor().getEditorComponent().text
 			visible = True
 			oldText = self.getOldFieldText()
-			if oldText == None or (oldText != text and event.getKeyCode() != KeyEvent.VK_UP and event.getKeyCode() != KeyEvent.VK_DOWN):
+			if text != '' and text[-1] != self.SD and (oldText == None or (oldText != text and \
+					event.getKeyCode() != KeyEvent.VK_UP and event.getKeyCode() != KeyEvent.VK_DOWN)):
 				self.setOldFieldText(text)
 				self.focussedField.removeAllItems()
-				items = SearchLogic.suggestSearch(self.stripColons(text))
+				items = SearchLogic.suggestSearch(text)
 				for item in items:
 					self.focussedField.addItem(item)
 			elif event.getKeyCode() == KeyEvent.VK_ESCAPE or event.getKeyCode() == KeyEvent.VK_SHIFT:
@@ -43,14 +44,18 @@ class Search():
 	
 	def buttonPressedAction(self, buttonName):
 		if buttonName == 'Search':
-			text = self.getValidText()
-			print('Search::' + text)
+			texts = [self.nameField.getEditor().getEditorComponent().text, \
+					self.subjectField.getEditor().getEditorComponent().text, \
+					self.authorField.getEditor().getEditorComponent().text, \
+					self.classField.getEditor().getEditorComponent().text]
+			text = SearchLogic.getValidText(texts)
+			print('Search' + self.SD + self.SD + text)
 			self.exit()
 		elif buttonName == 'Cancel':
-			print('Cancel::')
+			print('Cancel')
 			self.exit()
 		else:
-			pass			# This case may come
+			pass									# This case may come
 	
 	def setOldFieldText(self, text):
 		if self.nameField.getEditor().getEditorComponent().hasFocus() == True:
@@ -62,7 +67,7 @@ class Search():
 		elif self.classField.getEditor().getEditorComponent().hasFocus() == True:
 			self.oldClassFieldText = text
 		else:
-			pass			# This case never comes
+			pass									# This case never comes
 
 	def getOldFieldText(self):
 		if self.nameField.getEditor().getEditorComponent().hasFocus() == True:
@@ -74,7 +79,7 @@ class Search():
 		elif self.classField.getEditor().getEditorComponent().hasFocus() == True:
 			return self.oldClassFieldText
 		else:
-			return None		# This case never comes
+			return None								# This case never comes
 
 	def getFocussedButtonName(self):
 		if self.searchButton.hasFocus() == True:
@@ -82,7 +87,7 @@ class Search():
 		elif self.cancelButton.hasFocus() == True:
 			return self.cancelButton.name
 		else:
-			return None		# This case may come
+			return None								# This case may come
 
 	def getFocussedField(self):
 		if self.nameField.getEditor().getEditorComponent().hasFocus() == True:
@@ -94,20 +99,17 @@ class Search():
 		elif self.classField.getEditor().getEditorComponent().hasFocus() == True:
 			return self.classField
 		else:
-			return None		# This case may come
-
-	def stripColons(self, text):
-			return text
-
-	def getValidText(self):
-			return 'Hello there...'
+			return None								# This case may come
 
 	def exit(self):
 		self.client.stopListening()
 		System.exit(0)
 
 	def __init__(self):
-		# Usefull field to check whether the keyStroke changed the text in field or not.
+		# Load the search delimiter
+		self.SD = CP.SEARCH_DELIMITER
+
+		# Useful field to check whether the keyStroke changed the text in field or not.
 		# Which is then used to invoke Auto-Suggest feature.
 		self.oldNameFieldText = None
 		self.oldSubjectFieldText = None
@@ -116,7 +118,7 @@ class Search():
 
 		# The following 2 lines handle LIRC remote events.
 		self.client = SimpleLIRCClient('xbmc_code/search.lirc')
-		self.client.addIRActionListener(LIRCControl.MoveListener(self));
+		self.client.addIRActionListener(LIRCControl.MoveListener(self, self.SD));
 		
 		# The following 4 lines enable custom look and feel.
 		#lookAndFeel = SynthLookAndFeel()

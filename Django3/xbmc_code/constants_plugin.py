@@ -25,3 +25,6 @@ RESOURCE_PATH = PLUGIN_PATH + '/' + PLUGIN_NAME + '/' + 'resources/'
 
 #: The path where all videos are stored. Link to the videos relative to this path is stored in DB. Absolute path and trailing slash.
 MEDIA_ROOT = '/media/OS/MOVIES/TV-SERIES/django_upload/'
+
+#: Delimiter used while searching.
+SEARCH_DELIMITER = ':'
