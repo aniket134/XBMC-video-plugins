@@ -1,4 +1,40 @@
 begin
+	button = Mute
+	config = mute
+	repeat = 1
+end
+
+begin
+	button = Play
+	config = play
+	repeat = 1
+end
+
+begin
+	button = Enter
+	config = enter
+	repeat = 1
+end
+
+begin
+	button = Clear
+	config = clear
+	repeat = 1
+end
+
+begin
+	button = OK
+	config = ok
+	repeat = 1
+end
+
+begin
+	button = Back
+	config = back
+	repeat = 1
+end
+
+begin
 	button = Up
 	config = moveUp
 	repeat = 1

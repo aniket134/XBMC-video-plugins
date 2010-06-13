@@ -10,7 +10,7 @@ def ADD_DIR(name, mode, iconimage, infoLabels):
 	iconimage: string - URL to the iconimage.
 	infoLabels: hashtable - Contains info labels for this list item.
 	"""
-        u = sys.argv[0]+"?url=watup&mode="+str(mode)+"&name="+str(name)
+	u = sys.argv[0]+"?url=watup&mode="+str(mode)+"&name="+str(name)
 	ok = True
 	liz = xbmcgui.ListItem(label = infoLabels['name'], iconImage = "DefaultFolder.png", thumbnailImage = iconimage)
 	liz.setInfo(type = "Video", infoLabels = infoLabels)
@@ -45,3 +45,8 @@ def add_initial_list():
 	info_labels['name'] = 'Random Videos'
 	ADD_DIR(0, 3, "", info_labels)
 
+def get_links(search_text):
+	links = []
+	links.append(search_text)
+	links.append(search_text + 'a')
+	return links

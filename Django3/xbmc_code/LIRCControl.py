@@ -2,6 +2,7 @@
 import time
 
 from org.lirc.util import IRActionListener, SimpleLIRCClient
+from java.awt import KeyboardFocusManager
 import SearchLogic
 
 class MoveListener(IRActionListener):
@@ -13,49 +14,73 @@ class MoveListener(IRActionListener):
 		self.allCaps = False
 
 	def action(self, command):
-		self.focussedField = self.getFocusedField()
+		# ok, enter and exit do not work with XBMC. They are managed by XBMC as its own events.
+		self.focussedField = self.searchObject.getFocussedField()
+		self.focussedButtonName = self.searchObject.getFocussedButtonName()
 		try:
-			if command == 'moveUp':
-				self.searchObject.nameLabel.text = 'MoveUp'
-			elif command == 'moveDown':
-				self.focussedField.setPopupVisible(True)
-			elif command == 'moveRight':
-				self.clearTime()
-			elif command == 'moveLeft':
-				self.searchObject.nameLabel.text = 'MoveUp'
-			elif command == 'exit':
-				self.searchObject.exit()
-			elif command == 'one' or command == 'two' or command == 'three' or \
-					command == 'four' or command == 'five' or command == 'six' or \
-					command == 'seven' or command == 'eight' or command == 'nine' or \
-					command == 'zero' or command == 'star' or command == 'hash':
-						newKey = self.checkPrevKey(command)
-						oldText = self.focussedField.getEditor().getEditorComponent().text
-						if self.onTime:
-							newText = oldText[:-1]
-						else:
-							newText = oldText
-						if self.allCaps:
-							newKey = newKey.capitalize()
-						if len(newKey):
-							newText += newKey
-						self.focussedField.removeAllItems()
-						items = SearchLogic.suggestSearch(newText)
-						for item in items:
-							self.focussedField.addItem(item)
-						self.focussedField.setPopupVisible(True)
+			if self.focussedField != None:
+				if command == 'moveUp':
+					self.searchObject.nameLabel.text = 'MoveUp'
+				elif command == 'moveDown':
+					self.focussedField.setPopupVisible(True)
+				elif command == 'moveRight':
+					self.clearTime()
+				elif command == 'moveLeft':
+					self.searchObject.nameLabel.text = 'MoveUp'
+				elif command == 'exit':
+					self.searchObject.exit()
+				elif command == 'ok':
+					self.searchObject.buttonPressedAction('Search')
+				elif command == 'play':
+					self.searchObject.buttonPressedAction('Search')
+				elif command == 'mute':
+					self.searchObject.buttonPressedAction('Search')
+				elif command == 'enter':
+					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusNextComponent()
+				elif command == 'back':
+					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
+				elif command == 'clear':
+					self.focussedField.getEditor().getEditorComponent().text = ''
+				elif command == 'one' or command == 'two' or command == 'three' or \
+						command == 'four' or command == 'five' or command == 'six' or \
+						command == 'seven' or command == 'eight' or command == 'nine' or \
+						command == 'zero' or command == 'star' or command == 'hash':
+							newKey = self.checkPrevKey(command)
+							oldText = self.focussedField.getEditor().getEditorComponent().text
+							if self.onTime:
+								newText = oldText[:-1]
+							else:
+								newText = oldText
+							if self.allCaps:
+								newKey = newKey.capitalize()
+							if len(newKey):
+								newText += newKey
+							self.focussedField.removeAllItems()
+							items = SearchLogic.suggestSearch(self.searchObject.stripColons(newText))
+							for item in items:
+								self.focussedField.addItem(item)
+							self.focussedField.setPopupVisible(True)
+			elif self.focussedButtonName != None:
+				if command == 'moveUp':
+					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
+				elif command == 'moveDown':
+					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusNextComponent()
+				elif command == 'moveRight':
+					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusNextComponent()
+				elif command == 'moveLeft':
+					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
+				elif command == 'exit':
+					self.searchObject.exit()
+				elif command == 'ok':
+					self.searchObject.buttonPressedAction(self.focussedButtonName)
+				elif command == 'play':
+					self.searchObject.buttonPressedAction(self.focussedButtonName)
+				elif command == 'mute':
+					self.searchObject.buttonPressedAction(self.focussedButtonName)
+				elif command == 'back':
+					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
 		except Exception, e:
-			print(str(e))
-
-	def getFocusedField(self):
-		if self.searchObject.nameField.getEditor().getEditorComponent().hasFocus() == True:
-			return self.searchObject.nameField
-		elif self.searchObject.subjectField.getEditor().getEditorComponent().hasFocus() == True:
-			return self.searchObject.subjectField
-		elif self.searchObject.authorField.getEditor().getEditorComponent().hasFocus() == True:
-			return self.searchObject.authorField
-		elif self.searchObject.classField.getEditor().getEditorComponent().hasFocus() == True:
-			return self.searchObject.classField
+			sys.stderr.write((str(e)))
 
 	def checkPrevKey(self, key):
 		self.onTime = False

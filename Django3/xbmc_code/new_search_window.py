@@ -41,16 +41,15 @@ class Search():
 	def buttonPressed(self, event):
 		self.buttonPressedAction(event.source.name)
 	
-	def buttonPressedAction(self, buttonName):
-		if buttonName == 'Search':
+	def buttonPressedAction(self, name):
+		if name == 'Search':
 			text = self.getValidText()
 			print('Search::' + text)
-			self.exit()
-		elif buttonName == 'Cancel':
+		elif name == 'Cancel':
 			print('Cancel::')
-			self.exit()
 		else:
 			pass			# This case may come
+		self.exit()
 	
 	def setOldFieldText(self, text):
 		if self.nameField.getEditor().getEditorComponent().hasFocus() == True:

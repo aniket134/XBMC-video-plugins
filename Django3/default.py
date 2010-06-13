@@ -13,7 +13,7 @@ import constants_plugin as CP
 sys.path.append(CP.PLUGIN_PATH)
 
 import db_interaction as DB
-import old_search_window as SW
+#import old_search_window as SW
 import functions as FS
 # -----------------------------------------------------------------
 print(str(dir(time)))
@@ -71,29 +71,29 @@ def get_params():
 	Returns the parameters that were passed as a hashtable. A handy XBMC function.
 	"""
 	# Initialize param as empty list, could be anything
-        param = []
+	param = []
 	# Get all parameters as string
-        paramstring = sys.argv[2]
+	paramstring = sys.argv[2]
 	# Check the size of that string
-        if len(paramstring) >= 2:
+	if len(paramstring) >= 2:
 		# Get all parameters as another string
-                params = sys.argv[2]
+		params = sys.argv[2]
 		# Delete ?, the one in the front, as other are converted in %xx format by quote_plus function
-                cleanedparams = params.replace('?','')
-		# Delete trailing /
-                if (params[len(params)-1] == '/'):
-                        params = params[0:len(params)-2]
+		cleanedparams = params.replace('?','')
+		# Delete trailing slash
+		if (params[len(params)-1] == '/'):
+			params = params[0:len(params)-2]
 		# Get parameter name and value as pairs
-                pairsofparams = cleanedparams.split('&')
+		pairsofparams = cleanedparams.split('&')
 		# Initialize hashtable object to be returned
-                param = {}
+		param = {}
 		# Run a loop for all parameter name-value pairs
-                for i in range(len(pairsofparams)):
-                        splitparams = {}
-                        splitparams = pairsofparams[i].split('=')
-                        if (len(splitparams)) == 2:
-                                param[splitparams[0]] = splitparams[1]
-        return param
+		for i in range(len(pairsofparams)):
+			splitparams = {}
+			splitparams = pairsofparams[i].split('=')
+			if (len(splitparams)) == 2:
+				param[splitparams[0]] = splitparams[1]
+	return param
 
 # ---------------------------------------------------------
 xbmcplugin.setPluginFanart(int(sys.argv[1]), CP.PLUGIN_PATH + '/' + CP.RESOURCE_PATH + 'images/TestPics/white_ball.png', color2='0xFFFF3300')
@@ -104,27 +104,33 @@ mode = None
 
 # Retrieving parameters
 try:
-        name = int(params["name"])
+	name = int(params["name"])
 except:
-        pass
+	pass
 try:
-        mode = int(params["mode"])
+	mode = int(params["mode"])
 except:
-        pass
+	pass
 
 # Deciding which way to go now
 if mode == None or mode == 0:
 	print('Inside mode None or 0.')
-        FS.add_initial_list()
+	FS.add_initial_list()
        
 elif mode == 1:
 	print('Inside mode 1.')
-        #keyboard_search()
+	#keyboard_search()
 	#SW.show()
 	try:
 		pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/search_window.py')
-		stdout_value = pipe_stdout.read()
-		print(stdout_value)
+		stdout_value = str(pipe_stdout.read())
+		print('--------------------------------------------' + stdout_value)
+		stderr_value = str(pipe_stderr.read())
+		print('===========================================' + stderr_value)
+		links = FS.get_links(stdout_value)
+		info_labels = {'title': 'title'}
+		for link in links:
+			FS.ADD_LINK(link, link, '', info_labels)
 	except Exception, e:
 		print(str(e))
 	pipe_stdin.close()
@@ -137,7 +143,7 @@ elif mode == 2:
 
 elif mode == 3:
 	print('Inside mode 3.')
-        add_random_videos()
+	add_random_videos()
 
 elif mode == 4:
 	print('Inside mode 4. With name = ' + str(name))
