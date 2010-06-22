@@ -1,0 +1,7 @@
+[MergeIncoming]
+url = http://localhost/cgi-bin/ProcessDiscs.py?tmpdir=%(path)s&jobfile=foobarbaz&autorun=true
+robotPresent = False
+
+[WhoAmI]
+shire = baggins
+

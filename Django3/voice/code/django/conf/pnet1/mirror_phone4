@@ -1,0 +1,50 @@
+#!/bin/csh -f
+#
+# uses the user name rywang
+
+if ($#argv != 1) then
+    echo "usage: $0 machine"
+    exit (-1)
+endif
+
+set mach = $1
+set uname = rywang
+
+set logfile = "/tmp/phone_mirror4.log"
+set bakfile = "/tmp/phone_mirror4_log.bak"
+
+set fromHere = "/home/robot/phone_data/django/media"
+set toThere = "/home/"$uname"/phone_data/django/media"
+
+set fromLog = "/home/robot/phone_data/log/withdj_log.txt"
+set toLog = "/home/"$uname"/phone_data/log/withdj_log.txt"
+
+
+if (-e $logfile) then
+    cp $logfile $bakfile
+endif
+cp /dev/null $logfile
+
+echo rsync -arv $fromHere"/pic/" $uname@$mach":"$toThere"/pic/"
+rsync -arv $fromHere"/pic/" $uname@$mach":"$toThere"/pic/"  >&  $logfile
+
+echo rsync -arv $fromHere"/voice/" $uname@$mach":"$toThere"/voice/"
+rsync -arv $fromHere"/voice/" $uname@$mach":"$toThere"/voice/"  >&  $logfile
+
+echo rsync -arv $fromHere"/../database" $uname@$mach":"$toThere"/../database"
+rsync -arv $fromHere"/../database" $uname@$mach":"$toThere"/../database"  >&  $logfile
+
+echo rsync -arv $fromLog $uname@$mach":"$toLog
+rsync -arv $fromLog $uname@$mach":"$toLog  >&  $logfile
+
+
+
+echo " " >> $logfile
+echo " "
+echo " " >> $logfile
+echo " "
+
+echo `date` >> $logfile
+echo `date`
+echo "done" >> $logfile
+echo "done"

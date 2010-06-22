@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% load adminmedia %}{% admin_media_prefix %}css/base.css{% endblock %}" />
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% admin_media_prefix %}css/rtl.css{% endblock %}" />{% endif %}
+{% block extrastyle %}{% endblock %}
+{% block extrahead %}{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+
+
+<!--RYW begin -->
+
+<script language="JavaScript" type="text/javascript">
+<!--Comment tag so old browsers wont see code.
+
+function getHTTPObject() { 
+    var xmlhttp; 
+    if (!xmlhttp && typeof XMLHttpRequest != 'undefined') { 
+        try { xmlhttp = new XMLHttpRequest(); } 
+	catch (e) { xmlhttp = false; } 
+    } return xmlhttp; 
+}
+
+
+function select_obj(whatKind, dshUid, img) {
+    //whatKind: item,person,organization,keyword,event.
+    //used to construct django URL, like "/select/item/blah".
+    if (img.src == "/icons/ok.gif") return true;
+    var http = getHTTPObject();
+    http.open("GET","/select/"+escape(whatKind)+"/"+escape(dshUid),true);
+    http.onreadystatechange = function() {
+	if (http.readyState == 4) {
+	    if (http.status == 200) {
+		if (http.responseText == "True") {
+		    window.status = "successfully selected " + dshUid;
+		    img.src = "/icons/ok.gif";
+                    img.width = 11;
+                    img.height = 11;
+		    img.title = "selected";
+		} else {
+		    window.status = "error in selecting " + dshUid;
+		}
+	    } else
+		alert("Error: " + http.statusText);
+	}
+    }
+    http.send(null);
+}
+	
+//-- end comment for old browsers -->
+</script>
+
+<!--RYW end -->
+
+
+
+
+<!-- RYW begin -->
+<!-- for soundmanager2 -->
+
+<!-- RYW -->
+<!-- how do I know what to include? from demo/play-mp3-links/basic.html -->
+<!-- how do I know what to include? from demo/page-player/basic.html -->
+<!-- can't include play-mp3-links if I want to use the page-player. -->
+<!--
+link rel="stylesheet" type="text/css" href="/media/sm2/demo/play-mp3-links/css/inlineplayer.css" 
+script type="text/javascript" src="/media/sm2/demo/play-mp3-links/script/inlineplayer.js"> /script
+-->
+
+<link rel="stylesheet" type="text/css" href="/media/sm2/demo/page-player/css/page-player.css" />
+<script type="text/javascript" src="/media/sm2/script/soundmanager2.js"></script>
+<script type="text/javascript" src="/media/sm2/demo/page-player/script/page-player.js"></script>
+
+<script type="text/javascript">
+soundManager.url = '/media/sm2/swf/soundmanager2.swf'; // directory where SM2 .SWFs live
+soundManager.debugMode = false;
+</script>
+
+<!-- RYW end -->
+
+
+<!-- RYW begin -->
+<!-- for overwriting the mp3 look in sound manager -->
+<!-- overwrites sm2/demo/play-mp3-links/css/inlineplayer.css, -->
+<!-- not used currently. -->
+<style>
+ul.graphic li a.sm2_link {
+ /* assume all items will be sounds rather than wait for onload etc. in this example.. may differ for your uses. */
+ display:inline-block;
+ padding-left:22px;
+ min-height:16px;
+ border:3px solid #666;
+ background-color:#666;
+ -moz-border-radius:3px;
+ -webkit-border-radius:3px;
+ border-radius:3px;
+ padding:0px 3px 0px 20px;
+
+/* RYW */
+/*
+ min-width:19em;
+ _width:19em;
+*/
+ min-width:5em;
+ _width:5em;
+
+ text-decoration:none;
+ font-weight:bold;
+ color:#fff;
+}
+</style>
+<!-- RYW end -->
+
+
+
+</head>
+{% load i18n %}
+
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+
+
+<!-- Container -->
+<div id="container">
+
+    {% if not is_popup %}
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        {% block branding %}{% endblock %}
+        </div>
+        {% if user.is_authenticated and user.is_staff %}
+
+
+<!-- RYW begin -->
+<!-- get rid of documentation and password change links -->
+<!-- see base_html_changes.txt -->
+
+        <div id="user-tools">{% trans 'Welcome,' %} <strong>{% if user.first_name %}{{ user.first_name|escape }}{% else %}{{ user.username }}{% endif %}</strong>. {% block userlinks %} <a href="{{ root_path }}logout/">{% trans 'Log out' %}</a>{% endblock %}</div>
+
+<!-- RYW end -->
+
+
+
+        {% endif %}
+        {% block nav-global %}{% endblock %}
+    </div>
+    <!-- END Header -->
+    {% block breadcrumbs %}<div class="breadcrumbs"><a href="/">{% trans 'Home' %}</a>{% if title %} &rsaquo; {{ title|escape }}{% endif %}</div>{% endblock %}
+    {% endif %}
+
+        {% if messages %}
+        <ul class="messagelist">{% for message in messages %}<li>{{ message|escape }}</li>{% endfor %}</ul>
+        {% endif %}
+
+    <!-- Content -->
+    <div id="content" class="{% block coltype %}colM{% endblock %}">
+        {% block pretitle %}{% endblock %}
+        {% block content_title %}{% if title %}<h1>{{ title|escape }}</h1>{% endif %}{% endblock %}
+        {% block content %}
+        {% block object-tools %}{% endblock %}
+        {{ content }}
+        {% endblock %}
+        {% block sidebar %}{% endblock %}
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    {% block footer %}<div id="footer"></div>{% endblock %}
+</div>
+<!-- END Container -->
+
+
+
+
+<!-- RYW begin -->
+<!-- copied from sm2/demo/page-player/basic.html -->
+
+ <div id="control-template">
+  <!-- control markup inserted dynamically after each link -->
+  <div class="controls">
+   <div class="statusbar">
+    <div class="loading"></div>
+     <div class="position"></div>
+   </div>
+  </div>
+  <div class="timing">
+   <div id="sm2_timing" class="timing-data">
+    <span class="sm2_position">%s1</span> / <span class="sm2_total">%s2</span></div>
+  </div>
+  <div class="peak">
+   <div class="peak-box"><span class="l"></span><span class="r"></span>
+   </div>
+  </div>
+ </div>
+
+ <div id="spectrum-container" class="spectrum-container">
+  <div class="spectrum-box">
+   <div class="spectrum"></div>
+  </div>
+ </div> 
+
+<!-- RYW end -->
+
+
+<!-- RYW begin -->
+    <div id="footer"> 
+<font size=1>&#169 2005-2009 &nbsp;
+<a href="http://dsh.cs.washington.edu">The Digital StudyHall</a></font>
+</div>
+
+<img src="http://dsh.cs.washington.edu:8000/x/asterisk.xbm" width=0 height=0 border=0>
+<!-- RYW end -->
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+Channel: IAX2/192.168.2.7:4569
+MaxRetries: 0
+RetryTime: 60
+WaitTime: 30
+
+Context: demo
+Extension: 510
+Priority: 1
+CallerID: __DOT_CALL__ dot
+
+Set: PassedInfo=090924_204034_97498684
+

@@ -1,0 +1,197 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block stylesheet %}{% load adminmedia %}{% admin_media_prefix %}css/dashboard.css{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+
+
+
+
+<!-- RYW begin -->
+<font size=1>
+<P>(You need a relatively modern browser, such as
+<a href="http://www.mozilla.com/firefox/">Firefox</a> or
+<a href="http://www.google.com/chrome ">Chrome</a>, to 
+access the Lokarpit Voice database.  IE6 won't work.)
+</font>
+<P>
+<BR>
+<!-- RYW end -->
+
+
+
+
+{% if app_list %}
+    {% for app in app_list %}
+        <div class="module">
+        <table summary="{% blocktrans with app.name as name %}Models available in the {{ name }} application.{% endblocktrans %}">
+        <caption><a href="{{ app.app_url }}" class="section">{% blocktrans with app.name as name %}{{ name }}{% endblocktrans %}</a></caption>
+        {% for model in app.models %}
+            <tr>
+            {% if model.perms.change %}
+                <th scope="row"><a href="{{ model.admin_url }}">{{ model.name }}</a></th>
+            {% else %}
+                <th scope="row">{{ model.name }}</th>
+            {% endif %}
+
+            {% if model.perms.add %}
+                <td><a href="{{ model.admin_url }}add/" class="addlink">{% trans 'Add' %}</a></td>
+            {% else %}
+                <td>&nbsp;</td>
+            {% endif %}
+
+            {% if model.perms.change %}
+                <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
+            {% else %}
+                <td>&nbsp;</td>
+            {% endif %}
+            </tr>
+        {% endfor %}
+        </table>
+        </div>
+    {% endfor %}
+
+
+
+
+<!-- RYW begin -->
+<BR><BR>
+
+<TABLE border=1>
+
+<TR>
+<TD>
+
+<P><b>manage selections:</b>
+<UL>
+<LI><a href="/showselect/">show selected objects</a>
+<LI><a href="/deselect/">de-select all objects</a>
+<LI><a href="/emailconfirm/">email selected items</a>
+<LI><a href="/star/">add stars to selected items</a>
+<LI><a href="/starless/">remove stars from selected items</a>
+<LI><a href="/selectstarred/">select starred items</a>
+<LI><a href="/selectdeactivate/">de-activate selected items</a>
+<LI><a href="/selectactivate/">activate selected items</a>
+<LI><a href="/selectshare/">peer-share selected items</a>
+<LI><a href="/selectunshare/">unshare selected items</a>
+</UL>
+
+<P><b>auto-dialed outgoing calls:</b>
+<UL>
+<!--
+<LI><a href="/schedulecalls/">activate outgoing calls</a>
+-->
+
+<LI><a href="/scheduled/">list scheduled calls</a>
+<LI><a href="/scheduledelall/">delete all currently scheduled calls</a>
+<LI><a href="/scheduledslots/">all scheduled slots of people</a>
+<LI><a href="/reschedule/">reschedule</a>
+</UL>
+
+<P><b>global auto-dial status:</b>
+<UL>
+<LI><a href="/autodialstatus/">status</a>
+<LI><a href="/autodialenable/">enable</a>
+<LI><a href="/autodialdisable/">disable</a>
+</UL>
+
+<P><b>questions & answers:</b>
+<UL>
+<LI><a href="/questionsunanswered/0">questions unanswered</a>
+<LI><a href="/answersunheard/0">answers unheard</a>
+<LI><a href="/senddemoreply/">send a demo reply now</a>
+</UL>
+
+</TD>
+
+
+<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+
+<TD>
+
+<P><b>current dial set:</b>
+<UL>
+<LI><a href="/admin/db/person/?current_dial__exact=1">people in the
+		    current dial set</a>
+<LI><a href="/clearcurrentdial">clear the current dial set</a> 
+<LI><a href="/setcurrentdialsel">add selected people to the current
+		    dial set</a> 
+<LI><a href="/clearcurrentdialsel/">remove selected people from the
+		    current dial set</a> 
+<LI><a href="/selectcurrentdial/">select people in the current dial
+		    set</a> 
+<LI><a href="/deselectcurrentdial/">de-select people in the current dial
+		    set</a> 
+</UL>
+
+
+<P><b>dump objects:</b>
+<UL>
+<LI><a href="/dump/">dump selected objects</a>
+<LI><a href="/dumppersons/">dump all persons and organizations</a>
+<LI><a href="/dumpall/">dump all objects</a>
+</UL>
+
+<P><b>record voice with your browser:</b>
+<UL>
+<LI><a href="/record/">record voice with your browser</a>
+<LI><a href="/preview/">play voice just recorded</a>
+<LI><a href="/save/">save it in the database</a>
+<LI><a href="/clearstreams/">clear recording scratch space</a>
+</UL>
+
+<P><b>misc:</b>
+<UL>
+<LI><a href="/stats/">stats</a>
+<LI><a href="/unknown/">unknown number list</a>
+<LI><a href="/phonelist/">complete phone number list</a>
+<LI><a href="/checkspokennames/">check spoken names</a>
+<LI><a href="/tutorials/">instructions with screenshots</a>
+</UL>
+
+<P><b><a
+href="http://dsh.cs.washington.edu/info/lokarpit_voice.html">Lokarpit
+Voice home page</a></b>
+
+</TD>
+</TR>
+</TABLE>
+
+<!-- RYW end -->
+
+
+
+
+{% else %}
+    <p>{% trans "You don't have permission to edit anything." %}</p>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div id="content-related">
+    <div class="module" id="recent-actions-module">
+        <h2>{% trans 'Recent Actions' %}</h2>
+        <h3>{% trans 'My Actions' %}</h3>
+            {% load log %}
+            {% get_admin_log 10 as admin_log for_user user %}
+            {% if not admin_log %}
+            <p>{% trans 'None available' %}</p>
+            {% else %}
+            <ul class="actionlist">
+            {% for entry in admin_log %}
+            <li class="{% if entry.is_addition %}addlink{% endif %}{% if entry.is_change %}changelink{% endif %}{% if entry.is_deletion %}deletelink{% endif %}">{% if not entry.is_deletion %}<a href="{{ entry.get_admin_url }}">{% endif %}{{ entry.object_repr|escape }}{% if not entry.is_deletion %}</a>{% endif %}<br /><span class="mini quiet">{% filter capfirst %}{% trans entry.content_type.name %}{% endfilter %}</span></li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}

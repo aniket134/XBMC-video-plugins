@@ -1,0 +1,6 @@
+apache2.conf: just the Timeout line
+default: CVS controlled by Postmanet-2
+ports.conf: listen on 8000
+djangosite: copied from net and fixed for my own. on port 8000
+
+both djangosite and dv2site are in /etc/apache2/sites-available/

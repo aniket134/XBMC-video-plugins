@@ -1,0 +1,30 @@
+#!/bin/csh -f
+
+set logfile = "/tmp/voice_chkpt.log"
+set bakfile = "/tmp/voice_chkpt_log.bak"
+
+set fromHere = "/u/rywang/phone_data/django/media"
+set toThere = "/u/rywang/chkpt_phone_data/django/media"
+
+cp $logfile $bakfile
+cp /dev/null $logfile
+
+echo rsync -arv $fromHere"/pic/" $toThere"/pic/"  >&  $logfile
+rsync -arv $fromHere"/pic/" $toThere"/pic/"  >&  $logfile
+
+echo rsync -arv $fromHere"/voice/" $toThere"/voice/"  >& $logfile
+rsync -arv $fromHere"/voice/" $toThere"/voice/"  >& $logfile
+
+echo rsync -arv $fromHere"/../database" $toThere"/../database"  >&  $logfile
+rsync -arv $fromHere"/../database" $toThere"/../database"  >&  $logfile
+
+
+echo " " >> $logfile
+echo " "
+echo " " >> $logfile
+echo " "
+
+echo `date` >> $logfile
+echo `date`
+echo "done" >> $logfile
+echo "done"

@@ -1,0 +1,23 @@
+#this file called from rc.sysinit
+#you can edit this file
+#When firewall is installed, will append lines to this file...
+modprobe evdev
+
+#if [ -x /etc/rc.d/rc.firewall ]; then
+#  /etc/rc.d/rc.firewall start
+#fi
+
+
+echo "(RYW: starting rc.local)" > /dev/console
+if [ -f /tmp/bootcnt.txt ]; then
+    echo "(RYW: rebooting after finding unclean shutdown)" > /dev/console
+    reboot
+fi
+
+
+/opt/lampp/lampp start &
+modprobe evdev
+
+/root/biin/mount_postmanet &
+
+

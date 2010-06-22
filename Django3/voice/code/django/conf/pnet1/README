@@ -1,0 +1,6 @@
+ports.conf: listen on 8000
+default: delete first line about NameVirtualHost
+	 change VirtualHost * to VirtualHost *80
+djangosite: VirtualHost on 8000
+	    otherwise same as Barney
+port 8080 seems occupied by Tomcat

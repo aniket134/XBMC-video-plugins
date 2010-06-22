@@ -1,0 +1,30 @@
+<VirtualHost *:8080>
+ServerName localhost
+
+<Location "/">
+SetHandler mod_python
+PythonHandler django.core.handlers.modpython
+PythonPath "['/home/rywang/voice/code/common/', '/home/rywang/voice/code/django/', '/home/rywang/voice/code/django/dvoice/', '/home/rywang/voice/code/django/dvoice/db/'] + sys.path"
+SetEnv DJANGO_SETTINGS_MODULE dvoice.settings
+PythonDebug On
+</Location>
+
+Alias /media "/home/rywang/phone_data/django/media"
+<Location "/media/">
+SetHandler None
+</Location>
+
+Alias /icons "/home/rywang/voice/code/django/conf/icons"
+<Location "/icons/">
+SetHandler None
+</Location>
+
+alias /favicon.ico /home/rywang/voice/code/django/conf/icons/favicon.ico
+<Location "/favicon.ico">
+SetHandler None
+</Location>
+
+<LocationMatch "\.(jpg|gif|png|mp3|wav|gsm|sln|ico)$">
+SetHandler None
+</LocationMatch>
+</VirtualHost>

@@ -1,0 +1,29 @@
+#!/usr/bin/expect -f
+#    usage: mysu2
+
+set timeout -1
+spawn /home/robot/bin/backup_phone3
+
+match_max 100000
+expect "password:"
+sleep 1
+send -- "virtuala\n"
+
+match_max 100000
+expect "password:"
+sleep 1
+send -- "virtuala\n"
+
+match_max 100000
+expect "password:"
+sleep 1
+send -- "virtuala\n"
+
+match_max 100000
+expect "password:"
+sleep 1
+send -- "virtuala\n"
+
+match_max 100000
+expect "%"
+sleep 1

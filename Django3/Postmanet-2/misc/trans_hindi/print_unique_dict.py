@@ -1,0 +1,3 @@
+import google_english2hindi
+
+print repr(google_english2hindi.GOOGLE_AUTO_DICT)

@@ -1,0 +1,162 @@
+begin
+    prog = vlc
+    button = play
+    config = key-play-pause
+end
+begin
+    prog = vlc
+    button = stop
+    config = key-stop
+end
+begin
+    prog = vlc
+    button = tv
+    config = key-fullscreen
+end
+begin
+    prog = vlc
+    button = ff
+    config = key-faster
+end
+begin
+    prog = vlc
+    button = rw
+    config = key-slower
+end
+begin
+    prog = vlc
+    button = one
+    config = key-jump-extrashort
+end
+begin
+    prog = vlc
+    button = three
+    config = key-jump+extrashort
+end
+begin
+    prog = vlc
+    button = four
+    config = key-jump-short
+end
+begin
+    prog = vlc
+    button = six
+    config = key-jump+short
+end
+begin
+    prog = vlc
+    button = seven
+    config = key-jump-medium
+end
+begin
+    prog = vlc
+    button = nine
+    config = key-jump+medium
+end
+begin
+    prog = vlc
+    button = star
+    config = key-jump-long
+end
+begin
+    prog = vlc
+    button = pound
+    config = key-jump+long
+end
+begin
+    prog = vlc
+    button = zero
+    config = key-quit
+end
+begin
+    prog = vlc
+    button = volup
+    config = key-vol-up
+end
+begin
+    prog = vlc
+    button = voldown
+    config = key-vol-down
+end
+begin
+    prog = vlc
+    button = mute
+    config = key-vol-mute
+end
+      
+
+
+begin
+    prog = irexec
+    button = setup
+    config = /usr/local/firefox/firefox --display :0.0 &
+end
+begin
+    prog = irxevent
+    button = eight
+    config = Key Tab DSH
+end 
+begin
+    prog = irxevent
+    button = home
+    config = Key alt-Home DSH
+end
+begin
+    prog = irxevent
+    button = return
+    config = Key alt-Left DSH
+end
+begin
+    prog = irxevent
+    button = display
+    config = Key alt-Right DSH
+end
+begin
+    prog = irxevent
+    button = rec
+    config = Key Escape CurrentWindow
+end
+begin
+    prog = irxevent
+    button = stb
+    config = Key F5 DSH
+end
+begin
+    prog = irxevent
+    button = save
+    config = Key Return CurrentWindow
+end
+begin
+    prog = irxevent
+    button = phone
+    config = Key ctrl-KP_Add DSH
+end
+begin
+    prog = irxevent
+    button = camera	
+    config = Key ctrl-KP_Subtract DSH
+end
+begin
+    prog = irxevent
+    button = five
+    config = Key ctrl-w DSH
+end
+
+
+
+begin
+    prog   = irxevent
+    button = recall
+    repeat = 1
+    config = Key alt-Tab RootWindow
+end
+begin
+    prog   = irxevent
+    button = video
+    config = Key alt-L RootWindow
+end
+begin
+    prog   = irxevent
+    button = delete
+    config = Key alt-F4 RootWindow
+end

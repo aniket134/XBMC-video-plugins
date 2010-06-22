@@ -1,0 +1,8 @@
+Channel: IAX2/192.168.2.11:4569
+MaxRetries: 0
+RetryTime: 60
+WaitTime: 30
+
+Context: demo
+Extension: 510
+Priority: 1

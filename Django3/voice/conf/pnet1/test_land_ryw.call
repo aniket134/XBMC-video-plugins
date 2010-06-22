@@ -1,0 +1,12 @@
+
+Channel: mISDN/3c/4001376
+MaxRetries: 0
+RetryTime: 60
+WaitTime: 30
+
+Context: misdnin
+Extension: 510
+Priority: 1
+CallerID: __DOT_CALL__ 4001376
+
+Set: PassedInfo=090917_012120_12104047

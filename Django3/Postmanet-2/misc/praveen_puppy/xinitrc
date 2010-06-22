@@ -1,0 +1,184 @@
+#!/bin/sh
+# $Xorg: xinitrc.cpp,v 1.3 2000/08/17 19:54:30 cpqbld Exp $
+
+LIBGL_DRIVERS_PATH=/usr/X11R7/lib/xorg/modules/dri
+export LIBGL_DRIVERS_PATH
+
+. /etc/rc.d/PUPSTATE
+
+if [ -f /root/.jwm/jwm_colors ];then #v3.96
+. /root/.jwm/jwm_colors
+fi
+
+#v4.01 BK daemon to handle kernel uevents...
+/sbin/clean_desk_icons #v4.02 tidy up drive icons first.
+/sbin/pup_event_frontend_d & #v403
+
+userresources=$HOME/.Xresources
+usermodmap=$HOME/.Xmodmap
+sysresources=/usr/X11R7/lib/X11/xinit/Xresources
+sysmodmap=/usr/X11R7/lib/X11/xinit/.Xmodmap
+
+# merge in defaults and keymaps
+
+if [ -f $sysresources ]; then
+    xrdb -merge -nocpp $sysresources
+fi
+
+if [ -f $sysmodmap ]; then
+    xmodmap $sysmodmap
+fi
+
+if [ -f $userresources ]; then
+    xrdb -merge -nocpp $userresources
+fi
+
+if [ -f $usermodmap ]; then
+    xmodmap $usermodmap
+fi
+
+#0.9.9 new xvesa-dslg2 doesn't need this...
+#if [ -f /usr/X11R7/bin/Xvesa ];then
+# #note, /etc/mousebuttons is created in /usr/X11R7/bin/xwin.
+# if [ -f /etc/mousebuttons ];then #puppy v0.8.6
+#  if [ "`cat /etc/mousebuttons`" = "5" ];then
+#   #fixes problem wheel scrolling backwards...
+#   xmodmap -e 'pointer = 1 2 3 5 4'
+#  fi
+# fi
+#fi
+
+if [ -f /usr/X11R6/bin/XF86_SVGA ];then #0.9.9
+ xmodmap -e "keycode 22 = BackSpace"
+ xmodmap -e "keycode 107 = Delete"
+fi
+
+CURRENTWM="`cat /etc/windowmanager`"
+if [ "$CURRENTWM" = "startkde" ];then
+ exec startkde
+fi
+
+
+#0.9.8 sync selection-buffer and clipboard. only useful for older apps
+#such as rxvt that use the selection-buffer...
+[ -f /usr/bin/autocutsel ] && /usr/bin/autocutsel &
+#...disadvantage of this is it creates a little square bottom-right of screen.
+
+#rxvt &
+if [ -e /tmp/videomode ];then #testing a video mode
+ video-wizard &
+fi
+[ -f /usr/local/bin/agenda_chk ] && agenda_chk &
+
+#v1.0.7 set by xrandrshell, part of xorg wizard... v3.99...
+if [ -f /etc/xrandrindex ];then
+ #i don't think should be doing this with xvesa...
+ if [ "`readlink /usr/X11R7/bin/X`" = "Xorg" ];then
+  #v3.99 workround for dual monitors, 'head -n 1'....
+  XYDEFAULT="`xrandr | grep '\*' | tr -s " " | grep '^ [0-9]' | cut -f 2 -d " " | head -n 1`"
+  XRANDRINDEX="`cat /etc/xrandrindex`" #v3.99 XRANDRINDEX now is XxY resolution.
+  #but do not switch if default is already this resolution....
+  if [ "$XRANDRINDEX" = "$XYDEFAULT" ];then
+   rm -f /etc/xrandrindex
+  else
+   xrandr -s $XRANDRINDEX
+  fi
+ #else
+ # [ -f /tmp/xvesacurrentmode ] && XYDEFAULT="`cat /tmp/videomode | cut -f 2 -d ' ' | cut -f 1,2 -d 'x'`" #xvesa, see video-wizard.
+ # [ -f /etc/videomode ] && XYDEFAULT="`cat /etc/videomode | cut -f 2 -d ' ' | cut -f 1,2 -d 'x'`"
+ fi
+fi
+
+
+if [ -f /root/.xset.sh ];then
+ #this is created by /usr/X11R7/bin/gxsetshell...
+ eval "/root/.xset.sh"
+else
+ #Xorg has it's own fontpath settings in /etc/X11/xorg.conf...
+ if [ ! "`readlink /usr/X11R7/bin/X`" = "Xorg" ];then
+  xset fp+ /usr/X11R7/lib/X11/fonts/Type1/
+  xset fp+ /usr/X11R7/lib/X11/fonts/TTF/
+ fi
+ xset s 600 600 s blank
+fi
+
+#v1.0.7 also see /etc/rc.d/rc.local0
+if [ -f /root/.fonts/fonts.dir ];then
+ xset fp+ /root/.fonts/
+fi
+
+[ -f /usr/X11R7/bin/xsetroot ] && xsetroot -cursor_name top_left_arrow
+
+#relocates right-side icons to actual right-side of screen...
+/usr/sbin/fixPuppyPin /root/Choices/ROX-Filer/PuppyPin #v1.0.7
+
+rox -p /root/Choices/ROX-Filer/PuppyPin
+
+#if [ $PUPMODE -eq 5 ];then #v2.17
+# setrox2backdrop /usr/share/backgrounds/welcome.png
+# #...sets background image, written into /root/Choices/ROX-Filer/PuppyPin
+#else
+# #v2.17 i think need this on 2nd boot, to change welcome.png to default.jpg...
+# if [ ! -f /root/Choices/ROX-background.jpg ];then
+#  cp /usr/share/backgrounds/default.jpg /root/Choices/ROX-background.jpg
+#  setrox2backdrop /usr/share/backgrounds/default.jpg
+# fi
+#fi
+
+##v1.0.5
+#if [ -f /usr/local/kde/bin/kdeinit ];then
+# /usr/local/kde/bin/kdeinit &
+#fi
+
+#v2.0.0
+/usr/sbin/delayedrun &
+
+#v2.01 hide cursor when not moving... (setup in /usr/sbin/input-wizard)
+if [ -f /etc/mousehide ];then
+ IDLETIME="`cat /etc/mousehide | cut -f 1 -d ','`"
+ [ ! "$IDLETIME" = "0" ] && unclutter -idle $IDLETIME &
+fi
+
+##v2.14 rarsa: update xdg menu for w.m. that do not allow includes...
+#which ${CURRENTWM}_menu_refresh && ${CURRENTWM}_menu_refresh
+#...no, now doing it differently, see /usr/sbin/fixmenus
+
+#v2.17 removed, interferes with clipboard in Composer....
+##v2.15 disovered by GuestToo...
+#[ "`which glipper`" != "" ] && glipper &
+#v2.17 made it optional...
+[ -f /root/.glipper_on ] && glipper &
+
+#v3.91 volume tray applet, thanks to hairywill... v3.96 MENU_BG variable...
+if [ -f /usr/bin/absvolume ];then
+ if [ "$MENU_BG" = "" ];then
+  absvolume &
+ else
+  absvolume -bg $MENU_BG &
+ fi
+fi
+
+#v3.95 support fbpanel tray/taskbar...
+#only launch tray for w.m. without inbuilt tray...
+if [ "$CURRENTWM" != "jwm" -a "$CURRENTWM" != "icewm" ];then
+ [ -f /usr/bin/fbpanel ] && fbpanel &
+ [ -f /usr/bin/lxpanel ] && lxpanel &
+fi
+
+cd /dev
+chmod -R 777 dsp snd mixer &
+cd /root
+/bin/ntfs-3g /dev/hda4 /mnt/hda1 -o uid=65534 -o gid=65534 -o force
+cp /dev/null  /u/Postmanet/repository/WWW/logs/stderr.txt 
+cp /dev/null  /u/Postmanet/repository/WWW/logs/stdout.txt
+
+/usr/bin/sgmixer &
+/usr/local/bin/defaultbrowser &
+
+#exec $CURRENTWM
+#v2.11 GuestToo suggested this improvement...
+which $CURRENTWM && exec $CURRENTWM
+[ -x $CURRENTWM ] && exec $CURRENTWM
+exec jwm
+
+###END###

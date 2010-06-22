@@ -1,0 +1,14 @@
+#!/bin/csh -f
+set logdir = /home/robot/phone_data/log
+set bindir = /home/robot/bin
+cd $logdir
+echo "cron backup begin ----------" >> withdj_log.txt
+date >> withdj_log.txt
+cd $bindir
+./backup_phone5_dv2 >> $logdir/withdj_log.txt
+cd $logdir
+date >> withdj_log.txt
+echo "cron backup done ----------" >> withdj_log.txt
+
+
+

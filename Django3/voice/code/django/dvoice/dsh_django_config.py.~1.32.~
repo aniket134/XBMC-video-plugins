@@ -1,0 +1,243 @@
+config = {
+    #
+    # controls what debug info to print.
+    #
+    'DEBUG_PRINT_TAG': 13,
+
+    #
+    # sqlite database is in here.  used by settings.py.
+    # and dsh_django_utils, extract duration: file path.
+    #
+    #'PHONE_DATA_DJANGO_PATH': '/home/rywang/phone_data/django/',
+    #
+    # get the value from dsh_config.py instead, at the end of this file.
+    #
+    
+
+    #
+    # also used by settings.py
+    #
+    'TEMPLATE_DIR': '/home/rywang/voice/code/django/dvoice/templates',
+
+    #
+    # used by dsh_django_utils.py
+    # determins the maximum dimension of thumbnail on the list view.
+    #
+    'MAX_THUMB_DIMENSION': 70,
+
+    #
+    # get stuff like dsh_utils.py from here.
+    # used by db/models.py
+    #
+    'DSH_VOICE_CODE_DIR': '/home/rywang/voice/code/withdj/',
+
+    #
+    # unknown head icon.
+    # unknown organization icon.
+    # used by dsh_django_utils.thumbnail().
+    #
+    #'DSH_UNKNOWN_HEAD_URL': '<center><img src=/icons/unknown_head.jpg width=50 height=50 title="" /></center>',
+    #'DSH_UNKNOWN_ORG_URL': '<center><img src=/icons/house.jpg width=50 height=50 title="" /></center>',
+    'DSH_UNKNOWN_HEAD_URL': '<center><img src=/icons/genericfriendicon60.png width=60 height=60 title="" /></center>',
+    'DSH_UNKNOWN_ORG_URL': '<center><img src=/icons/home.png width=70 height=70 title="" /></center>',
+
+    #
+    # permission denied icon.
+    # used by dsh_django_request.py
+    # which is in turn called by stuff like patched admin_list.py
+    #
+    #'DSH_PERM_DENIED_URL': '/icons/stop.png',
+    'DSH_PERM_DENIED_URL': '/beroot',
+
+    #
+    # play pause icons.
+    # used by dsh_django_utils.py.
+    # for the mp3 player widgets.
+    #
+    'PLAY_PAUSE_ICON': '<img src=/icons/Play1Normal.png border=0 width=24 height=24>&nbsp;&nbsp;<img src=/icons/PauseDisabled.png border=0 width=24 height=24>',
+
+    #
+    # star icon.
+    #
+    'STAR_ICON': '<img src=/icons/star_icons13.gif title=starred border=0 width=13 height=13>',
+
+    #
+    # selected icon.
+    #
+    'SELECTED_ICON': '<img src=/icons/ok.gif title=selected border=0 width=9 height=9>',
+
+    #
+    # select box icon.
+    #
+    'SELECT_BOX_ICON': '/icons/box.gif',
+
+    #
+    # select URL.
+    #
+    'SELECT_URL': '/select/',
+
+    #
+    # how many trailing digits of a phone number to hide.
+    #
+    #'HIDE_PHONE_DIGITS': 4,
+    # now sucked in from dsh_config.py at the end of the file.
+
+    #
+    # URL for looking up items.
+    # used by models.py to point to objects that 'this' is following up to.
+    #
+    'ITEM_URL': '/admin/db/item/?id=',
+
+    #
+    # small green up arrow, used to denote followup_to link.
+    # used in models.py
+    #
+    'FOLLOWUP_TO_ICON': '<img src=/icons/up44.gif title="followup to previous" border=0 width=8 height=8>',
+    
+    #
+    # small blue downright arrow, used to denote broadcast.
+    # used in models.py
+    #
+    'BROADCAST_ICON': '<img src=/icons/br43.gif title="type: broadcast" border=0 width=8 height=8>',
+
+    #
+    # small green up left arrow, used to denote incoming.
+    # used in models.py
+    #
+    'INCOMING_ICON': '<img src=/icons/tl44.gif title="type: incoming" border=0 width=8 height=8>',
+
+    #
+    # spaces between icons.
+    # used by models.py
+    #
+    'ICON_SPACES': '&nbsp;&nbsp;',
+
+    #
+    # line breaks separating icons from the rest.
+    # used by models.py
+    #
+    'ICON_LINE_BREAKS': '<br><br>',
+
+    #
+    # URL for looking up who's following up on this message.
+    # used by models.py.
+    #
+    'FOLLOWING_ITEM_URL': '/admin/db/item/?followup_to=',
+
+    #
+    # small blue down arrow, used to denote who's following me.
+    # used in models.py
+    #
+    'FOLLOWED_BY_ICON': '<img src=/icons/down43.gif title="followed by" border=0 width=8 height=8>',
+
+    #
+    # small right arrow icon. denotes currently active broadcast message.
+    # used in models.py
+    #
+    'ACTIVE_ICON': '<img src=/icons/right26.gif title="currently broadcasting" border=0 width=10 height=10>',
+    
+    #
+    # URL for looking up a person.
+    # used by models.Item to point to owner.
+    #
+    'PERSON_URL': '/admin/db/person/?id=',
+
+    #
+    # URL for looking up an organization.
+    # used by models.Item to point to the organization.
+    #
+    'ORG_URL': '/admin/db/organization/?id=',
+
+    #
+    # URL for looking up key words.
+    # used by models.Item to point to query of the same key words.
+    #
+    'KEY_WORD_URL': '/admin/db/item/?key_words__id__exact=',
+
+    #
+    # small chat bubble icon. denotes having intended audience.
+    # used in models.py
+    #
+    'INTENDED_AUDIENCE_ICON': '<img src=/icons/chat6.gif title="personalized message for specific audience" border=0 width=10 height=11>',
+
+    #
+    # file icon, for uploaded non-mp3 files.
+    # used in models.py
+    #
+    'FILE_ICON': '<img src=/icons/file.gif title="file uploaded" border=0 width=20 height=23>',
+
+    #
+    # ffmpeg path
+    # used by dsh_django_utils to extract voice file duration.
+    #
+    'FFMPEG_PATH': '/usr/local/bin/ffmpeg',
+
+    #
+    # sox path
+    # used by dsh_django_utils to convert wav to sln for outgoing.
+    #
+    'SOX_PATH': '/usr/bin/sox',
+
+    #
+    # regular expression pattern for extracting duration from the
+    # ffmpeg output.  used by dsh_django_utils to extract duration.
+    #
+    'FFMPEG_DURATION_PATTERN': r'Duration: ([0-9][0-9]):([0-9][0-9]):([0-9][0-9])\.',
+
+    #
+    # the subdirectory into which we generate database dumps.
+    # used by dsh_dump.py
+    # concatenated with lookup('PHONE_DATA_DJANGO_PATH')
+    #
+    'DB_DUMP_DIR': 'dump',
+
+    #
+    # tar path
+    # used by dsh_dump to collect /media files in a tar ball.
+    #
+    'TAR_PATH': '/bin/tar',
+
+    #
+    # used as header of pages generated by functions in views.py
+    #
+    'VIEW_HEADER': """
+<A HREF="/">
+<IMG SRC="/icons/sh500.gif" WIDTH=482 HEIGHT=167 BORDER=0></A>
+<BR>\n
+""",
+
+}
+
+
+
+def lookup(what):
+    return config[what]
+
+
+
+import sys
+sys.path.append(lookup('DSH_VOICE_CODE_DIR'))
+import dsh_config
+
+
+
+config['PHONE_DATA_DJANGO_PATH'] = dsh_config.lookup('PHONE_DATA_DJANGO_PATH')
+config['HIDE_PHONE_DIGITS'] = dsh_config.lookup('HIDE_PHONE_DIGITS')
+
+import datetime
+config['YEAR'] = datetime.datetime.now().strftime('%Y')
+
+
+#
+# used as the footer of pages generated by views.py
+#
+config['VIEW_FOOTER_NOT_USED'] = """
+<FONT SIZE=2 FACE=ARIAL>
+&#169 2005-%s &nbsp;&nbsp;
+<A HREF="http://dsh.cs.washington.edu">The Digital StudyHall</a>
+</FONT>
+""" % (config['YEAR'],)
+
+
+config['VIEW_FOOTER'] = """
+<BR><BR><TABLE BORDER=0 WIDTH=400><TR><TD><CENTER><HR><FONT SIZE=1 FACE=ARIAL>&#169 2005-%s &nbsp;&nbsp;<A HREF=http://dsh.cs.washington.edu>The Digital StudyHall</A></FONT><HR></CENTER></TD></TR></TABLE>"""  % (config['YEAR'],)

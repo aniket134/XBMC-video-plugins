@@ -1,0 +1,8 @@
+Channel: IAX2/192.168.2.6:4573-8198
+MaxRetries: 0
+RetryTime: 60
+WaitTime: 30
+
+Context: demo
+Extension: 600
+Priority: 1

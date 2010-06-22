@@ -1,0 +1,44 @@
+stb		ff-reload
+tv		vlc-fullscreen
+mute		vlc-mute
+volup		vlc-volup
+voldown		vlc-voldown
+learn		(not detected)
+info		mouse-third button
+chup		mouse-scroll up
+chdown		mouse-scroll down
+phone		ff-zoom in
+camera		ff-zoom out
+video		root-lower window
+recall		root-alt-tab
+display		ff-forward
+return		ff-backward
+home		ff-home
+setup		ff-start
+
+left		mouse
+right		mouse
+up		mouse
+down		mouse
+ok		mouse-first click
+
+save		current window-return
+delete		root-alt-f4
+power		root-alt-f4
+
+play		vlc-play-pause
+
+record		current window-escape
+
+stop		vlc-stop
+rw		vlc-slower
+ff		vlc-faster
+
+1, 4, 7, *	vlc-going back at increasing steps
+3, 6, 9, #	vlc-going forward at increasing steps
+
+2		mouse-second button click
+5		ff-close tab (ctrl-w)
+8		ff-tab
+
+0		vlc-quit

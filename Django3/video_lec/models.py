@@ -26,6 +26,27 @@ class course_video(models.Model):
 	def __unicode__(self):
 		return self.title
 
+class ObjectOrderMapField(models.Field):
+	description = 'Order of an Object in the current object.'
+	__metaclass__ = models.SubfieldBase;
+
+	def __init__(self, *args, **kwargs):
+		super(ObjectOrderMapField, self).__init__(*args, **kwargs)
+
+	def get_internal_type(self):
+		return 'TextField'
+
+	def to_python(self, value):
+		if isinstance(value, dict):
+			return value
+		if (value == None or value == ''):
+			return {}
+		hash = eval(value)
+		return hash
+
+	def get_db_prep_value(self, value):
+		return str(hash)
+
 class random_video(models.Model):
 	title = models.CharField(max_length=200)
 	subject = models.CharField(max_length=100)
@@ -35,9 +56,11 @@ class random_video(models.Model):
 	alias = models.CharField(max_length=100, blank=True)
 	date_added = models.DateTimeField(auto_now_add=True)
 	file = models.FileField(upload_to='random_video')
+	hashtable = ObjectOrderMapField();
 	
 	def was_published_today(self):
 		return self.date_added.date() == datetime.date.today()
 	was_published_today.short_descrition = 'Uploaded Today?'	
 	def __unicode__(self):
 		return self.title
+

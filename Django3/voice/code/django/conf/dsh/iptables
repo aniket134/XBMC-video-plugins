@@ -1,0 +1,92 @@
+# Firewall configuration written by system-config-securitylevel
+# Manual customization of this file is not recommended.
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:RH-Firewall-1-INPUT - [0:0]
+-A INPUT -s 124.234.129.169 -j DROP 
+-A INPUT -s 124.234.128.64 -j DROP 
+-A INPUT -s 208.43.103.162 -j DROP 
+-A INPUT -s 67.228.211.210 -j DROP 
+-A INPUT -s 67.228.211.210/255.255.255.0 -j DROP 
+-A INPUT -s 67.228.211.210/255.255.0.0 -j DROP 
+-A INPUT -s 67.228.211.0 -j DROP 
+-A INPUT -s 202.108.43.220 -j DROP 
+-A INPUT -s 220.181.19.111 -j DROP 
+-A INPUT -s 222.180.37.14 -j DROP 
+-A INPUT -s 221.192.199.34  -j DROP 
+-A INPUT -s 218.10.111.106  -j DROP 
+-A INPUT -s 60.172.222.17  -j DROP 
+-A INPUT -s 203.86.5.86  -j DROP 
+-A INPUT -s 219.133.204.90  -j DROP 
+-A INPUT -s 219.134.170.170  -j DROP 
+-A INPUT -s 59.40.100.108  -j DROP 
+-A INPUT -s 219.133.205.100  -j DROP 
+-A INPUT -s 88.191.94.206  -j DROP 
+-A INPUT -s 125.65.165.139  -j DROP 
+-A INPUT -s 59.40.119.154  -j DROP 
+-A INPUT -s 70.165.67.130  -j DROP 
+-A INPUT -s 92.241.182.24  -j DROP 
+-A INPUT -s 66.155.63.86  -j DROP 
+-A INPUT -s 66.155.63.86/255.255.0.0  -j DROP 
+-A INPUT -s 66.155.63.86/255.255.255.0  -j DROP 
+-A INPUT -s 78.110.175.12  -j DROP 
+-A INPUT -s 194.8.75.42  -j DROP 
+-A INPUT -s 194.8.74.53  -j DROP 
+-A INPUT -s 194.8.74.53/255.255.0.0  -j DROP 
+-A INPUT -s 205.151.251.70  -j DROP 
+-A INPUT -s 205.151.251.70/255.255.0.0  -j DROP 
+-A INPUT -s 88.191.79.43  -j DROP 
+-A INPUT -s 88.191.88.79  -j DROP 
+-A INPUT -s 82.195.246.198  -j DROP 
+-A INPUT -s 77.48.230.102  -j DROP 
+-A INPUT -s 82.151.131.108  -j DROP 
+-A INPUT -s 94.27.103.171  -j DROP 
+-A INPUT -s 61.147.112.50  -j DROP 
+-A INPUT -s 208.43.133.130  -j DROP 
+-A INPUT -s 174.36.237.104  -j DROP 
+-A INPUT -s 174.36.237.104/255.255.0.0  -j DROP 
+-A INPUT -s 74.63.225.44 -j DROP 
+-A INPUT -s 203.131.255.212 -j DROP 
+-A INPUT -s 67.60.69.218 -j DROP 
+-A INPUT -s 134.130.50.241 -j DROP 
+-A INPUT -s 221.194.132.175 -j DROP 
+-A INPUT -s 213.155.25.194 -j DROP 
+-A INPUT -s 123.112.65.242 -j DROP 
+-A INPUT -s 123.112.65.242/255.255.0.0 -j DROP 
+-A INPUT -s 91.64.166.114 -j DROP 
+-A INPUT -s 94.102.94.158 -j DROP 
+-A INPUT -s 213.21.148.34 -j DROP 
+-A INPUT -s 67.84.3.66 -j DROP 
+-A INPUT -j RH-Firewall-1-INPUT
+-A FORWARD -j RH-Firewall-1-INPUT
+-A RH-Firewall-1-INPUT -i lo -j ACCEPT
+-A RH-Firewall-1-INPUT -p icmp --icmp-type any -j ACCEPT
+-A RH-Firewall-1-INPUT -p 50 -j ACCEPT
+-A RH-Firewall-1-INPUT -p 51 -j ACCEPT
+-A RH-Firewall-1-INPUT -p udp --dport 5353 -d 224.0.0.251 -j ACCEPT
+-A RH-Firewall-1-INPUT -p udp -m udp --dport 631 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 873 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8000 -j ACCEPT
+
+# django
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8090 -j ACCEPT
+
+# red5
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 5080 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 1935 -j ACCEPT
+
+# vnc
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 5901 -j ACCEPT
+
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m udp -p udp --dport 3306 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A RH-Firewall-1-INPUT -j REJECT --reject-with icmp-host-prohibited
+COMMIT

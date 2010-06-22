@@ -1,0 +1,2 @@
+setenv CVS_RSH ssh
+setenv CVSROOT ':ext:cvshome@dsh.cs.washington.edu:/u/cvshome/cvs'

@@ -1,0 +1,89 @@
+custom-dumper and loader:
+
+   136    15:40    python dvoice/dbpickle167.py --dump --file=/u/rywang/tmp/dvoice2.pickle
+   138    15:41    cd dvoice/
+   139    15:41    python manage.py reset db
+   140    15:41    python manage.py syncdb
+   141    15:41    cd ..
+   142    15:42    python dvoice/dbpickle167.py --load --file=/u/rywang/tmp/dvoice2.pickle
+   163    16:09    python dvoice/dbpickle167.py --load --plugin dvoice/hook_test.py --file=/u/rywang/tmp/dvoice2.pickle
+
+
+
+------------------------------
+
+
+/usr/share/python-support/python-django/django/contrib/admin/sites.py
+
+        #
+        #RYW
+        # a hack: I'm using this file to stash a global variable for the
+        # HTTP request, which is currently used by admin_list.py to exclude
+        # a link to a page for editing details.
+        #
+        dsh_django_request.set(request)
+        return request.user.is_authenticated() and request.user.is_staff
+
+
+/usr/share/python-support/python-django/django/contrib/admin/templatetags/admin_list.py
+
+            #
+            #RYW
+            #
+            #original:
+            #url = cl.url_for_result(result)
+            #
+            # a hack: I'm using this file to stash a global variable for the
+            # HTTP request, which is currently used by admin_list.py to exclude
+            # a link to a page for editing details.
+            #
+            req = dsh_django_request.get()
+            if req.user.is_superuser:
+                url = cl.url_for_result(result)
+            else:
+                url = 'http://google.com'
+
+
+
+------------------------------
+
+/usr/share/python-support/python-django/django/contrib/admin/options.py
+
+
+        #
+        #RYW
+        # hack to disable edit by anyone else.
+        #
+        if not request.user.is_superuser:
+            raise Http404
+
+
+    #
+    # RYW
+    #
+    #list_per_page = 100
+
+
+
+------------------------------
+
+
+/media/demo/page-player/script/page-player.js
+
+one-line change of configuration:
+playNext: false
+
+------------------------------
+
+/usr/share/python-support/python-django/django/contrib/admin/views/main.py
+
+        #
+        #RYW
+        # changes the text on list view from "Select item to change"
+        # to "Examine items"
+        #
+        #self.title = (self.is_popup and ugettext('Select %s') % force_unicode(self.opts.verbose_name) or ugettext('Select %s to change') % force_unicode(self.opts.verbose_name))
+        self.title = (self.is_popup and ugettext('Select %s') % force_unicode(self.opts.verbose_name) or ugettext('Examine %ss') % force_unicode(self.opts.verbose_name))
+
+------------------------------
+

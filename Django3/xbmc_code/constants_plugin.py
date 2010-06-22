@@ -2,7 +2,7 @@
  This file contains some constants used by the plugin. 
  Use caution while modifying this file and changing its location. 
 """
-import sys,os
+import sys, os
 #: The username of Ubuntu user for whom this plugin is developed. Be carefull, it can be root if XBMC is run with sudo command.
 USERNAME = os.getenv('USERNAME')
 
@@ -27,4 +27,5 @@ RESOURCE_PATH = PLUGIN_PATH + '/' + PLUGIN_NAME + '/' + 'resources/'
 MEDIA_ROOT = '/media/OS/MOVIES/TV-SERIES/django_upload/'
 
 #: Delimiter used while searching.
-SEARCH_DELIMITER = ':'
+SEARCH_DELIMITER = '::'
+

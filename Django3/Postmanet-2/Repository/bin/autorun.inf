@@ -1,0 +1,6 @@
+[autorun]
+open=python autorun.py
+action=Process Incoming Disk
+label=Incoming Postmanet Disk
+
+[DeviceInstall]

@@ -1,0 +1,2 @@
+setenv DJANGO_SETTINGS_MODULE dv2.settings
+setenv PYTHONPATH "/home/rywang/voice/code/django/:/home/rywang/voice/code/common/"

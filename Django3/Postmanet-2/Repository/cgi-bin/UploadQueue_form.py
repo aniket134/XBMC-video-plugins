@@ -1,0 +1,7 @@
+import ryw,ryw_uploadStrs_English
+
+
+ryw.print_header()
+print ryw_uploadStrs_English.uploadSelStr1
+print ryw_uploadStrs_English.uploadSelStr2
+print ryw_uploadStrs_English.bothStr3

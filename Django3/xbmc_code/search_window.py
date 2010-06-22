@@ -1,10 +1,15 @@
 #!./modules/jython2.5.1/jython
-import sys
+import os, sys
 
 import constants_plugin as CP
 import LIRCControl, SearchLogic
 
 from org.lirc.util import IRActionListener, SimpleLIRCClient
+from com.swabunga.spell.engine import SpellDictionaryHashMap
+from com.swabunga.spell.event import SpellChecker
+
+from java.io import File
+import java.io.IOException
 
 from java.lang import System	        
 from java.net import URL	        
@@ -16,29 +21,39 @@ from java.awt.event import KeyEvent
 
 class Search():
 	def fieldKeyReleased(self, event):
-		self.focussedField = self.getFocussedField()
-		self.focussedButtonName = self.getFocussedButtonName()
+		eventSourceName = event.source.name
+		self.focussedField = self.getFocussedField(eventSourceName)
 		if self.focussedField != None:
 			text = self.focussedField.getEditor().getEditorComponent().text
 			visible = True
 			oldText = self.getOldFieldText()
-			if text != '' and text[-1] != self.SD and (oldText == None or (oldText != text and \
+			if text != '' and (oldText == None or (oldText != text and \
 					event.getKeyCode() != KeyEvent.VK_UP and event.getKeyCode() != KeyEvent.VK_DOWN)):
 				self.setOldFieldText(text)
 				self.focussedField.removeAllItems()
-				items = SearchLogic.suggestSearch(text)
-				for item in items:
-					self.focussedField.addItem(item)
+				self.addSuggestedList(text, self.focussedField)
 			elif event.getKeyCode() == KeyEvent.VK_ESCAPE or event.getKeyCode() == KeyEvent.VK_SHIFT:
 				visible = False
 			self.focussedField.setPopupVisible(visible)
-		elif (event.source.name == 'Search' or event.source.name == 'Cancel') and event.getKeyCode() == KeyEvent.VK_ENTER:
-			self.buttonPressedAction(event.source.name)
+		elif eventSourceName != None and (eventSourceName == 'Search' or \
+				eventSourceName == 'Cancel') and event.getKeyCode() == KeyEvent.VK_ENTER:
+			self.buttonPressedAction(eventSourceName)
 		elif event.getKeyCode() == KeyEvent.VK_ENTER:
 			self.buttonPressedAction('Search')
 		else:
 			self.buttonPressedAction('Null')		# This case may come
 	
+	def addSuggestedList(self, text, focussedField):
+		lastWord = text.split()[-1]
+		items = []
+		if len(lastWord) > 3:
+			items = self.getSuggestions(lastWord)
+		if items == None:
+			items = []
+		items += SearchLogic.suggestSearch(text, focussedField.name)
+		for item in items:
+			self.focussedField.addItem(item)
+
 	def buttonPressed(self, event):
 		self.buttonPressedAction(event.source.name)
 	
@@ -49,7 +64,7 @@ class Search():
 					self.authorField.getEditor().getEditorComponent().text, \
 					self.classField.getEditor().getEditorComponent().text]
 			text = SearchLogic.getValidText(texts)
-			print('Search' + self.SD + self.SD + text)
+			print(text)
 			self.exit()
 		elif buttonName == 'Cancel':
 			print('Cancel')
@@ -89,25 +104,33 @@ class Search():
 		else:
 			return None								# This case may come
 
-	def getFocussedField(self):
-		if self.nameField.getEditor().getEditorComponent().hasFocus() == True:
+	def getFocussedField(self, name):
+		if name == 'NameTextEditor':
 			return self.nameField
-		elif self.subjectField.getEditor().getEditorComponent().hasFocus() == True:
+		elif name == 'SubjectTextEditor':
 			return self.subjectField
-		elif self.authorField.getEditor().getEditorComponent().hasFocus() == True:
+		elif name == 'AuthorTextEditor':
 			return self.authorField
-		elif self.classField.getEditor().getEditorComponent().hasFocus() == True:
+		elif name == 'ClassTextEditor':
 			return self.classField
 		else:
 			return None								# This case may come
 
+	def getSuggestions(self, word):
+		return self.spellChecker.getSuggestions(word, self.threshold)
+
 	def exit(self):
-		self.client.stopListening()
+		try:
+			self.client.stopListening()
+		except:
+			pass
+		os.environ['JYTHON_RUNNING'] = 'NO'
 		System.exit(0)
 
 	def __init__(self):
-		# Load the search delimiter
-		self.SD = CP.SEARCH_DELIMITER
+		self.dictionary = SpellDictionaryHashMap(File(os.getcwd() + '/xbmc_code/en-US.dic'))
+		self.spellChecker = SpellChecker(self.dictionary)
+		self.threshold = 0
 
 		# Useful field to check whether the keyStroke changed the text in field or not.
 		# Which is then used to invoke Auto-Suggest feature.
@@ -116,11 +139,14 @@ class Search():
 		self.oldAuthorFieldText = None
 		self.oldClassFieldText = None
 
-		# The following 2 lines handle LIRC remote events.
-		self.client = SimpleLIRCClient('xbmc_code/search.lirc')
-		self.client.addIRActionListener(LIRCControl.MoveListener(self, self.SD));
+		# The following lines handle LIRC remote events.
+		try:
+			self.client = SimpleLIRCClient('xbmc_code/search.lirc')
+			self.client.addIRActionListener(LIRCControl.MoveListener(self));
+		except:
+			pass
 		
-		# The following 4 lines enable custom look and feel.
+		# The following lines enable custom look and feel.
 		#lookAndFeel = SynthLookAndFeel()
 		#lookAndFeel.load(URL('file://' + CP.PLUGIN_PATH + '/xbmc_code/laf.xml'))
 		#UIManager.setLookAndFeel(lookAndFeel)
@@ -136,21 +162,29 @@ class Search():
 		self.layout.setAutoCreateContainerGaps(True)
 		
 		self.nameField = JComboBox()
+		self.nameField.name = 'Name'
+		self.nameField.getEditor().getEditorComponent().name = 'NameTextEditor'
 		self.nameField.preferredSize = (200, 20)
 		self.nameField.editable = True
 		self.nameField.getEditor().getEditorComponent().keyReleased = self.fieldKeyReleased
 		
 		self.subjectField = JComboBox()
+		self.subjectField.name = 'Subject'
+		self.subjectField.getEditor().getEditorComponent().name = 'SubjectTextEditor'
 		self.subjectField.preferredSize = (200, 20)
 		self.subjectField.editable = True
 		self.subjectField.getEditor().getEditorComponent().keyReleased = self.fieldKeyReleased
 		
 		self.authorField = JComboBox()
+		self.authorField.name = 'Author'
+		self.authorField.getEditor().getEditorComponent().name = 'AuthorTextEditor'
 		self.authorField.preferredSize = (200, 20)
 		self.authorField.editable = True
 		self.authorField.getEditor().getEditorComponent().keyReleased = self.fieldKeyReleased
 		
 		self.classField = JComboBox()
+		self.classField.name = 'Class'					# Important attribute. Used in suggestSearch.
+		self.classField.getEditor().getEditorComponent().name = 'ClassTextEditor'	# Important attribute. Used in getFocussedField
 		self.classField.preferredSize = (200, 20)
 		self.classField.editable = True
 		self.classField.getEditor().getEditorComponent().keyReleased = self.fieldKeyReleased

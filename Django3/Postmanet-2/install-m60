@@ -1,0 +1,5 @@
+#!/bin/csh -f
+
+source VARS.M60
+./install-linux
+

@@ -1,0 +1,333 @@
+File: ryw.py            Status: Needs Patch
+File: ryw_upload.py     Status: Needs Patch
+File: AddRobotWriteRequest.py   Status: Needs Patch
+File: WriteCD.py        Status: Needs Patch
+File: FlushQueue.py     Status: Needs Patch
+File: FlushQueue_sobti_bak.py   Status: Entry Invalid
+File: MakeMessage.py    Status: Needs Patch
+
+
+
+File: ryw.py            Status: Locally Modified
+File: ryw_uploadObj.py  Status: Locally Modified
+File: ReadIncomingCDStack.py    Status: Locally Modified
+File: ReadIncomingCDStack_sobti_bak.py  Status: Locally Added
+File: ProcessIncomingDiscs.py   Status: Locally Modified
+File: ProcessIncomingDiscs_sobti_bak.py Status: Locally Added
+
+
+File: todo2.txt         Status: Locally Added
+File: incoming.html     Status: Locally Added
+File: repository_start_ryw.py   Status: Locally Added
+
+File: update.py         Status: Locally Modified
+File: update_sobti_bak.py       Status: Locally Added
+
+
+The three servers are combined.  Look at the obvious files.
+
+6/10
+
+File: todo2.txt         Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: ryw_upload.py     Status: Locally Modified
+File: ryw_uploadObj.py  Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+File: repository_start_ryw.py   Status: Locally Modified
+File: update.py         Status: Locally Modified
+File: update_sobti_bak.py       Status: Locally Added
+
+6/10
+
+File: todo2.txt         Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+File: Upload_ryw.py     Status: Locally Modified
+File: repository_start_ryw.py   Status: Locally Modified
+
+File: todo2.txt         Status: Locally Modified
+File: MakeOutgoingDisk.py       Status: Locally Modified
+File: MakeMessage.py    Status: Locally Modified
+
+File: ryw.html          Status: Locally Added
+
+File: mods.txt          Status: Locally Modified
+File: ryw.html          Status: Locally Modified
+File: MakeOutgoingDisk.py       Status: Locally Modified
+File: burn.py           Status: Locally Added
+File: ryw_upload.py     Status: Locally Modified
+
+6/11
+
+SearchFile.py
+
+6/12
+File: mods.txt          Status: Locally Modified
+File: SearchFile.py     Status: Locally Modified
+File: TestSearchFile.py Status: Locally Added
+
+6/13
+File: Flock.py          Status: Locally Added
+File: SearchFile.py     Status: Locally Modified
+File: TestFlock.py      Status: Locally Added
+File: TestSearchFile.py Status: Locally Modified
+
+6/14
+
+File: mods.txt          Status: Locally Modified
+File: SearchFile.py     Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+File: UploadObject_searchserver_bak.py  Status: Locally Added
+File: BrowseView_ng.py  Status: Locally Modified
+File: BrowseView_ng_bak.py      Status: Locally Added
+
+6/15
+
+File: BrowseView.py     Status: Locally Modified
+File: BrowseView_ng.py  Status: Locally Modified
+File: ShowQueue.py      Status: Locally Modified
+File: ShowQueue_sobti_bak.py    Status: Locally Added
+
+6/16
+
+File: todo2.txt         Status: Locally Modified
+File: SearchFile.py     Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: WriteCD.py        Status: Locally Modified
+File: WriteCD_searchserver_bak.py       Status: Locally Added
+File: BrowseView.py     Status: Needs Patch
+File: BrowseView_ng.py  Status: Needs Patch
+File: ShowQueue.py      Status: Locally Modified
+File: UserBegin.py      Status: Needs Patch
+File: BrowseLocalView.py        Status: Needs Patch
+File: BrowseRepositoryView.py   Status: Needs Patch
+File: update.py         Status: Locally Modified
+File: update_searchserver_bak.py        Status: Locally Added
+
+File: ryw.html          Status: Locally Modified
+File: ShowQueue.py      Status: Locally Modified
+File: ShowDownloadQueue.py      Status: Locally Modified
+File: ShowDownloadQueue_sobti_bak.py    Status: Locally Added
+
+6/18
+
+File: mods.txt          Status: Locally Modified
+File: Browse.py         Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: ryw_upload.py     Status: Locally Modified
+File: ryw_uploadObj.py  Status: Locally Modified
+File: ryw.html          Status: Locally Modified
+File: upload.html       Status: Locally Modified
+File: upload.html       Status: Locally Modified
+File: AddRobotWriteRequest.py   Status: Locally Modified
+File: ReadIncomingCDStack.py    Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+File: WriteCD.py        Status: Locally Modified
+File: ClearQueue.py     Status: Locally Added
+File: EmptyQueue.py     Status: Locally Added
+File: ProcessDiscs.py   Status: Locally Added
+File: WebUpload_ryw.py  Status: Locally Modified
+File: MakeMessage.py    Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+File: Upload_ryw.py     Status: Locally Modified
+
+6/19
+
+File: SearchFile.py     Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: AddRobotWriteRequest.py   Status: Locally Modified
+
+File: AddRobotWriteRequest.py   Status: Locally Modified
+File: update.py         Status: Locally Modified
+
+File: BrowseRepositoryView.py   Status: Locally Modified
+
+File: mods.txt          Status: Locally Modified
+File: todo2.txt         Status: Locally Modified
+File: Browse.py         Status: Locally Modified
+File: objectstore.py    Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: ryw_upload.py     Status: Locally Modified
+File: WriteCD.py        Status: Locally Modified
+File: BrowseView.py     Status: Locally Modified
+File: BrowseLocalView.py        Status: Locally Modified
+File: BrowseRepositoryView.py   Status: Locally Modified
+
+File: todo2.txt         Status: Locally Modified
+File: SearchFile.py     Status: Locally Modified
+File: ryw_upload.py     Status: Locally Modified
+File: ryw_uploadObj.py  Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+File: WebUpload_ryw.py  Status: Locally Modified
+File: Upload_ryw.py     Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "preventing incrementing versions when repeatedly uploading from the same incoming village disc."
+
+File: objectstore.py    Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: ryw_upload.py     Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+File: ProcessDiscs.py   Status: Locally Modified
+File: MakeMessage.py    Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+File: update.py         Status: Locally Modified
+File: update_2views_bak.py      Status: Locally Added
+acadia:Postmanet-2% cvs ci -m "change _AUX to _AUXI"
+
+6/20
+
+File: mods.txt          Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: ryw_copytree.py   Status: Locally Added
+File: AddRobotWriteRequest.py   Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "correctly recoded copying objectstore."
+
+File: mods.txt          Status: Locally Modified
+File: Browse.py         Status: Locally Modified
+File: objectstore.py    Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: ryw.html          Status: Locally Modified
+File: AddRobotWriteRequest.py   Status: Locally Modified
+File: WriteCD.py        Status: Locally Modified
+File: update.py         Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "village side has only one view now."
+
+6/21
+
+File: mods.txt          Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: ryw_upload.py     Status: Locally Modified
+File: WebUpload_ryw.py  Status: Locally Modified
+File: Upload_ryw.py     Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "thumbnails rescaled upon upload."
+
+6/24
+
+File: ryw_upload.py     Status: Locally Modified
+File: ryw_view.py       Status: Locally Modified
+File: upload.html       Status: Locally Modified
+File: upload.html       Status: Locally Modified
+File: ShowQueue.py      Status: Locally Modified
+File: WebUpload_ryw.py  Status: Locally Modified
+File: ShowDownloadQueue.py      Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "show queue uses latest view code"
+
+File: mods.txt          Status: Locally Modified
+File: ryw_upload.py     Status: Locally Modified
+File: ryw_view.py       Status: Locally Modified
+File: ShowQueue.py      Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "changed callback signature"
+
+File: mods.txt          Status: Locally Modified
+File: Browse.py         Status: Needs Patch
+File: SearchFile.py     Status: Locally Modified
+File: AddToQueue.py     Status: Needs Patch
+File: BrowseView.py     Status: Needs Patch
+File: AddToQueue.py     Status: Needs Patch
+File: BrowseLocalView.py        Status: Needs Patch
+File: BrowseRepositoryView.py   Status: Needs Patch
+
+File: mods.txt          Status: Locally Modified
+File: Browse.py         Status: Locally Modified
+File: ProcessDownloadReq.py     Status: Locally Modified
+File: SearchFile.py     Status: Locally Modified
+File: ryw.py            Status: Locally Modified
+File: ryw_view.py       Status: Locally Modified
+File: TestSearchFile.py Status: Locally Modified
+File: ShowQueue.py      Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "searchfile now supports delete, in preparation for cleaning cache on village."
+
+File: mods.txt          Status: Locally Modified
+File: SearchFile.py     Status: Locally Modified
+File: TestSearchFile.py Status: Locally Modified
+File: UploadObject.py   Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "upload failure now results in removal from search file"
+
+6/26
+
+File: ryw_upload.py     Status: Locally Modified
+File: ryw_view.py       Status: Locally Modified
+File: update.py         Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "code for cleaning cache."
+
+6/28
+
+File: delete_test.html  Status: Locally Added
+File: index.html        Status: Locally Modified
+File: DeleteObject.py   Status: Locally Added
+File: update.py         Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "delete an object on server side"
+
+6/29
+
+File: install-nihao-lai.py      Status: Locally Modified
+File: ryw_view.py       Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: BrowseToUpload.py Status: Locally Added
+File: UploadObject.py   Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "browse data to be uploaded on village side"
+
+File: index.html        Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: BrowseToUpload.py Status: Locally Modified
+File: DeleteToUpload.py Status: Locally Added
+acadia:Postmanet-2% cvs ci -m "delete an uploaded item on the village side"
+
+File: mods.txt          Status: Locally Modified
+File: ryw_view.py       Status: Locally Modified
+File: BrowseToUpload.py Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "put in stub for trash icon to cancel village uploads"
+
+File: ryw.py            Status: Locally Modified
+File: ryw_disc.py       Status: Locally Modified
+acadia:Common% cvs ci -m "clearing tmp space on the server side"
+
+File: mods.txt          Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: ClearTmp.py       Status: Locally Added
+File: ClearTmp.py       Status: Locally Added
+acadia:Postmanet-2% cvs ci -m "clear tmp space on the village side"
+File: Search.py         Status: Locally Added
+File: SearchFile.py     Status: Locally Modified
+File: cnf_match.py      Status: Locally Added
+File: ryw_view.py       Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: search_su.html    Status: Locally Modified
+File: search_su_author_search.html      Status: Locally Modified
+File: search_su_keyword_search.html     Status: Locally Modified
+File: no file cnf_match.py              Status: Locally Removed
+File: search_su.py      Status: Locally Modified
+acadia:Postmanet-2% cvs ci -m "search on the repository side"
+
+File: Search.py         Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: search_su.html    Status: Locally Added
+File: search_su_author_search.html      Status: Locally Added
+File: search_su_keyword_search.html     Status: Locally Added
+acadia:Postmanet-2% cvs ci -m "done adding search to the village side"
+
+7/1
+
+File: install-nihao-lai.py      Status: Locally Modified
+File: ryw.py            Status: Needs Patch
+File: ryw_view.py       Status: Locally Modified
+File: index.html        Status: Locally Modified
+File: search_su.html    Status: Locally Modified
+File: search_su_author_search.html      Status: Locally Modified
+File: search_su_keyword_search.html     Status: Locally Modified
+File: upload.html       Status: Locally Modified
+File: burn.py           Status: Needs Patch
+File: index.html        Status: Locally Modified
+File: sh500_madan.gif   Status: Locally Added
+File: sh800_madan.gif   Status: Locally Added
+acadia:Postmanet-2% cvs ci -m "village side logo"
+
+
+
+12/7
+
+AddRobotWriteRequest.py
+update.py

@@ -1,0 +1,38 @@
+#!/bin/csh -f
+
+set logfile = "/tmp/phone_backup3.log"
+set bakfile = "/tmp/phone_backup3_log.bak"
+
+set fromHere = "/home/robot/phone_data/django/media"
+set toThere = "/u/rywang/phone_data/django/media"
+
+set fromLog = "/home/robot/phone_data/log/withdj_log.txt"
+set toLog = "/u/rywang/phone_data/log/withdj_log.txt"
+
+
+cp $logfile $bakfile
+cp /dev/null $logfile
+
+echo rsync -arv $fromHere"/pic/" robot@dsh.cs.washington.edu:$toThere"/pic/"
+rsync -arv $fromHere"/pic/" robot@dsh.cs.washington.edu:$toThere"/pic/"  >&  $logfile
+
+echo rsync -arv $fromHere"/voice/" robot@dsh.cs.washington.edu:$toThere"/voice/"
+rsync -arv $fromHere"/voice/" robot@dsh.cs.washington.edu:$toThere"/voice/"  >&  $logfile
+
+echo rsync -arv $fromHere"/../database" robot@dsh.cs.washington.edu:$toThere"/../database"
+rsync -arv $fromHere"/../database" robot@dsh.cs.washington.edu:$toThere"/../database"  >&  $logfile
+
+echo rsync -arv $fromLog robot@dsh.cs.washington.edu:$toLog
+rsync -arv $fromLog robot@dsh.cs.washington.edu:$toLog  >&  $logfile
+
+
+
+echo " " >> $logfile
+echo " "
+echo " " >> $logfile
+echo " "
+
+echo `date` >> $logfile
+echo `date`
+echo "done" >> $logfile
+echo "done"

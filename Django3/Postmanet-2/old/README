@@ -1,0 +1,50 @@
+
+Client machine has the following software: Nihao, apache, python.
+It has to have access to a CD/DVD writer.
+
+Nihao on a client machine allows content producers to do P-http. That is, Nihao
+allows a client to interact with a web-browser, although most of that
+interaction is programmed by the content producer (such as the repository).  A
+content producer provides two python scripts to Nihao on client machine:
+index.py and MakeMessage.py.  Nihao at client calls index.py at the beginning,
+and MakeMessage.py at the end just before producing an outgoing CD.
+
+The Nihao code is in Nihao/cgi-bin/Nihao/ and Nihao/WWW/Nihao/ directories.
+
+Think of Nihao as implementing P-http.
+
+---------------
+
+Repository machine has the following software: PDRROOT, apache, python, Primera
+robot installation, and it has the robot attached to it.
+
+Primera robot installation makes a directory: C:\JOBS\. The robot takes job
+requests from this directory.
+
+PDRROOT is the directory of the repository. PDR stands for Postmanet Data
+Repository.
+
+Repository management code is in PDRROOT/bin/, PDRROOT/cgi-bin/ and
+PDRROOT/WWW/
+
+Repository-supplied Nihao code is in PDRROOT/pythonscriptsforclient/
+
+The objects served by the repository are in PDRROOT/DATA
+
+PDRROOT/Endpoints.pk is a python datastructure containing mailing addresses for
+all the users. The bin directory has scripts to do stuff to this file.
+
+PDRROOT/Passwords is the password file for all legitimate users in the system.
+Currently it has these users: rywang, garg, sobti, lai. Password is same as
+lastname.
+
+PDRROOT/QUEUES/ contains the download request queues for each of the users.
+
+PDRROOT/TMP/ is for temporary CD/DVD images used when reading in or writing out
+CDs/DVDs.
+
+---------------
+
+The code is not very well structured. Most code assumes that PDRROOT is
+'C:\PDRROOT\' and similar other things. :)
+

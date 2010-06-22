@@ -1,0 +1,53 @@
+## Append this snippet to the httpd.conf that comes with apache web server
+
+##      Access the repository web server as http://server-addr
+## and
+##      Access the nihao web server as http://server-addr:8000/Nihao
+
+Listen 8000
+                                                                                
+<VirtualHost *:80>
+DocumentRoot E:/Postmanet/repository/WWW
+#
+# This should be changed to whatever you set DocumentRoot to.
+#
+<Directory "E:/Postmanet/repository/WWW">
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
+ScriptAlias /cgi-bin/ "E:/Postmanet/repository/cgi-bin/"
+<Directory "E:/Postmanet/repository/cgi-bin/">
+       AuthType Basic
+       AuthName "Username"
+       AuthUserFile "E:/Postmanet/repository/Passwords"
+       Require valid-user
+</Directory>
+Alias /icons/ "E:/Postmanet/repository/WWW/icons/"
+<Directory "E:/Postmanet/repository/WWW/icons/">
+    Options Indexes MultiViews
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
+</VirtualHost>
+                                                                                
+
+<VirtualHost *:8000>
+DocumentRoot C:/Postmanet/nihao/WWW
+<Directory "C:/Postmanet/nihao/WWW">
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
+ScriptAlias /cgi-bin/ "C:/Postmanet/nihao/cgi-bin/"
+Alias /icons/ "C:/Postmanet/Nihao/WWW/icons/"
+<Directory "C:/Postmanet/Nihao/WWW/icons/">
+    Options Indexes MultiViews
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
+</VirtualHost>

@@ -1,0 +1,130 @@
+- mkdir /u/Postmanet
+- put cmod2 in /usr/local/bin
+chown root chmod
+chmod a+s chmod
+ls -l
+-rwsrwsrwx 1 root dmcuser 46664 2009-04-08 04:57 chmod
+
+needs: /bin/csh
+which is just tcsh
+
+- need to first become the right user:
+Ubuntu: www-data
+Fedora: apache
+the passwords are in CVS
+In fact, might want to put both user names on each system.
+They will share the uid and everything.
+Just two different names.
+
+these guys need a shell, just use tcsh
+
+- execute Postmanet install
+Ubuntu: install-ubuntu
+Fedora: install-m60
+
+
+- Timeout value:
+Ubuntu: /etc/apache2/apache2.conf
+Fedora: /etc/httpd/conf/httpd.conf
+
+
+- config directories:
+Ubuntu: /etc/apache2/sits-available/default
+Fedora: /etc/httpd/conf/httpd.conf
+the files are in CVS:
+Ubuntu: apache2_default_ubuntu
+Fedora: httpd.conf.m60
+
+on Ubuntu at least, /var/www is a symlink to /u/Postmanet/repository/WWW
+cgi-bin -> /u/Postmanet/repository/cgi-bin
+
+
+- restart:
+Ubuntu: /etc/init.d/apache2 restart
+Fedora: /etc/rc.d/init.d/httpd restart
+
+
+kundli font
+apt-get install ffmpeg
+thunar
+
+
+-----
+
+extra M60 notes:
+
+Fedora problems
+xhost +
+video won't start from popped up explorer
+need to restart httpd automatically
+
+http://forums.fedoraforum.org/showthread.php?t=28251
+
+xhost +
+placed in ~/.kde/Autostart
+chmod 777
+
+there's problem with some m60 page on startup
+it was startif.sh in Autostart
+
+share/config/ksmserverrc
+seems to deal with startup programs
+
+mucking with ksmserverrc didn't prevent skype from popping up.
+renamed skype to prevent it from popping up.
+No. see Google doc "Postmanet_linux_port"
+
+-----
+look at /etc/rc.d/rc.local:
+
+--
+
+cd /home/dmcuser/vpn/vpn
+/usr/sbin/openvpn --config client.conf&
+
+/etc/rc.d/init.d/httpd start &
+
+cd /dev
+chmod -R a=u snd mixer dsp
+
+cd /var/www
+chown -R apache .
+chmod -R a=u .
+--
+
+vlc won't pop up properly:
+it seems a combination of two problems:
+need to recursively change owner of /var/www to apache.
+and need to get permission on all the sound devices in /dev
+see rc.local
+
+----------
+
+reformat an NTFS partition for Linux:
+
+cd Postmanet-2
+python reformat_ntfs.py /u/rywang/tmp/Postmanet
+
+./relink_ntfs.csh /u/Postmanet /u/rywang/tmp/Postmanet baks2
+
+----------
+
+
+puppy linux
+install lampp
+
+in rc.local:
+cd /dev
+chmod -R a=u snd mixer dsp
+
+/opt/lampp/lampp start &
+
+gxine: [file] [configure] [preferences]
+[gui] show_splah, no
+[fullscreen_mode] toolbar, bottom, hidden
+[windowed_mode] auto_resize=yes, magnify_lowres=no, separate_toolbar=no,
+unblank=no
+
+----------
+
+ntfs-eg -o uid=nobody -o gid=nobody

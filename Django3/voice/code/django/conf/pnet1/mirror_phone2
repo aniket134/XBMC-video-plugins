@@ -1,0 +1,39 @@
+#!/usr/bin/expect -f
+#    usage: mirror_phone2 machine
+
+if { $argc != 1 } {
+    puts "usage: mirror_phone2 machine"
+    exit
+} else {
+    set machine [lindex $argv 0]
+    puts "syncing to $machine"
+}
+
+
+set timeout -1
+spawn /home/robot/bin/mirror_phone $machine
+
+
+match_max 100000
+expect "password:"
+sleep 1
+send -- "virtuala\n"
+
+match_max 100000
+expect "password:"
+sleep 1
+send -- "virtuala\n"
+
+match_max 100000
+expect "password:"
+sleep 1
+send -- "virtuala\n"
+
+match_max 100000
+expect "password:"
+sleep 1
+send -- "virtuala\n"
+
+match_max 100000
+expect "%"
+sleep 1

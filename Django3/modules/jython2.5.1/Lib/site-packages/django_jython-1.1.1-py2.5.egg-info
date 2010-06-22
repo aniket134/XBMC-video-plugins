@@ -1,0 +1,17 @@
+Metadata-Version: 1.0
+Name: django-jython
+Version: 1.1.1
+Summary: Database backends and management commands, for development under Django/Jython
+Home-page: http://code.google.com/p/django-jython/
+Author: Leonardo Soto M.
+Author-email: leo.soto@gmail.com
+License: BSD
+Description: UNKNOWN
+Keywords: django jython database java
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Java

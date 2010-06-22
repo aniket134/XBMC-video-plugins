@@ -1,0 +1,45 @@
+#!/bin/csh -f
+
+if ($#argv != 1) then
+    echo "usage: $0 machine"
+    exit (-1)
+endif
+
+set mach = $1
+
+set logfile = "/tmp/phone_mirror.log"
+set bakfile = "/tmp/phone_mirror_log.bak"
+
+set fromHere = "/home/rywang/phone_data/db2/media"
+set toThere = "/home/robot/phone_data/db2/media"
+
+set fromLog = "/home/rywang/phone_data/log/withdj_log.txt"
+set toLog = "/home/robot/phone_data/log/withdj_log.txt"
+
+
+cp $logfile $bakfile
+cp /dev/null $logfile
+
+echo rsync -arv $fromHere"/pic/" robot@$mach":"$toThere"/pic/"
+rsync -arv $fromHere"/pic/" robot@$mach":"$toThere"/pic/"  >&  $logfile
+
+echo rsync -arv $fromHere"/voice/" robot@$mach":"$toThere"/voice/"
+rsync -arv $fromHere"/voice/" robot@$mach":"$toThere"/voice/"  >&  $logfile
+
+echo rsync -arv $fromHere"/../database" robot@$mach":"$toThere"/../database"
+rsync -arv $fromHere"/../database" robot@$mach":"$toThere"/../database"  >&  $logfile
+
+echo rsync -arv $fromLog robot@$mach":"$toLog
+rsync -arv $fromLog robot@$mach":"$toLog  >&  $logfile
+
+
+
+echo " " >> $logfile
+echo " "
+echo " " >> $logfile
+echo " "
+
+echo `date` >> $logfile
+echo `date`
+echo "done" >> $logfile
+echo "done"

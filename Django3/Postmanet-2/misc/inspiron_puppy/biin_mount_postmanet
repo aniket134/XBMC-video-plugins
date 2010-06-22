@@ -1,0 +1,16 @@
+#!/bin/csh -f
+
+echo "(RYW: starting mount_postmanet)" > /dev/console
+
+cd /root/biin/
+source VARS
+
+mkdir /mnt/$POSTMANET_DRIVE
+/bin/ntfs-3g /dev/$POSTMANET_DRIVE /mnt/$POSTMANET_DRIVE -o uid=65534 -o gid=65534 -o force
+
+cd /dev/
+chmod -R 777 dsp snd mixer
+
+cd $HOME
+
+echo "(RYW: done mount_postmanet)" > /dev/console

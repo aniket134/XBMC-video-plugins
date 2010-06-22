@@ -6,7 +6,9 @@ sys.path.append(os.getcwd())
 sys.path.append(os.getcwd() + '/modules/')
 # Used to import plugin related code.
 sys.path.append(os.getcwd() + '/xbmc_code/')
+# Used to run Jython scripts.
 os.environ['PATH'] += ':' + os.getcwd() + '/modules/jython2.5.1'
+# Used to load important constants
 import constants_plugin as CP
 # Used by django to set DJANGO_SETTINGS_MODULE environment variable.
 # See xbmc_code.db_interaction
@@ -15,6 +17,7 @@ sys.path.append(CP.PLUGIN_PATH)
 import db_interaction as DB
 #import old_search_window as SW
 import functions as FS
+import SearchLogic as SL
 # -----------------------------------------------------------------
 print(str(dir(time)))
 
@@ -127,10 +130,13 @@ elif mode == 1:
 		print('--------------------------------------------' + stdout_value)
 		stderr_value = str(pipe_stderr.read())
 		print('===========================================' + stderr_value)
-		links = FS.get_links(stdout_value)
-		info_labels = {'title': 'title'}
-		for link in links:
-			FS.ADD_LINK(link, link, '', info_labels)
+		links = SL.finalSearch(stdout_value)
+		if links != None:
+			info_labels = {'title': 'title'}
+			for link in links:
+				FS.ADD_LINK(link, link, '', info_labels)
+		else:
+			FS.add_initial_list()
 	except Exception, e:
 		print(str(e))
 	pipe_stdin.close()

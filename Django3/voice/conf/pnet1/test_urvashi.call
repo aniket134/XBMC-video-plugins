@@ -1,0 +1,12 @@
+
+Channel: mISDN/3c/9839014341
+MaxRetries: 0
+RetryTime: 60
+WaitTime: 30
+
+Context: misdnin
+Extension: 510
+Priority: 1
+CallerID: __DOT_CALL__ 9839014341
+
+Set: PassedInfo=090922_173254_72045034

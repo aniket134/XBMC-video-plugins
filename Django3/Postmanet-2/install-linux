@@ -1,0 +1,33 @@
+#!/bin/csh -f
+
+python bizarro.py posix
+if ($status != 0) then
+    echo "this script is meant for a linux machine."
+    exit 1
+endif
+
+set repoPath = $postmanet/repository
+set robotJobs = $postmanet/robot_jobs
+set etcPath = $repoPath/etc
+
+if (! -e $postmanet) then
+    mkdir $postmanet
+endif
+
+if (! -e $robotJobs) then
+    mkdir $robotJobs
+endif
+
+python install-repository-lai.py $repoPath $robotJobs
+
+chmod 777 $repoPath/WWW/logs
+
+if (! -e $etcPath) then
+    mkdir $etcPath
+endif
+
+if (! -e $etcPath/chmod) then
+    cp misc/chmod $etcPath/chmod
+    echo "remember to chown and chmod on chmod!"
+endif
+

@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# This script will be executed *after* all the other init scripts.
+# You can put your own initialization stuff in here if you don't
+# want to do the full Sys V style init stuff.
+
+touch /var/lock/subsys/local
+/usr/local/bin/bt connect
+
+cd /home/dmcuser/vpn/vpn
+/usr/sbin/openvpn --config client.conf&
+
+/etc/rc.d/init.d/httpd start &
+
+cd /dev
+chmod -R a=u snd mixer dsp
+
+cd /var/www
+chown -R apache .
+chmod -R a=u .
+
+#/usr/sbin/lircd -n -H dev/input -d /dev/input/event4 &
+#/usr/sbin/lircmd &
+
+/usr/bin/ntfs-3g /dev/sda4 /mnt/dsh_lib -o uid=48 -o gid=48 -o force &

@@ -1,0 +1,71 @@
+get rid of spawning: invoke services when burn village discs, upload
+    on village side
+
+recovery, fsck
+
+walk temp spaces and clean them all
+
+local uploads
+download from web with just a zip file
+
+don't always burn discs
+
+deal with bad discs
+
+save checkboxes
+
+Archer voicemail program
+
+existing education material (interactive English ones?)
+
+easily navigatable discs
+
+making servers robust
+
+thumbnails
+
+use less of the search servers
+
+set up mirrors (p2p architecture)
+
+debugging manifesto
+  ship logs, summary info, disk leakage, preventive care;
+  bug reports/complaints, saved in repository, for automatic flagging
+      and alerts;
+  levels of disk wiping:
+      metadata regenration
+      don't wipe local object store
+      wipe Postmanet
+      image restore
+  standby
+  trouble-shoot instructions
+      
+
+
+deal with .ERR file from the robot
+
+autorun
+"internationalization" (suck in Seamus' stuff)
+
+fix appending existing entries to search files.
+
+walk all temporary spaces and clean them all.
+
+prepare outgoing image, then burn, separate two steps: first step unlikely
+    to fail, the second step, who knows.
+
+need to be able to update *any* code on the village side, not just
+    pythonscriptsforclients
+
+Nemo's browse code assumes a single repository objectstore root.
+    need to get rid of multiple objectstore roots anyhow...
+    need to find a solution for a single object root...
+
+when incrementing versions on server, first check size, then diff data,
+    before declaring them to be different.
+
+simplest thing for multiple drives is if we find a concatenating drive.
+
+md5 checksum to guard against uploading multiple versions.
+
+a cellphone interface for the site

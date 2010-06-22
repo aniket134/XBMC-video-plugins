@@ -1,0 +1,4 @@
+python.conf: appears only used to check that mod_python worked, not important
+httpd.conf: the real thing.  added the VirtualHost on 8000, make sure the stuff before 
+	is only on VirtualHost 80.
+iptables: /etc/sysconfig, opens up port 8080

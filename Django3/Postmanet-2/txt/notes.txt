@@ -1,0 +1,286 @@
+printing...
+
+Browse.py
+	java script functions
+	seems mainly used for browsing view
+	towards the end, see the making of DisplayObject
+	missingFileFunc
+
+ryw_view.py
+	show_server_object
+	show_village_object
+	see the class, and hiding of the args
+	missingFileFunc
+
+	everything eventually goes to show_object_compact
+	
+
+repository/cgi-bin/:
+	EditObject.py: edit result
+	search_su.py: used missingFileFunc from Browse.py
+	ShowQueue.py
+	WebUpload_ryw.py: upload result
+
+	all used DisplayObject, I think all these guys had RepositoryRoot
+
+	the only case of using show_object_compact directly
+	is in AddRobotWriteRequest.py for DVD stuff
+	(I think the reason is because the data and thumbnails
+	are at non-standard places and need to construct these
+	locations.)
+
+what's needed:
+        new version of get_server_URLs, uses a special root.
+	new version of missingFileFunc, for starters, just put in a stub.
+	missingFileFunc includes two: assimilation and deletion.	
+
+	add an additional line at the bottom of each row to describe
+	digest changes.
+
+village side, BrowseToUpload.py:
+	uses show_an_object_given_details()
+	hides in meta['toupload_prefix']
+
+	basically, I think it boils down to supplying two functions:
+	the missingFunc and the getURLs thing, 
+	the getURLs thing right now is not done too nicely, either
+	called "inside the object", or called outside before calling
+	the show_object_compact() function afterwards
+
+
+-----
+
+modify code to hide invisible objects
+
+search_su.py calls Search.py
+in main, if it's not visible, don't even append to the list of meta	
+
+-----
+
+
+
+upload page changes:
+
+example: "documents"
+
+Common/ryw_uploadStrs.py
+       ryw_uploadStrs_English.py
+       ryw_upload.py
+       ryw_hindi_dict.py
+
+Repository/WWW/search_su.html
+Nihao/WWW/Nihao/search_su.html
+
+for editing fields: ryw_meta.py
+for display: ryw_view.py
+
+
+
+
+
+-----
+
+12/22/07:
+
+save selection
+
+add a link of "save selection" on the front page, simple.
+this link leads to a modified version of upload object page.
+this just puts the queue in the database and that's it.
+(If an object in the queue is missing, might want to get rid off it
+with a warning when the selection is loaded...)
+
+can't use default upload file name in ryw_uploadStrs_English.py
+need to make a new upload form, and skip the uploaded file box.
+
+probably need a new version of Upload_ryw.py
+copy queue to tmp file and proceed instead of reading the file.
+
+
+I should do paging of selections.
+deal with objects from the selections that are missing.
+need to be able to update selections (because of pointers to
+selections embedded in higher level selections---saving new ones and
+deleting old ones, therefore, won't work.)
+so on the page of the selection, there should be an option of
+overwriting the current selection with the current queue.
+
+an icon to denote a list
+the underlying file should still be accessible
+either as admin or ...
+make the list icon point to the file...
+
+missingFileFunc can include both icons:
+one for the old select
+and one for delete the object from the selection
+
+don't forget to deal with deleted objects
+
+select all from this page
+
+
+-----
+
+2/10/08:
+
+every time a list is displayed, fix up the reverseListsFile.
+
+when an object is displayed, check on the including list (the single
+list file), and if it's not there, fix up the reverseListsFile.
+
+need to worry about all operations on lists, including overwriting old
+lists with new selection.
+
+look at ProcessDownloadReq.py for examples of reading and writing
+pickles.
+
+2/13/08:
+
+for the time being, write the ReverseLists when displaying selections.
+but later, we'll probably disable that, and only do it at times when
+selections are really changed.
+
+checking during display of "part of this series" is ok because it's
+read-only and it's cached.
+
+delete an entire container -> containeeList mapping
+delete one container -> containee mapping
+add container -> containee mapping (already done.)
+
+when I delete a selection object itself, need to take care of that.
+
+when checking a of-series case, need to check whether the container
+object still exists.
+
+when deleting a leaf-level node, you also need to do something.
+
+so when deleting a node, check containee and container.
+
+in the compact view, use alias; in the detailed view, use title of
+container.
+
+2/14/08:
+
+When processing an incoming disc, probably should form a union of the
+two ReverseLists.
+
+What to do next: write a function to delete one mapping, and then do
+the sanity check in lookup.
+
+Union of two ReverseLists only go through if the incoming mapping has
+both end point objects found in the local database.
+
+
+----------------------------------
+
+
+Ok here's the long-promised repair program, thanks to Nemo!
+
+http://dsh.cs.washington.edu:8000/Projects/StudyHall_Discuss/upload/rebuildSearchFile.py
+
+(1) Download this program.  Put it in the root directory of your DSH
+disk, which should be:   e:\
+
+(2) Run this program with this command in a Command (DOS) window:
+python rebuildSearchFile.py myNewSearchFile
+
+(3) If there are any ominous error messages, send to us.  If all goes
+well, you should have created a new file named: e:\myNewSearchFile.
+
+(4) Save a backup of the old corrupted SearchFile by doing:
+rename e:\Postmanet\repository\SearchFile
+e:\Postmanet\repository\oldBadSearchFile
+
+(5) Put the newly generated SearchFile in place:
+copy e:\myNewSearchFile e:\Postmanet\repository\SearchFile
+
+(6) If all goes well, this should have fixed your problem.  This is
+not a guarantee though because your database could have been corrupted
+in other unknown ways.  What you absolutely need to make sure at this
+point is to look at the DSH database through the frontdoor, and
+carefully look at EACH AND EVERY ONE of your own Pune lessons to make
+sure they are ok.   And as soon as you can, send me DVDs containing
+ALL YOUR lessons.  (As soon as I receive your stuff, you can sleep
+easy, knowing your stuff is absolutely 100% safe from now till
+eternity :)
+
+
+----------------------------------------------
+
+
+things done so far:
+
+DisplaySelection adds to RL
+ryw_view does both lookup and sanity check
+delete object
+merging objects
+rebuild
+
+all instances of get_meta2 have to be looked at.
+
+----
+
+02/19/08:
+
+places like DisplaySelection.py: might want to look at the 
+multiple instances of opening SearchFile...  once to get the list
+path name, and once to display all the subsequent stuff...
+need to look at all the places for get_meta2.
+
+I really should re-do DisplaySelection.  it should get the searchFile.
+do the selection-specific lookup, and then pass the searchFile onto
+ShowQueue.
+
+move the stuff out of ReverseLists.py and make it sharable by everyone.
+
+fixing:
+
+add() in ReverseLists
+
+X that led to DisplaySelection to get searchFile
+X that led to cleaning up DisplaySelection to use searchFile consistently
+X that led to ryw_meta.get_objectstore_root() the two XXXX's
+X that led to the need for repositoryRoot that should be passed into ReverseLists
+need to look at all the places that instantiate ReverseLists to pass in
+    new arguments.
+
+ReverseLists should be opened just once per display list too...
+that means for all the places that pass in SearchFile, I'm gonna pass in
+    ReverseLists too...
+
+from DisplaySelection to ShowQueue, get SearchFile only once: pass in
+SearchFile from one to the other as optional argument.
+
+
+-----
+
+02/20/08
+
+all the places that DisplayObject
+
+Browse.py: for browsing view
+EditObject.py
+search_su.py (calls Search.py)
+ShowQueue.py
+WebUpload_ryw.py
+and now DisplaySelection.py
+and DisplayObject.py (calls EditObject.py)
+
+amended on 5/4/08
+
+CloneVersion result
+DiaplayVersions
+
+
+all the above use DisplayObject, which eventually calls show_object_compact
+
+AddRobotWriteRequest.py uses show_object_compact directly.
+
+-----
+
+02/20/08
+
+Look at ShowQueue.* and DisplaySelection.* to see what internal
+functions are getting called by other selection-related operations.
+
+ReverseLists.add() is still slow, still doing get_meta2()
