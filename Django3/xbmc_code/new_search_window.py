@@ -93,7 +93,7 @@ class Search():
 		This function performs functionality for button press,
 		for both Keyboard and Remote. For Keyboard it is accessed through
 		buttonPressed function and for Remote it is directly accessed.
-		Thus it is needed as Remote does not generate an event.
+		It is needed as Remote does not generate an event.
 		"""
 		if buttonName == 'Search':
 			texts = []
@@ -139,7 +139,7 @@ class Search():
 		This function performs functionality for checkbox click,
 		for both Keyboard and Remote. For Keyboard it is accessed through
 		checkboxClicked function and for Remote it is directly accessed.
-		Thus it is needed as Remote does not generate an event.
+		It is needed as Remote does not generate an event.
 		"""
 		if sourceName == 'Subject':
 			if acmd in self.subject_list:
@@ -162,7 +162,8 @@ class Search():
 	def setOldFieldText(self, text, name):
 		"""
 		What it uses should be matched with getOldFieldText and getFocussedField.
-		Used only for KeyBoard events.
+		Used only for KeyBoard events, so we can use 'event' object's functions.
+		We have used 'event' object's function to get the parameter 'name'.
 		Remote handles differently. No need of such fields for remote.
 		"""
 		if name == 'DefaultTextEditor':
@@ -181,7 +182,8 @@ class Search():
 	def getOldFieldText(self, name):
 		"""
 		What it returns should be matched with getFocussedField and setOldFieldText.
-		Used only for KeyBoard events. 
+		Used only for KeyBoard events, so we can use 'event' object's functions.
+		We have used 'event' object's function to get the parameter 'name'.
 		Remote handles differently. No need of such fields for remote.
 		"""
 		pane = self.tabbedPane.getSelectedIndex()
@@ -209,9 +211,11 @@ class Search():
 		It should return only those fields that are also present in
 		getOldFieldText and setOldFieldText functions.
 		Used in fieldKeyReleased and in LIRCControl.
-		Cannot use self.frame.getFocusOwner function here, it returns wierd
+		Cannot use self.frame.getFocusOwner function here, it returns weird
 		things for JComboBox.
 		It should return JComboBox, JTextField or JTextArea only.
+		Used by Remote too, so can't use event.source.name, 
+		as Remote does not pass any event.
 		"""
 		if self.defaultField.getEditor().getEditorComponent().hasFocus():
 			return self.defaultField
@@ -241,6 +245,10 @@ class Search():
 			return None
 
 	def getFocussedButtonName(self):
+		"""
+		Used by Remote only, as we can't use event.source.name, 
+		we have to use this.
+		"""
 		if self.searchButton.hasFocus() == True:
 			return self.searchButton.name
 		elif self.cancelButton.hasFocus() == True:
@@ -275,6 +283,7 @@ class Search():
 			pass
 		os.environ['JYTHON_RUNNING'] = 'NO'
 		System.exit(0)
+
 
 ######################################################## INIT ########################################################
 

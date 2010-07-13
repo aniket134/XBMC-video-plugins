@@ -18,9 +18,6 @@ class MoveListener(IRActionListener):
 		# ok, enter and exit do not work with XBMC. They are managed by XBMC as its own events.
 		self.focussedField = self.searchObject.getFocussedField()
 		self.focussedButtonName = self.searchObject.getFocussedButtonName()
-		if self.focussedField != None:
-			print(self.focussedField.name)
-			print(type(self.focussedField))
 		try:
 			if command == 'chanUp':
 				# A common command to get next component in focus. 
