@@ -12,5 +12,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
-    (r'^dsh_video/', include(CP.PLUGIN_NAME + '.video_lec.urls')),
+    #(r'^dsh_video/', include(CP.PLUGIN_NAME + '.video_lec.urls')),
 )

@@ -6,6 +6,7 @@ sys.path.append(os.getcwd())
 sys.path.append(os.getcwd() + '/modules/')
 # Used to import plugin related code.
 sys.path.append(os.getcwd() + '/xbmc_code/')
+print(sys.path)
 # Used to run Jython scripts.
 os.environ['PATH'] += ':' + os.getcwd() + '/modules/jython2.5.1'
 # Used to load important constants
@@ -125,7 +126,8 @@ elif mode == 1:
 	#keyboard_search()
 	#SW.show()
 	try:
-		pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/search_window.py')
+		SL.populateSuggest()
+		pipe_stdin, pipe_stdout, pipe_stderr = os.popen3(os.getcwd() + '/xbmc_code/new_search_window.py')
 		stdout_value = str(pipe_stdout.read())
 		print('--------------------------------------------' + stdout_value)
 		stderr_value = str(pipe_stderr.read())
@@ -136,9 +138,11 @@ elif mode == 1:
 			for link in links:
 				FS.ADD_LINK(link, link, '', info_labels)
 		else:
+			print('!!!!!!!!!!!!!!!!!! ELSE !!!!!!!!!!!!!!!!!!')
 			FS.add_initial_list()
 	except Exception, e:
 		print(str(e))
+		FS.add_initial_list()
 	pipe_stdin.close()
 	pipe_stdout.close()
 	pipe_stderr.close()

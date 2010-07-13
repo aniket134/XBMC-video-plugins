@@ -1,66 +1,61 @@
+from xbmc_code import constants_plugin as CP
+
 from django.db import models
 import datetime
 
-class course(models.Model):
+class organization(models.Model):
 	name = models.CharField(max_length=100)
-	grade = models.CharField(max_length=100)
-	subject = models.CharField(max_length=100)
-	coordinator = models.CharField(max_length=100, blank=True)
-	description = models.TextField(verbose_name='Course Description', blank=True)
-	date_added = models.DateTimeField(auto_now_add=True)
-	date_last_modified = models.DateTimeField(auto_now=True)
+	address = models.CharField(max_length=100, null=True)
 	def __unicode__(self):
 		return self.name
-
-class course_video(models.Model):
-	course_structure = models.ForeignKey(course)
-	title = models.CharField(max_length=200)
-	description = models.CharField(max_length=100, blank=True, verbose_name='Course Video Descrition')
-	author_name = models.CharField(max_length=100, blank=True)
-	date_added = models.DateTimeField(auto_now_add=True)
-	file = models.FileField(upload_to='course_video')
+		
+class person(models.Model):
+	name = models.CharField(max_length=100)
+	age = models.SmallIntegerField(null=True)
+	sex = models.CharField(max_length=10, null=True)
+	organization = models.ForeignKey(organization)
+	def __unicode__(self):
+		return self.name
 	
-	def was_published_today(self):
-		return self.date_added.date() == datetime.date.today()
-	was_published_today.short_descrition = 'Uploaded Today?'	
+class object(models.Model):
+	title = models.CharField(max_length=200)
+	type = models.CharField(max_length=30)
+	file = models.FileField(upload_to='course_video', null=True, blank=True)
+	unpack = models.BooleanField(default=False, blank=True)
+	description = models.TextField(null=True, blank=True)
+	th_image_1 = models.ImageField(null=True, upload_to='thumbnails', blank=True)
+	th_image_2 = models.ImageField(null=True, upload_to='thumbnails', blank=True)
+	th_image_3 = models.ImageField(null=True, upload_to='thumbnails', blank=True)
+	th_image_4 = models.ImageField(null=True, upload_to='thumbnails', blank=True)
+	local_excerpt_file = models.FileField(upload_to='excerpts', null=True, blank=True)
+	excerpt_1 = models.FileField(upload_to='excerpts', null=True, blank=True)
+	excerpt_2 = models.FileField(upload_to='excerpts', null=True, blank=True)
+	excerpt_3 = models.FileField(upload_to='excerpts', null=True, blank=True)
+	subject = models.CharField(max_length=200, choices=CP.SUBJECT_CHOICES, null=True, blank=True)
+	other_subject = models.CharField(null=True, max_length=50, blank=True)
+	content_type = models.CharField(null=True, max_length=50, blank=True)
+	language = models.CharField(null=True, max_length=50, blank=True)
+	for_class = models.CharField(null=True, max_length=50, blank=True)
+	applicable_from_age = models.CharField(null=True, max_length=50, blank=True)
+	applicable_to_age = models.CharField(null=True, max_length=50, blank=True)
+	media_type = models.CharField(null=True, max_length=50, blank=True)
+	other_media_type = models.CharField(null=True, max_length=50, blank=True)
+	video_resolution = models.CharField(null=True, max_length=10, blank=True)
+	content_duration = models.CharField(null=True, max_length=50, blank=True)
+	data_size = models.CharField(null=True, max_length=10, blank=True)
+	content_alias = models.CharField(null=True, max_length=200, blank=True)
+	date_added = models.DateTimeField(auto_now_add=True, blank=True)
+	date_last_modified = models.DateTimeField(auto_now=True, blank=True)
+	person = models.ForeignKey(person, blank=True, null=True)
+	linked_objects = models.ManyToManyField('self', through='chap_info', symmetrical=False, related_name='related_to') 
+	
 	def __unicode__(self):
 		return self.title
+	def __eq__(self, other):
+		return self.title == other.title
 
-class ObjectOrderMapField(models.Field):
-	description = 'Order of an Object in the current object.'
-	__metaclass__ = models.SubfieldBase;
-
-	def __init__(self, *args, **kwargs):
-		super(ObjectOrderMapField, self).__init__(*args, **kwargs)
-
-	def get_internal_type(self):
-		return 'TextField'
-
-	def to_python(self, value):
-		if isinstance(value, dict):
-			return value
-		if (value == None or value == ''):
-			return {}
-		hash = eval(value)
-		return hash
-
-	def get_db_prep_value(self, value):
-		return str(hash)
-
-class random_video(models.Model):
-	title = models.CharField(max_length=200)
-	subject = models.CharField(max_length=100)
-	description = models.CharField(max_length=100, verbose_name='Random Video Description', blank=True)
-	author_name = models.CharField(max_length=100, blank=True)
-	grade_level = models.CharField(max_length=100, blank=True)
-	alias = models.CharField(max_length=100, blank=True)
-	date_added = models.DateTimeField(auto_now_add=True)
-	file = models.FileField(upload_to='random_video')
-	hashtable = ObjectOrderMapField();
-	
-	def was_published_today(self):
-		return self.date_added.date() == datetime.date.today()
-	was_published_today.short_descrition = 'Uploaded Today?'	
-	def __unicode__(self):
-		return self.title
+class chap_info(models.Model):
+	source_object = models.ForeignKey(object, related_name='from_object')
+	target_object = models.ForeignKey(object, related_name='to_object')
+	chap_no = models.CharField(max_length=10, null=True, blank=True)
 

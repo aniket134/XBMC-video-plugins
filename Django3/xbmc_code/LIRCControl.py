@@ -1,8 +1,9 @@
 #!./modules/jython2.5.1/jython
-import time
+import time, sys, traceback
 
 from org.lirc.util import IRActionListener, SimpleLIRCClient
 from java.awt import KeyboardFocusManager
+from javax.swing import *
 import SearchLogic
 
 class MoveListener(IRActionListener):
@@ -17,12 +18,27 @@ class MoveListener(IRActionListener):
 		# ok, enter and exit do not work with XBMC. They are managed by XBMC as its own events.
 		self.focussedField = self.searchObject.getFocussedField()
 		self.focussedButtonName = self.searchObject.getFocussedButtonName()
+		if self.focussedField != None:
+			print(self.focussedField.name)
+			print(type(self.focussedField))
 		try:
-			if self.focussedField != None:
+			if command == 'chanUp':
+				# A common command to get next component in focus. 
+				# We have checkboxes, buttons, textfields etc. so a common command is required.
+				KeyboardFocusManager.getCurrentKeyboardFocusManager().focusNextComponent()
+			elif command == 'chanDown':
+				# A common command to get previous component in focus. 
+				KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
+			elif command == 'play':
+				# A common command to search.
+				self.searchObject.buttonPressedAction('Search')
+			elif self.focussedField != None:
+				# When some textfield has focus.
 				if command == 'moveUp':
 					self.searchObject.nameLabel.text = 'MoveUp'
 				elif command == 'moveDown':
-					self.focussedField.setPopupVisible(True)
+					if type(self.focussedField) == JComboBox:
+						self.focussedField.setPopupVisible(True)
 				elif command == 'moveRight':
 					self.clearTime()
 				elif command == 'moveLeft':
@@ -31,20 +47,25 @@ class MoveListener(IRActionListener):
 					self.searchObject.exit()
 				elif command == 'ok':
 					self.searchObject.buttonPressedAction('Search')
-				elif command == 'play':
-					self.searchObject.buttonPressedAction('Search')
 				elif command == 'mute':
 					self.searchObject.buttonPressedAction('Search')
 				elif command == 'enter':
 					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusNextComponent()
 				elif command == 'clear':
-					self.focussedField.getEditor().getEditorComponent().text = ''
+					if type(self.focussedField) == JComboBox:
+						self.focussedField.getEditor().getEditorComponent().text = ''
+					elif type(self.focussedField) == JTextField or type(self.focussedField) == JTextArea:
+						self.focussedField.text = ''
 				elif command == 'one' or command == 'two' or command == 'three' or \
 						command == 'four' or command == 'five' or command == 'six' or \
 						command == 'seven' or command == 'eight' or command == 'nine' or \
 						command == 'zero' or command == 'star' or command == 'hash':
 							newKey = self.checkPrevKey(command)
-							oldText = self.focussedField.getEditor().getEditorComponent().text
+							oldText = ''
+							if type(self.focussedField) == JComboBox:
+								oldText = self.focussedField.getEditor().getEditorComponent().text
+							elif type(self.focussedField) == JTextField or type(self.focussedField) == JTextArea:
+								oldText = self.focussedField.text
 							if self.onTime:
 								newText = oldText[:-1]
 							else:
@@ -53,15 +74,24 @@ class MoveListener(IRActionListener):
 								newKey = newKey.capitalize()
 							if len(newKey):
 								newText += newKey
-								self.searchObject.addSuggestedList(newText, self.focussedField)
-								self.focussedField.setPopupVisible(True)
+								if type(self.focussedField) == JComboBox:
+									visible = self.searchObject.addSuggestedList(newText, self.focussedField)
+									self.focussedField.setPopupVisible(visible)
+								elif type(self.focussedField) == JTextField or type(self.focussedField) == JTextArea:
+									self.focussedField.text = newText
 				elif command == 'back':
 					self.clearTime()
-					newText = self.focussedField.getEditor().getEditorComponent().text
-					newText = newText[:-1]
-					self.searchObject.addSuggestedList(newText, self.focussedField)
-					self.focussedField.setPopupVisible(True)
+					if type(self.focussedField) == JComboBox:
+						newText = self.focussedField.getEditor().getEditorComponent().text
+						newText = newText[:-1]
+						visible = self.searchObject.addSuggestedList(newText, self.focussedField)
+						self.focussedField.setPopupVisible(visible)
+					elif type(self.focussedField) == JTextField or type(self.focussedField) == JTextArea:
+						newText = self.focussedField.text
+						newText = newText[:-1]
+						self.focussedField.text = newText
 			elif self.focussedButtonName != None:
+				# When a button has focus.
 				if command == 'moveUp':
 					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
 				elif command == 'moveDown':
@@ -74,20 +104,40 @@ class MoveListener(IRActionListener):
 					self.searchObject.exit()
 				elif command == 'ok':
 					self.searchObject.buttonPressedAction(self.focussedButtonName)
-				elif command == 'play':
-					self.searchObject.buttonPressedAction(self.focussedButtonName)
 				elif command == 'mute':
 					self.searchObject.buttonPressedAction(self.focussedButtonName)
 				elif command == 'back':
 					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
+			elif command == 'enter':
+				# If other JComponent like JCheckbox is selected.
+				otherComponent = self.searchObject.frame.getFocusOwner()
+				if type(otherComponent) == JCheckBox:
+					self.searchObject.checkboxClickedAction(otherComponent.name, otherComponent.getText())
+			elif command == 'moveRight':
+				# When neither any textfield, button, checkbox etc has focus. 
+				# Switch between tabs. Get next tab in focus.
+				index = self.searchObject.tabbedPane.getSelectedIndex() + 1
+				if index >= self.searchObject.tabbedPane.getTabCount():
+					index = 0
+				self.searchObject.tabbedPane.setSelectedIndex(index)
+				#KeyboardFocusManager.getCurrentKeyboardFocusManager().focusNextComponent()
+			elif command == 'moveLeft':
+				# When neither any textfield, button, checkbox etc has focus. 
+				# Switch between tabs. Get previous tab in focus.
+				index = self.searchObject.tabbedPane.getSelectedIndex() - 1
+				if index <= -1:
+					index = self.searchObject.tabbedPane.getTabCount() - 1
+				self.searchObject.tabbedPane.setSelectedIndex(index)
+				#KeyboardFocusManager.getCurrentKeyboardFocusManager().focusNextComponent()
 		except Exception, e:
 			sys.stderr.write((str(e)))
+			traceback.print_exc(file=sys.stderr)
 
 	def checkPrevKey(self, key):
 		self.onTime = False
 		if self.prevKey != None and key == self.prevKey:
 			t1 = time.clock()
-			if t1 - self.times[-1] <= 3.0:
+			if t1 - self.times[-1] <= 1.0:
 				tempKey = self.getNextKey(key, len(self.times))
 				self.setTime(key)
 				self.onTime = True

@@ -1,40 +1,77 @@
 from xbmc_code import constants_plugin as CP
 PN = __import__(CP.PLUGIN_NAME)
-course = PN.video_lec.models.course
-course_video = PN.video_lec.models.course_video
-random_video = PN.video_lec.models.random_video
+chap_info = PN.video_lec.models.chap_info
+object = PN.video_lec.models.object
+person = PN.video_lec.models.person
+organization = PN.video_lec.models.organization
 
 from django.contrib import admin
-
-class CourseVideoInline(admin.StackedInline):
-	model = course_video
-	extra = 3
-
-class CourseAdmin(admin.ModelAdmin):
-	list_display = ('name', 'grade', 'subject', 'date_last_modified', 'date_added')
-	inlines = [CourseVideoInline]
-
-#This is not being used currently
-class CourseVideoAdmin(admin.ModelAdmin):
-	fieldsets = [
-		(None, {'fields': ['course', 'title']}),
-		('Video Information', {'fields': ['description', 'author_name', 'date_added'], 'classes': ['collapse']}),
-	]
-	list_display = ('title', 'course', 'author_name', 'was_published_today')
+from django.forms import ModelForm
+from django import forms
 	
-	list_filter = ['date_added', 'title']
-	search_fields = ['title', 'author']
+SUBJECT_CHOICES = (
+				('ENG', 'English'),
+				('HIN', 'Hindi'),
+				('SAN', 'Sanskrit'),
+				('SCI', 'Science'),
+				('PHY', 'Physics'),
+				('CHY', 'Chemistry'),
+				('AST', 'Astronomy'),
+				('BIO', 'Biology'),
+				('GEO', 'Geology'),
+				('MAT', 'Mathematics'),
+				('ART', 'Arithmetic'),
+				('ALG', 'Algebra'),
+				('GMT', 'Geometry'),
+				('HIS', 'History'),
+				('SST', 'Social Studies'),
+				('HSC', 'Home Science'),
+				('AGR', 'Agriculture'),
+				('COM', 'Commerce'),
+				('CAC', 'Culture and Customs'),
+				('GKN', 'General Knowledge'),
+				('FAN', 'Food and Nutrition'),
+				('AAC', 'Arts and Crafts'),
+				('CLY', 'Computer Literacy'),
+				('GAM', 'Games'),
+				('STR', 'Stories'),
+				('PLY', 'Plays'),
+				('VOC', 'Vocabulary'),
+				('ENV', 'Environmental Science'),
+				('HCR', 'Health Care'),
+				('NUR', 'Nursing'),
+				('RPH', 'Reproductive Health'),
+				('CHH', 'Children Health'),
+				('WRT', 'Women Rights'),
+				('KAN', 'Kannada'),
+				('TAM', 'Tamil'),
+				('BEN', 'Bengali'),
+				('MAR', 'Marathi'),
+				('PUN', 'Punjabi'),
+				('URD', 'Urdu'),
+				('NEP', 'Nepali'),
+				('CPR', 'Children Program'),
+				)
 
-class RandomVideoAdmin(admin.ModelAdmin):
-	fieldsets = [
-		(None, {'fields': ['title', 'subject']}),
-		('Video Information', {'fields': ['file', 'description', 'author_name', 'grade_level', 'alias', 'hashtable'], 'classes': ['collapse']}),
-	]
-	list_display = ('title', 'subject', 'author_name', 'was_published_today', 'date_added')
-	list_filter = ['date_added', 'title']
-	search_fields = ['title', 'author']
-	#date_hierarchy = 'date_added'
+class ObjectInline(admin.StackedInline):
+	model = chap_info
+	fk_name = "target_object"
+	extra = 3
+	
+class ObjectForm(ModelForm):
+	class Meta:
+		model = object
+	#subject = forms.MultipleChoiceField(choices=SUBJECT_CHOICES, widget=forms.CheckboxSelectMultiple())
+	#def clean_subject(self):
+	#	list = self.cleaned_data['subject']
+	#	return self.cleaned_data['subject']
 
-#admin.site.register(course_video, CourseVideoAdmin)
-admin.site.register(course, CourseAdmin)
-admin.site.register(random_video, RandomVideoAdmin)
+
+class ObjectAdmin(admin.ModelAdmin):
+	form = ObjectForm
+	inlines = (ObjectInline,)
+
+admin.site.register(chap_info)
+admin.site.register(object, ObjectAdmin)
+admin.site.register(person)
+admin.site.register(organization)
