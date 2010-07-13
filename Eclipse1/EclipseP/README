@@ -1,0 +1,31 @@
+About this plugin:
+
+  This plugin is built as a Django project.
+  A Django interface is used to update the database and XBMC plugin uses the database to fetch data.
+  The good thing is that we can use Django's DB model based code in our XBMC scripts.
+
+-----
+
+Prerequisites:
+
++ XBMC
+    Platform: GNU/Linux.
+    Built on Dec 24 2009 (SVN:26018) 
++ MySQL 5.1.0
+    Edit db_name, user etc. info in settings.py as per your preferences.
+    Create a Database in mysql before running: python manage.py syncdb
++ Django 1.1.1
++ python 2.6
++ MySQLdb
+    debian package: python-mysqldb
+    Name: MySQL-python
+    Version: 1.2.2
+    Summary: Python interface to MySQL
+    Home-page: http://sourceforge.net/projects/mysql-python
+    Author: Andy Dustman
+    Author-email: adustman@users.sourceforge.net
+    License: GPL
+    Download-URL: http://osdn.dl.sourceforge.net/sourceforge/mysql-python/MySQL-python-1.2.2.tar.gz
+
+-----
+

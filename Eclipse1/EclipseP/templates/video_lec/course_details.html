@@ -1,0 +1,17 @@
+<h1>{{ course.name }}</h1>
+
+{% if error_massage %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<p> Videos corresponding to this course are: </p>
+<ol>
+{% for course_video in course.course_video_set.all %}
+    <li>{{ course_video.title }}
+        <ul>
+	    <li>Link: {{ course_video.file.url }}</li>
+	    <li>Description: {{ course_video.description }}</li>
+	    <li>Author: {{ course_video.author_name }}</li>
+	</ul>
+    </li>
+{% endfor %}
+</ol>
+
