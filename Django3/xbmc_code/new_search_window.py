@@ -14,9 +14,10 @@ import java.io.IOException
 
 from java.lang import System	        
 from java.net import URL	        
+from javax.swing.border import Border, TitledBorder, EtchedBorder
 from javax.swing import *	        
 from javax.swing.plaf.synth import *	        
-from java.awt import GridLayout
+from java.awt import Color
 from javax.swing.GroupLayout import Alignment	        
 from java.awt import KeyboardFocusManager
 from java.awt.event import KeyEvent
@@ -104,16 +105,22 @@ class Search():
 				texts = [self.nameField_1.getEditor().getEditorComponent().text, \
 						self.subjectField_1.getEditor().getEditorComponent().text, \
 						self.authorField_1.getEditor().getEditorComponent().text, \
-						self.classField_1.getEditor().getEditorComponent().text]
+						self.classField_1.getSelectedItem()]
 			elif mode == 2:
 				texts = [self.nameField_2.getEditor().getEditorComponent().text, \
 						self.subjectField_2.getEditor().getEditorComponent().text, \
 						self.authorField_2.getEditor().getEditorComponent().text, \
-						self.classField_2.getEditor().getEditorComponent().text, \
+						self.classField_2.getSelectedItem(), \
 						self.descriptionField.text, \
-						self.contentTypeField.text, self.videoResField.text, \
+						self.contentTypeField.getSelectedItem(), self.videoResField.getSelectedItem(), \
 						self.otherMediaTextField.text, self.otherLangField.text, \
-						self.subject_list, self.media_list, self.lang_list]
+						self.uploadedAfterYear.getSelectedItem(), self.uploadedAfterMonth.getSelectedItem(), \
+						self.uploadedAfterDay.getSelectedItem(), self.uploadedBeforeYear.getSelectedItem(), \
+						self.uploadedBeforeMonth.getSelectedItem(), self.uploadedBeforeDay.getSelectedItem(), \
+						self.contentDurationButtonGroup.getSelection().getActionCommand(), \
+						self.contentDurationHour.getSelectedItem(), \
+						self.contentDurationMinute.getSelectedItem(), self.uploadedByField.text, \
+						self.objectIDField.text, self.subject_list, self.media_list, self.lang_list]
 			text = SearchLogic.getValidText(texts)
 			print(text, mode)
 			self.exit()
@@ -122,6 +129,8 @@ class Search():
 		elif buttonName == 'Cancel':
 			print('Cancel', -1)
 			self.exit()
+		elif buttonName == 'Clear':
+			self.contentDurationRadio_2.setSelected(True)
 		else:
 			pass									# This case may come
 
@@ -130,32 +139,38 @@ class Search():
 		This function takes event from Keyboard and passes required
 		data to checkboxClickedAction function.
 		"""
-		sourceName = event.source.name
-		acmd = event.getActionCommand()
-		self.checkboxClickedAction(sourceName, acmd)
+		self.checkboxClickedAction(event.source)
 
-	def checkboxClickedAction(self, sourceName, acmd):
+	def checkboxClickedAction(self, checkbox):
 		"""
 		This function performs functionality for checkbox click,
 		for both Keyboard and Remote. For Keyboard it is accessed through
 		checkboxClicked function and for Remote it is directly accessed.
 		It is needed as Remote does not generate an event.
 		"""
+		acmd = checkbox.getActionCommand()
+		sourceName = checkbox.name
 		if sourceName == 'Subject':
 			if acmd in self.subject_list:
 				self.subject_list.remove(acmd)
+				checkbox.setSelected(False)
 			else:
 				self.subject_list.append(acmd)
+				checkbox.setSelected(True)
 		elif sourceName == 'Media':
 			if acmd in self.media_list:
 				self.media_list.remove(acmd)
+				checkbox.setSelected(False)
 			else:
 				self.media_list.append(acmd)
+				checkbox.setSelected(True)
 		elif sourceName == 'Language':
 			if acmd in self.lang_list:
 				self.lang_list.remove(acmd)
+				checkbox.setSelected(False)
 			else:
 				self.lang_list.append(acmd)
+				checkbox.setSelected(True)
 		else:
 			pass								# This case may come, if more checkbox fields are added.
 	
@@ -213,7 +228,7 @@ class Search():
 		Used in fieldKeyReleased and in LIRCControl.
 		Cannot use self.frame.getFocusOwner function here, it returns weird
 		things for JComboBox.
-		It should return JComboBox, JTextField or JTextArea only.
+		It should return JComboBox (Editable only), JTextField or JTextArea only.
 		Used by Remote too, so can't use event.source.name, 
 		as Remote does not pass any event.
 		"""
@@ -225,22 +240,18 @@ class Search():
 			return self.subjectField_1
 		elif self.authorField_1.getEditor().getEditorComponent().hasFocus():
 			return self.authorField_1
-		elif self.classField_1.getEditor().getEditorComponent().hasFocus():
-			return self.classField_1
 		elif self.nameField_2.getEditor().getEditorComponent().hasFocus():
 			return self.nameField_2
 		elif self.subjectField_2.getEditor().getEditorComponent().hasFocus():
 			return self.subjectField_2
 		elif self.authorField_2.getEditor().getEditorComponent().hasFocus():
 			return self.authorField_2
-		elif self.classField_2.getEditor().getEditorComponent().hasFocus():
-			return self.classField_2
 		elif self.descriptionField.hasFocus():
 			return self.descriptionField
-		elif self.contentTypeField.hasFocus():
-			return self.contentTypeField
-		elif self.videoResField.hasFocus():
-			return self.videoResField
+		elif self.uploadedByField.hasFocus():
+			return self.uploadedByField
+		elif self.objectIDField.hasFocus():
+			return self.objectIDField
 		else:
 			return None
 
@@ -275,6 +286,15 @@ class Search():
 		Returns suggested words form Jazzy.
 		"""
 		return self.spellChecker.getSuggestions(word, self.threshold)
+
+	def getSelectedRadio(self, which):
+		if which == 'ContentDuration':
+			if self.contentDurationRadio_1.isSelected():
+				return self.contentDurationRadio_1.getText()
+			elif self.contentDurationRadio_2.isSelected():
+				return self.contentDurationRadio_2.getText()
+			elif self.contentDurationRadio_3.isSelected():
+				return self.contentDurationRadio_3.getText()
 
 	def exit(self):
 		try:
@@ -378,7 +398,8 @@ class Search():
 		self.panelButton.add(self.clearButton)
 		self.panelButton.add(self.cancelButton)
 		
-		self.defaultLabel = JLabel('Search')
+		self.defaultLabel = JLabel('Search:')
+#		self.defaultLabel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED))
 
 		self.win_1.add(self.defaultLabel, '1, 1')
 		self.win_1.add(self.defaultField, '1, 3')
@@ -387,10 +408,12 @@ class Search():
 
 	def secondSearch(self):
 		self.win_2 = JPanel(False)
-		size = [[self.b, self.f, self.hg, self.b],
-				[self.b, self.p, self.vs, self.p, self.vg, self.p, self.vg,
-					self.p, self.vg, self.p, self.vg, self.p, self.vg,
-					self.p, self.vg, self.p, self.vg, self.p, self.b]]
+		size = [[self.b, self.f, self.hg, self.p, self.b],
+				[self.b, self.p, self.vs, self.p, self.vg, 
+					self.p, self.vs, self.p, self.vg, 
+					self.p, self.vs, self.p, self.vg,
+					self.p, self.vg, 
+					self.p, self.b]]
 		self.layout_2 = TableLayout(size)
 		self.win_2.setLayout(self.layout_2)
 		
@@ -415,12 +438,14 @@ class Search():
 		self.authorField_1.editable = True
 		self.authorField_1.getEditor().getEditorComponent().keyReleased = self.fieldKeyReleased
 		
-		self.classField_1 = JComboBox()
+		self.classPanel_1 = JPanel()
+		self.classLabel = JLabel('Class:    ')
+		self.classField_1 = JComboBox(CP.CLASSES)
 		self.classField_1.name = 'Class'												# Important attribute. Used in suggestSearch.
 		self.classField_1.getEditor().getEditorComponent().name = 'ClassTextEditor_1'
 		self.classField_1.preferredSize = (200, 20)
-		self.classField_1.editable = True
-		self.classField_1.getEditor().getEditorComponent().keyReleased = self.fieldKeyReleased
+		self.classPanel_1.add(self.classLabel)
+		self.classPanel_1.add(self.classField_1)
 		
 		self.searchButton_1 = JButton('Search')
 		self.searchButton_1.preferredSize = (100, 20)
@@ -442,10 +467,13 @@ class Search():
 		self.panelButton.add(self.clearButton_1)
 		self.panelButton.add(self.cancelButton_1)
 		
-		self.nameLabel = JLabel('Name')
-		self.subjectLabel = JLabel('Subject')
-		self.authorLabel = JLabel('Author')
-		self.classLabel = JLabel('Class')
+		self.nameLabel = JLabel('Name:')
+		self.subjectLabel = JLabel('Subject:')
+		self.authorLabel = JLabel('Author:')
+#		self.nameLabel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED, Color.yellow, Color.yellow))
+#		self.subjectLabel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED))
+#		self.authorLabel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED))
+#		self.classLabel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED))
 		
 		self.win_2.add(self.nameLabel, '1, 1')
 		self.win_2.add(self.nameField_1, '1, 3')
@@ -453,9 +481,8 @@ class Search():
 		self.win_2.add(self.subjectField_1, '1, 7')
 		self.win_2.add(self.authorLabel, '1, 9')
 		self.win_2.add(self.authorField_1, '1, 11')
-		self.win_2.add(self.classLabel, '1, 13')
-		self.win_2.add(self.classField_1, '1, 15')
-		self.win_2.add(self.panelButton, '1, 17')
+		self.win_2.add(self.classPanel_1, '1, 13, l, f')
+		self.win_2.add(self.panelButton, '1, 15')
 		return self.win_2
 
 	def thirdSearch(self):
@@ -484,26 +511,91 @@ class Search():
 		self.authorField_2.editable = True
 		self.authorField_2.getEditor().getEditorComponent().keyReleased = self.fieldKeyReleased
 		
-		self.classField_2 = JComboBox()
+		self.classPanel_2 = JPanel()
+		self.classLabel = JLabel('Class:    ')
+		self.classField_2 = JComboBox(CP.CLASSES)
 		self.classField_2.name = 'Class'												# Important attribute. Used in suggestSearch.
 		self.classField_2.getEditor().getEditorComponent().name = 'ClassTextEditor_2'
 		self.classField_2.preferredSize = (200, 20)
-		self.classField_2.editable = True
-		self.classField_2.getEditor().getEditorComponent().keyReleased = self.fieldKeyReleased
+		self.classPanel_2.add(self.classLabel)
+		self.classPanel_2.add(self.classField_2)
 		
-		self.contentTypeField = JTextField()
+		self.contentTypePanel = JPanel()
+		self.contentTypeLabel = JLabel('Content Type:    ')
+		self.contentTypeField = JComboBox(CP.CONTENT_TYPES)
 		self.contentTypeField.name = 'ContentType'
 		self.contentTypeField.preferredSize = (200, 20)
+		self.contentTypePanel.add(self.contentTypeLabel)
+		self.contentTypePanel.add(self.contentTypeField)
 		
-		self.videoResField = JTextField()
+		self.videoResPanel = JPanel()
+		self.videoResLabel = JLabel('Video Resolution:    ')
+		self.videoResField = JComboBox(CP.VIDEO_RESOLUTION)
 		self.videoResField.name = 'VideoRes'
 		self.videoResField.preferredSize = (200, 20)
+		self.videoResPanel.add(self.videoResLabel)
+		self.videoResPanel.add(self.videoResField)
 		
 		self.descriptionField = JTextArea()
-		self.descriptionField.name = 'Description'
-		self.descriptionField.preferredSize = (200, 60)
-		self.descriptionField.editable = True
+		self.uploadedByField = JTextField()
+		self.objectIDField = JTextField()
+
+		self.contentDurationRadio_1 = JRadioButton('At least')
+		self.contentDurationRadio_1.setSelected(True)
+		self.contentDurationRadio_1.setActionCommand('At least')
+		self.contentDurationRadio_2 = JRadioButton('Equals')
+		self.contentDurationRadio_2.setActionCommand('Equals')
+		self.contentDurationRadio_3 = JRadioButton('At most')
+		self.contentDurationRadio_3.setActionCommand('At most')
+		self.contentDurationButtonGroup = ButtonGroup()
+		self.contentDurationButtonGroup.add(self.contentDurationRadio_1)
+		self.contentDurationButtonGroup.add(self.contentDurationRadio_2)
+		self.contentDurationButtonGroup.add(self.contentDurationRadio_3)
+		self.contentDurationPanel = JPanel()
+		self.contentDurationLabelHour = JLabel('Hour  ')
+		self.contentDurationLabelMinute = JLabel('Minute  ')
+		self.contentDurationHour = JComboBox(CP.CONTENT_DURATION_HOUR)
+		self.contentDurationMinute = JComboBox(CP.CONTENT_DURATION_MINUTE)
+		self.contentDurationPanel.add(self.contentDurationRadio_1)
+		self.contentDurationPanel.add(self.contentDurationRadio_2)
+		self.contentDurationPanel.add(self.contentDurationRadio_3)
+		self.contentDurationPanel.add(self.contentDurationHour)
+		self.contentDurationPanel.add(self.contentDurationLabelHour)
+		self.contentDurationPanel.add(self.contentDurationMinute)
+		self.contentDurationPanel.add(self.contentDurationLabelMinute)
 		
+		self.uploadedAfterPanel = JPanel()
+		self.uploadedAfterLabel = JLabel('Uploaded On or After:    ')
+		self.uploadedAfterLabelYear = JLabel('Year  ')
+		self.uploadedAfterLabelMonth = JLabel('Month  ')
+		self.uploadedAfterLabelDay = JLabel('Day  ')
+		self.uploadedAfterYear = JComboBox(CP.UPLOADED_AFTER_YEAR)
+		self.uploadedAfterMonth = JComboBox(CP.UPLOADED_AFTER_MONTH)
+		self.uploadedAfterDay = JComboBox(CP.UPLOADED_AFTER_DAY)
+		self.uploadedAfterPanel.add(self.uploadedAfterLabel)
+		self.uploadedAfterPanel.add(self.uploadedAfterYear)
+		self.uploadedAfterPanel.add(self.uploadedAfterLabelYear)
+		self.uploadedAfterPanel.add(self.uploadedAfterMonth)
+		self.uploadedAfterPanel.add(self.uploadedAfterLabelMonth)
+		self.uploadedAfterPanel.add(self.uploadedAfterDay)
+		self.uploadedAfterPanel.add(self.uploadedAfterLabelDay)
+
+		self.uploadedBeforePanel = JPanel()
+		self.uploadedBeforeLabel = JLabel('Uploaded On or Before:    ')
+		self.uploadedBeforeLabelYear = JLabel('Year  ')
+		self.uploadedBeforeLabelMonth = JLabel('Month  ')
+		self.uploadedBeforeLabelDay = JLabel('Day  ')
+		self.uploadedBeforeYear = JComboBox(CP.UPLOADED_AFTER_YEAR)
+		self.uploadedBeforeMonth = JComboBox(CP.UPLOADED_AFTER_MONTH)
+		self.uploadedBeforeDay = JComboBox(CP.UPLOADED_AFTER_DAY)
+		self.uploadedBeforePanel.add(self.uploadedBeforeLabel)
+		self.uploadedBeforePanel.add(self.uploadedBeforeYear)
+		self.uploadedBeforePanel.add(self.uploadedBeforeLabelYear)
+		self.uploadedBeforePanel.add(self.uploadedBeforeMonth)
+		self.uploadedBeforePanel.add(self.uploadedBeforeLabelMonth)
+		self.uploadedBeforePanel.add(self.uploadedBeforeDay)
+		self.uploadedBeforePanel.add(self.uploadedBeforeLabelDay)
+
 		p1 = JPanel()
 		p1.add(JCheckBox(CP.SUBJECT_CHOICES[0][1], actionPerformed=self.checkboxClicked, name='Subject'))
 		p1.add(JCheckBox(CP.SUBJECT_CHOICES[1][1], actionPerformed=self.checkboxClicked, name='Subject'))
@@ -554,7 +646,7 @@ class Search():
 		p9.add(JCheckBox(CP.SUBJECT_CHOICES[33][1], actionPerformed=self.checkboxClicked, name='Subject'))
 		p9.add(JCheckBox(CP.SUBJECT_CHOICES[34][1], actionPerformed=self.checkboxClicked, name='Subject'))
 		p10 = JPanel()
-		p10.add(JLabel('Other', name='Subject'))
+		p10.add(JLabel('Other:', name='Subject'))
 		p10.add(self.subjectField_2)
 		self.subjectCheckboxes = [
 				p1, p2, p3, p4, p6, p7, p8, p9, p10
@@ -586,7 +678,7 @@ class Search():
 		m4.add(JCheckBox(CP.MEDIA_TYPE[19][1], actionPerformed=self.checkboxClicked, name='Media'))
 		m4.add(JCheckBox(CP.MEDIA_TYPE[20][1], actionPerformed=self.checkboxClicked, name='Media'))
 		m5 = JPanel()
-		m5.add(JLabel('Other', name='Media'))
+		m5.add(JLabel('Other:', name='Media'))
 		self.otherMediaTextField = JTextField(50, name='Media')
 		m5.add(self.otherMediaTextField)
 		self.mediaTypeCheckboxes = [
@@ -605,7 +697,7 @@ class Search():
 		l2.add(JCheckBox(CP.LANGUAGES[7][1], actionPerformed=self.checkboxClicked, name='Language'))
 		l2.add(JCheckBox(CP.LANGUAGES[8][1], actionPerformed=self.checkboxClicked, name='Language'))
 		l3 = JPanel()
-		l3.add(JLabel('Other', name='Language'))
+		l3.add(JLabel('Other:', name='Language'))
 		self.otherLangField = JTextField(50, name='Language')
 		l3.add(self.otherLangField)
 		self.languageCheckboxes = [
@@ -632,15 +724,15 @@ class Search():
 		self.panelButton.add(self.clearButton_2)
 		self.panelButton.add(self.cancelButton_2)
 
-		self.nameLabel = JLabel('Name')
-		self.subjectLabel = JLabel('Subject')
-		self.authorLabel = JLabel('Author')
-		self.classLabel = JLabel('Class')
-		self.descriptionLabel = JLabel('Description')
-		self.mediaTypeLabel = JLabel('Media Type')
-		self.languageLabel = JLabel('Language')
-		self.contentTypeLabel = JLabel('Content Type')
-		self.videoResLabel = JLabel('Video Resolution')
+		self.nameLabel = JLabel('Name:')
+		self.subjectLabel = JLabel('Subject:')
+		self.authorLabel = JLabel('Author:')
+		self.descriptionLabel = JLabel('Description:')
+		self.mediaTypeLabel = JLabel('Media Type:')
+		self.languageLabel = JLabel('Language:')
+		self.contentDurationLabel = JLabel('Content Duration:')
+		self.uploadedByLabel = JLabel('Uploaded By:')
+		self.objectIDLabel = JLabel('Object ID')
 
 		subList = []
 		for i in range(len(self.subjectCheckboxes)):
@@ -654,20 +746,22 @@ class Search():
 		for i in range(len(self.languageCheckboxes)):
 			langList.append(self.p)
 
-		size = [[self.b, self.f, self.hg, self.b],
-				[self.b, self.p, self.vs, self.p, self.vg,						
-					self.p, self.vs] + subList + [self.vg,						
-					self.p, self.vs, self.p, self.vg,							# This is the place that is 
-					self.p, self.vs, self.p, self.vg,							# hard coded and needs to be 
-					self.p, self.vs, self.p, self.vg,							# modified when change is made in
-					self.p, self.vs, self.p, self.vg,							# ordering of fields.
-					self.p, self.vs] + langList + [self.vg,							
-					self.p, self.vs] + medList + [self.vg,							
-					self.p, self.vs, self.p, self.vg,							
-					self.p, self.vs, self.p, self.vg,							
-					self.p, self.vs, self.p, self.vg,							
-					self.p, self.vs, self.p, self.vg,							
-					self.p, self.vs, self.p, self.vg,							
+		size = [[self.b, self.f, self.hg, self.p, self.b],
+				[self.b, self.p, self.vs, self.p, self.vg,				# Name		
+					self.p, self.vs] + subList + [self.vg,				# Subject
+					self.p, self.vs, self.p, self.vg,					# Author		# This is the place that is 
+					self.p, self.vg,									# Class			# hard coded and needs to be 
+					self.p, self.vs, self.p, self.vg,					# Description	# modified when change is made in
+					self.p, self.vg,									# Content		# ordering of fields.
+					self.p, self.vs] + langList + [self.vg,				# Language			
+					self.p, self.vs] + medList + [self.vg,				# Media Type			
+					self.p, self.vg,									# Video Res
+					self.p, self.vs, self.p, self.vg,					# Content Duration
+					self.p, self.vg,									# Uploaded After
+					self.p, self.vg,									# Uploaded Before
+					self.p, self.vs, self.p, self.vg,					# Uploaded By
+					self.p, self.vs, self.p, self.vg,					# Object ID
+					self.p, self.vs, self.p, self.vg,					# Buttons
 					self.p, self.vs, self.p, self.vg,							
 					self.p, self.vs, self.p, self.b]]
 		self.layout_3 = TableLayout(size)
@@ -685,17 +779,13 @@ class Search():
 		count += 2
 		self.win_3.add(self.authorField_2, '1, ' + str(count))
 		count += 2
-		self.win_3.add(self.classLabel, '1, ' + str(count))
-		count += 2
-		self.win_3.add(self.classField_2, '1, ' + str(count))
+		self.win_3.add(self.classPanel_2, '1, ' + str(count) + ', l, f')
 		count += 2
 		self.win_3.add(self.descriptionLabel, '1, ' + str(count))
 		count += 2
 		self.win_3.add(self.descriptionField, '1, ' + str(count))
 		count += 2
-		self.win_3.add(self.contentTypeLabel, '1, ' + str(count))
-		count += 2
-		self.win_3.add(self.contentTypeField, '1, ' + str(count))
+		self.win_3.add(self.contentTypePanel, '1, ' + str(count) + ', l, f')
 		count += 2
 		self.win_3.add(self.languageLabel, '1, ' + str(count))
 		count += 2
@@ -709,9 +799,23 @@ class Search():
 			self.win_3.add(self.mediaTypeCheckboxes[i], '1, ' + str(count))
 			count += 1
 		count += 1
-		self.win_3.add(self.videoResLabel, '1, ' + str(count))
+		self.win_3.add(self.videoResPanel, '1, ' + str(count) + ', l, f')
 		count += 2
-		self.win_3.add(self.videoResField, '1, ' + str(count))
+		self.win_3.add(self.contentDurationLabel, '1, ' + str(count))
+		count += 2
+		self.win_3.add(self.contentDurationPanel, '1, ' + str(count))
+		count += 2
+		self.win_3.add(self.uploadedAfterPanel, '1, ' + str(count) + ', l, f')
+		count += 2
+		self.win_3.add(self.uploadedBeforePanel, '1, ' + str(count) + ', l, f')
+		count += 2
+		self.win_3.add(self.uploadedByLabel, '1, ' + str(count))
+		count += 2
+		self.win_3.add(self.uploadedByField, '1, ' + str(count))
+		count += 2
+		self.win_3.add(self.objectIDLabel, '1, ' + str(count))
+		count += 2
+		self.win_3.add(self.objectIDField, '1, ' + str(count))
 		count += 2
 		self.win_3.add(self.panelButton, '1, ' + str(count))
 		

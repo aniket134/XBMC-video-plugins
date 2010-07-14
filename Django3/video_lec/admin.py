@@ -9,50 +9,6 @@ from django.contrib import admin
 from django.forms import ModelForm
 from django import forms
 	
-SUBJECT_CHOICES = (
-				('ENG', 'English'),
-				('HIN', 'Hindi'),
-				('SAN', 'Sanskrit'),
-				('SCI', 'Science'),
-				('PHY', 'Physics'),
-				('CHY', 'Chemistry'),
-				('AST', 'Astronomy'),
-				('BIO', 'Biology'),
-				('GEO', 'Geology'),
-				('MAT', 'Mathematics'),
-				('ART', 'Arithmetic'),
-				('ALG', 'Algebra'),
-				('GMT', 'Geometry'),
-				('HIS', 'History'),
-				('SST', 'Social Studies'),
-				('HSC', 'Home Science'),
-				('AGR', 'Agriculture'),
-				('COM', 'Commerce'),
-				('CAC', 'Culture and Customs'),
-				('GKN', 'General Knowledge'),
-				('FAN', 'Food and Nutrition'),
-				('AAC', 'Arts and Crafts'),
-				('CLY', 'Computer Literacy'),
-				('GAM', 'Games'),
-				('STR', 'Stories'),
-				('PLY', 'Plays'),
-				('VOC', 'Vocabulary'),
-				('ENV', 'Environmental Science'),
-				('HCR', 'Health Care'),
-				('NUR', 'Nursing'),
-				('RPH', 'Reproductive Health'),
-				('CHH', 'Children Health'),
-				('WRT', 'Women Rights'),
-				('KAN', 'Kannada'),
-				('TAM', 'Tamil'),
-				('BEN', 'Bengali'),
-				('MAR', 'Marathi'),
-				('PUN', 'Punjabi'),
-				('URD', 'Urdu'),
-				('NEP', 'Nepali'),
-				('CPR', 'Children Program'),
-				)
-
 class ObjectInline(admin.StackedInline):
 	model = chap_info
 	fk_name = "target_object"
@@ -61,10 +17,10 @@ class ObjectInline(admin.StackedInline):
 class ObjectForm(ModelForm):
 	class Meta:
 		model = object
-	#subject = forms.MultipleChoiceField(choices=SUBJECT_CHOICES, widget=forms.CheckboxSelectMultiple())
-	#def clean_subject(self):
-	#	list = self.cleaned_data['subject']
-	#	return self.cleaned_data['subject']
+#	subject = forms.MultipleChoiceField(choices=SUBJECT_CHOICES, widget=forms.CheckboxSelectMultiple())
+#	def clean_subject(self):
+#		list = self.cleaned_data['subject']
+#		return self.cleaned_data['subject']
 
 
 class ObjectAdmin(admin.ModelAdmin):

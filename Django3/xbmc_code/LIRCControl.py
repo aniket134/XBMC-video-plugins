@@ -106,10 +106,30 @@ class MoveListener(IRActionListener):
 				elif command == 'back':
 					KeyboardFocusManager.getCurrentKeyboardFocusManager().focusPreviousComponent()
 			elif command == 'enter':
-				# If other JComponent like JCheckbox is selected.
+				# If other JComponent like JCheckbox, JRadioButton is selected.
 				otherComponent = self.searchObject.frame.getFocusOwner()
 				if type(otherComponent) == JCheckBox:
-					self.searchObject.checkboxClickedAction(otherComponent.name, otherComponent.getText())
+					self.searchObject.checkboxClickedAction(otherComponent)
+				elif type(otherComponent) == JRadioButton:
+					otherComponent.setSelected(True)
+			elif command == 'moveUp':
+				# If non-editable JComboBox is selected moveUp.
+				otherComponent = self.searchObject.frame.getFocusOwner()
+				if type(otherComponent) == JComboBox:
+					otherComponent.setPopupVisible(True)
+					nextIndex = otherComponent.getSelectedIndex() - 1
+					if nextIndex < 0:
+						nextIndex = 0
+					otherComponent.setSelectedIndex(nextIndex)
+			elif command == 'moveDown':
+				# If non-editable JComboBox is selected moveDown.
+				otherComponent = self.searchObject.frame.getFocusOwner()
+				if type(otherComponent) == JComboBox:
+					otherComponent.setPopupVisible(True)
+					nextIndex = otherComponent.getSelectedIndex() + 1
+					if nextIndex >= otherComponent.getItemCount():
+						nextIndex = otherComponent.getItemCount() - 1
+					otherComponent.setSelectedIndex(nextIndex)
 			elif command == 'moveRight':
 				# When neither any textfield, button, checkbox etc has focus. 
 				# Switch between tabs. Get next tab in focus.

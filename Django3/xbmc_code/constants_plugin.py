@@ -2,7 +2,7 @@
  This file contains some constants used by the plugin. 
  Use caution while modifying this file and changing its location. 
 """
-import sys, os
+import sys, os, datetime
 #: The username of Ubuntu user for whom this plugin is developed. Be carefull, it can be root if XBMC is run with sudo command.
 USERNAME = os.getenv('USERNAME')
 
@@ -107,3 +107,40 @@ LANGUAGES = [
 		('Gujarati', 'Gujarati'),
 		('Kashmiri', 'Kashmiri'),
 		]
+CONTENT_DURATION_HOUR = [
+		'Unknown', ] + range(9) + ['More'
+		]
+CONTENT_DURATION_MINUTE = ['Unknown', ] + range(60)
+CONTENT_DURATION_SECOND = ['Unknown', ] + range(60)
+now = datetime.datetime.now()
+UPLOADED_AFTER_YEAR = ['Unknown'] + range(2005, now.year)
+UPLOADED_AFTER_MONTH = ['Unknown'] + range(1, 13)
+UPLOADED_AFTER_DAY = ['Unknown'] + range(1, 32)
+VIDEO_RESOLUTION = ['Unknown', 320, 350, 640, 720, 1024, 'Greater']
+CONTENT_TYPES = ['Unknown', 'lecture',
+		'lesson_plan', 'test', 
+		'courseware',
+		'practicals', 'experiments', 
+		'textbook', 'course_materials',
+		'monitoring', 'visits', 'documentary',
+		'supplementary',
+		'compilation',
+		'public_awareness', 
+		'other_TV', 'workshop', 'radio_program',
+		'requests',
+		'support_software',
+		'teacher_training',
+		'staff_training', 'community_training',
+		'chat', 'interview',
+		'student_projects',
+		'homework_submission', 'homework_feedback',
+		'questions', 'answers',
+		'social_entertainment', 'exam', 'information',
+		'scratch_space', 'tmp',
+		'Other']
+CLASSES = ['unknown', 'preschool', '1', '2', '3', '4', '5', '6',
+		'7', '8', '9', '10', '11', '12', 'college']
+
+AGES = ['unknown', 'preschool', '6', '7', '8', '9', '10', '11', '12',
+		'13', '14', '15', '16', '17', 'college']
+SIZE_UNIT = ['MB', 'KB', 'B']

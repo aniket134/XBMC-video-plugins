@@ -18,6 +18,10 @@ SD = CP.SEARCH_DELIMITER
 # Used as a link between database tables/columns and Search box fields. Case-sensitive.
 fields = ['Name', 'Subject', 'Author', 'Class', 'Description', \
 		'ContentType', 'VideoRes', 'Media', 'Language', \
+		'UploadedAfterYear', 'UploadedAfterMonth', 'UploadedAfterDay', \
+		'UploadedBeforeYear', 'UploadedBeforeMonth', 'UploadedBeforeDay', \
+		'ContentDurationRadio', 'ContentDurationHour', \
+		'ContentDurationMinute', 'UploadedBy', 'ObjectID', \
 		'checkboxSubject', 'checkboxMedia', 'checkboxLanguage']
 textNotCatched = []
 
