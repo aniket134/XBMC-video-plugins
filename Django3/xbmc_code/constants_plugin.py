@@ -29,6 +29,8 @@ MEDIA_ROOT = '/media/OS/MOVIES/TV-SERIES/django_upload/'
 #: Delimiter used while searching.
 SEARCH_DELIMITER = '::'
 
+UNKNOWN = 'Unknown'
+
 SUBJECT_CHOICES = [
 				('English', 'English'),
 				('Hindi', 'Hindi'),
@@ -108,16 +110,19 @@ LANGUAGES = [
 		('Kashmiri', 'Kashmiri'),
 		]
 CONTENT_DURATION_HOUR = [
-		'Unknown', ] + range(9) + ['More'
+		UNKNOWN, ] + range(9) + ['More'
 		]
-CONTENT_DURATION_MINUTE = ['Unknown', ] + range(60)
-CONTENT_DURATION_SECOND = ['Unknown', ] + range(60)
+CONTENT_DURATION_MINUTE = [UNKNOWN, ] + range(60)
+CONTENT_DURATION_SECOND = [UNKNOWN, ] + range(60)
 now = datetime.datetime.now()
-UPLOADED_AFTER_YEAR = ['Unknown'] + range(2005, now.year)
-UPLOADED_AFTER_MONTH = ['Unknown'] + range(1, 13)
-UPLOADED_AFTER_DAY = ['Unknown'] + range(1, 32)
-VIDEO_RESOLUTION = ['Unknown', 320, 350, 640, 720, 1024, 'Greater']
-CONTENT_TYPES = ['Unknown', 'lecture',
+UPLOADED_AFTER_YEAR = [UNKNOWN] + range(2005, now.year)
+UPLOADED_AFTER_MONTH = [UNKNOWN] + range(1, 13)
+UPLOADED_AFTER_DAY = [UNKNOWN] + range(1, 32)
+UPLOADED_BEFORE_YEAR = [UNKNOWN] + range(2005, now.year)
+UPLOADED_BEFORE_MONTH = [UNKNOWN] + range(1, 13)
+UPLOADED_BEFORE_DAY = [UNKNOWN] + range(1, 32)
+VIDEO_RESOLUTION = [UNKNOWN, 320, 350, 640, 720, 1024, 'Greater']
+CONTENT_TYPES = [UNKNOWN, 'lecture',
 		'lesson_plan', 'test', 
 		'courseware',
 		'practicals', 'experiments', 
@@ -138,9 +143,11 @@ CONTENT_TYPES = ['Unknown', 'lecture',
 		'social_entertainment', 'exam', 'information',
 		'scratch_space', 'tmp',
 		'Other']
+
 CLASSES = ['unknown', 'preschool', '1', '2', '3', '4', '5', '6',
 		'7', '8', '9', '10', '11', '12', 'college']
 
 AGES = ['unknown', 'preschool', '6', '7', '8', '9', '10', '11', '12',
 		'13', '14', '15', '16', '17', 'college']
 SIZE_UNIT = ['MB', 'KB', 'B']
+OBJECT_TYPE = ['Leaf', 'Node']

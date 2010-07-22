@@ -198,11 +198,292 @@ def finalSearch(string):
 	elif mode == 2:
 		# Advanced Search box
 		objects = thirdObjectSearch(hashtable, obos, pos, orgos)
-	print(objects)
 	return objects
 
 def thirdObjectSearch(hashtable, obos, pos, orgos):
-	return secondObjectSearch(hashtable, obos, pos, orgos)
+	objects = []
+	list = secondObjectSearch(hashtable, obos, pos, orgos)
+
+####
+	value = hashtable.get(fields[4])
+	list_1 = []
+	tmp = []
+	if value != None and value != '':
+		addObject(list_1, obos.filter(description__search=value))
+		addObject(list_1, obos.filter(description__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(description__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(description__iregex='\w*' + v + '\w*'))
+	list += list_1
+	list_1 = getOrderedList(list_1)
+	list_1 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[5])
+	list_2 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_2, obos.filter(content_type__search=value))
+		addObject(list_2, obos.filter(content_type__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(content_type__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(content_type__iregex='\w*' + v + '\w*'))
+	list += list_2
+	list_2 = getOrderedList(list_2)
+	list_2 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[6])
+	list_3 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObjectViaPerson(list_3, pos.filter(video_resolution__search=value))
+		addObjectViaPerson(list_3, pos.filter(video_resolution__contains=value))
+		for v in value.split():
+			addObjectViaPerson(tmp, pos.filter(video_resolution__regex='\w*' + v + '\w*'))
+			addObjectViaPerson(tmp, pos.filter(video_resolution__iregex='\w*' + v + '\w*'))
+	list += list_3
+	list_3 = getOrderedList(list_3)
+	list_3 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[7])
+	list_4 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_4, obos.filter(other_media_type__search=value))
+		addObject(list_4, obos.filter(other_media_type__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(other_media_type__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(other_media_type__iregex='\w*' + v + '\w*'))
+	list += list_4
+	list_4 = getOrderedList(list_4)
+	list_4 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[8])
+	list_5 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_5, obos.filter(other_language__search=value))
+		addObject(list_5, obos.filter(other_language__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(other_language__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(other_language__iregex='\w*' + v + '\w*'))
+	list += list_5
+	list_5 = getOrderedList(list_5)
+	list_5 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[9])
+	list_6 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_6, obos.filter(upload_after_year__search=value))
+		addObject(list_6, obos.filter(upload_after_year__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(upload_after_year__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(upload_after_year__iregex='\w*' + v + '\w*'))
+	list += list_6
+	list_6 = getOrderedList(list_6)
+	list_6 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[10])
+	list_7 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_7, obos.filter(upload_after_month__search=value))
+		addObject(list_7, obos.filter(upload_after_month__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(upload_after_month__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(upload_after_month__iregex='\w*' + v + '\w*'))
+	list += list_7
+	list_7 = getOrderedList(list_7)
+	list_7 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[11])
+	list_8 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_8, obos.filter(upload_after_day__search=value))
+		addObject(list_8, obos.filter(upload_after_day__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(upload_after_day__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(upload_after_day__iregex='\w*' + v + '\w*'))
+	list += list_8
+	list_8 = getOrderedList(list_8)
+	list_8 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[12])
+	list_9 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_9, obos.filter(upload_before_year__search=value))
+		addObject(list_9, obos.filter(upload_before_year__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(upload_before_year__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(upload_before_year__iregex='\w*' + v + '\w*'))
+	list += list_9
+	list_9 = getOrderedList(list_9)
+	list_9 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[13])
+	list_10 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_10, obos.filter(upload_before_month__search=value))
+		addObject(list_10, obos.filter(upload_before_month__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(upload_before_month__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(upload_before_month__iregex='\w*' + v + '\w*'))
+	list += list_10
+	list_10 = getOrderedList(list_10)
+	list_10 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[14])
+	list_11 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_11, obos.filter(upload_before_day__search=value))
+		addObject(list_11, obos.filter(upload_before_day__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(upload_before_day__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(upload_before_day__iregex='\w*' + v + '\w*'))
+	list += list_11
+	list_11 = getOrderedList(list_11)
+	list_11 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[15])
+	list_12 = []
+	tmp = []
+	if value != None and value != '':
+		if value == 'atLeast':
+			con_hour = hashtable.get(fields[16])
+			con_min = hashtable.get(fields[17])
+			if con_hour != None and con_hour != '' and con_min != None and con_min != '' \
+					and con_hour != CP.UNKNOWN and con_min != CP.UNKNOWN:
+				addObject(list_12, obos.filter(content_duration_hour__gte=con_hour).filter(content_duration_minute__gte=con_min))
+			elif con_hour != None and con_hour != '' and con_hour != CP.UNKNOWN:
+				addObject(list_12, obos.filter(content_duration_hour__gte=con_hour))
+			elif con_min != None and con_min != '' and con_min != CP.UNKNOWN:
+				addObject(list_12, obos.filter(content_duration_minute__gte=con_min))
+			else:
+				pass
+		elif value == 'equals':
+			con_hour = hashtable.get(fields[16])
+			con_min = hashtable.get(fields[17])
+			if con_hour != None and con_hour != '' and con_min != None and con_min != '' \
+					and con_hour != CP.UNKNOWN and con_min != CP.UNKNOWN:
+				addObject(list_12, obos.filter(content_duration_hour__exact=con_hour).filter(content_duration_minute__exact=con_min))
+			elif con_hour != None and con_hour != '' and con_hour != CP.UNKNOWN:
+				addObject(list_12, obos.filter(content_duration_hour__exact=con_hour))
+			elif con_min != None and con_min != '' and con_min != CP.UNKNOWN:
+				addObject(list_12, obos.filter(content_duration_minute__exact=con_min))
+			else:
+				pass
+		elif value == 'atMost':
+			con_hour = hashtable.get(fields[16])
+			con_min = hashtable.get(fields[17])
+			if con_hour != None and con_hour != '' and con_min != None and con_min != '' \
+					and con_hour != CP.UNKNOWN and con_min != CP.UNKNOWN:
+				addObject(list_12, obos.filter(content_duration_hour__lte=con_hour).filter(content_duration_minute__lte=con_min))
+			elif con_hour != None and con_hour != '' and con_hour != CP.UNKNOWN:
+				addObject(list_12, obos.filter(content_duration_hour__lte=con_hour))
+			elif con_min != None and con_min != '' and con_min != CP.UNKNOWN:
+				addObject(list_12, obos.filter(content_duration_minute__lte=con_min))
+			else:
+				pass
+		else:
+			pass
+	list += list_12
+	list_12 = getOrderedList(list_12)
+	list_12 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[18])
+	list_13 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_13, obos.filter(uploaded_by__search=value))
+		addObject(list_13, obos.filter(uploaded_by__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(uploaded_by__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(uploaded_by__iregex='\w*' + v + '\w*'))
+	list += list_13
+	list_13 = getOrderedList(list_13)
+	list_13 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[19])
+	list_14 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		addObject(list_14, obos.filter(object_id__search=value))
+		addObject(list_14, obos.filter(object_id__contains=value))
+		for v in value.split():
+			addObject(tmp, obos.filter(object_id__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(object_id__iregex='\w*' + v + '\w*'))
+	list += list_14
+	list_14 = getOrderedList(list_14)
+	list_14 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[20])
+	list_15 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		try:
+			value_list = eval(value)
+			addObject(list_15, obos.filter(subject__in=value_list))
+		except Exception, e:
+			pass
+	list += list_15
+	list_15 = getOrderedList(list_15)
+	list_15 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[21])
+	list_16 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		try:
+			value_list = eval(value)
+			addObject(list_16, obos.filter(media__in=value_list))
+		except Exception, e:
+			pass
+	list += list_16
+	list_16 = getOrderedList(list_16)
+	list_16 += getOrderedList(tmp)
+
+####
+	value = hashtable.get(fields[22])
+	list_17 = []
+	tmp = []
+	if value != None and value != '' and value != CP.UNKNOWN:
+		try:
+			value_list = eval(value)
+			addObject(list_17, obos.filter(language__in=value_list))
+		except Exception, e:
+			pass
+	list += list_17
+	list_17 = getOrderedList(list_17)
+	list_17 += getOrderedList(tmp)
+
+####
+	list = getOrderedList(list)
+	list += getOrderedList(list_1 + list_2 + list_3 + list_4 + list_5 + list_6 \
+			+ list_7 + list_8 + list_9 + list_10 + list_11 + list_12 + list_13 \
+			+ list_14 + list_15 + list_16 + list_17)
+	list = getOrderedList(list)
+	for l in list:
+		objects.append(l)
+	return objects
 
 def secondObjectSearch(hashtable, obos, pos, orgos):
 	objects = []
@@ -225,11 +506,11 @@ def secondObjectSearch(hashtable, obos, pos, orgos):
 	list_2 = []
 	tmp = []
 	if value != None and value != '':
-		addObject(list_2, obos.filter(subject__search=value))
-		addObject(list_2, obos.filter(subject__contains=value))
+		addObject(list_2, obos.filter(subject__search=value).filter(other_subject__search=value))
+		addObject(list_2, obos.filter(subject__contains=value.filter(other_subject__contains=value)))
 		for v in value.split():
-			addObject(tmp, obos.filter(subject__regex='\w*' + v + '\w*'))
-			addObject(tmp, obos.filter(subject__iregex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(subject__regex='\w*' + v + '\w*').filter(other_subject__regex='\w*' + v + '\w*'))
+			addObject(tmp, obos.filter(subject__iregex='\w*' + v + '\w*').filter(other_subject__iregex='\w*' + v + '\w*'))
 	list += list_2
 	list_2 = getOrderedList(list_2)
 	list_2 += getOrderedList(tmp)
@@ -423,9 +704,9 @@ def getHashtable(string):
 				hashtable[match.group(1)] = match.group(2)
 			else:
 				textNotCatched.append(match.group())
-	#sys.stderr.write((str(hashtable)))
+	#sys.stderr.write('==================================' + str(hashtable))
 	if(len(textNotCatched)) > 0:
-		#sys.stderr(('Text Not Catched: ' + str(textNotCatched)))
+		#sys.stderr('==================================' + 'Text Not Catched: ' + str(textNotCatched))
 		pass
 	return hashtable
 
@@ -465,14 +746,15 @@ def stripDelimiter(text):
 # To run is as a standalone script for testing.
 if __name__ == '__main__':
 	# This imitates the actual list that is passed for Search.
-	list = ['u', '', '', '']
-	print('----------------------Searching-----------------------')
+	tup2 = (u"Search::::Name::an::::Class::unknown::::ContentType::Unknown::::VideoRes::Unknown::::UploadedAfterYear::Unknown::::UploadedAfterMonth::Unknown::::UploadedAfterDay::Unknown::::UploadedBeforeYear::Unknown::::UploadedBeforeMonth::Unknown::::UploadedBeforeDay::Unknown::::ContentDurationRadio::At least::::ContentDurationHour::Unknown::::ContentDurationMinute::Unknown::::checkboxSubject::[u'Hindi']::::checkboxMedia::[]::::checkboxLanguage::[]", 2)
+	#list = ['u', '', '', '']
+	print('----------------------Searching-----------------------' + str(sys.argv))
 	# Function that searches.
-	tup = (getValidText(list), 1)
-	finalSearch(str(tup))
+	#tup = (getValidText(list), 1)
+	finalSearch(str(tup2))
 
-	print('----------------------Suggesting-----------------------')
+#	print('----------------------Suggesting-----------------------')
 	# This imitates Suggest.
-	text = 'how'
-	populateSuggest()
-	suggestSearch(text, 'Name')
+#	text = 'how'
+#	populateSuggest()
+#	suggestSearch(text, 'Name')

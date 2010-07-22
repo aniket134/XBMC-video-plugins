@@ -17,15 +17,21 @@ class ObjectInline(admin.StackedInline):
 class ObjectForm(ModelForm):
 	class Meta:
 		model = object
-#	subject = forms.MultipleChoiceField(choices=SUBJECT_CHOICES, widget=forms.CheckboxSelectMultiple())
+	# Still not able to make multi ple choice fields of subject.
+#	xna = forms.BooleanField()
+#	xna2 = forms.BooleanField()
+#	subject = forms.MultipleChoiceField(choices=CP.SUBJECT_CHOICES, widget=forms.CheckboxSelectMultiple())
 #	def clean_subject(self):
-#		list = self.cleaned_data['subject']
-#		return self.cleaned_data['subject']
-
+#		bool_xna = self.cleaned_data['xna']
+#		bool_xna2 = self.xna2
+#		if bool_xna and bool_xna2:
+#			return 'Bob'
+#		return 'Kelso'
 
 class ObjectAdmin(admin.ModelAdmin):
 	form = ObjectForm
 	inlines = (ObjectInline,)
+	list_display = ('title', 'subject', 'person', 'language', 'date_added')
 
 admin.site.register(chap_info)
 admin.site.register(object, ObjectAdmin)
