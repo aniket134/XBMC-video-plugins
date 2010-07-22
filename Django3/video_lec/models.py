@@ -76,3 +76,12 @@ class chap_info(models.Model):
 	target_object = models.ForeignKey(object, related_name='to_object')
 	chap_no = models.CharField(max_length=10, null=True, blank=True)
 
+class suggest_history(models.Model):
+	query = models.CharField(max_length=255, blank=True)
+	date_added = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+	field = models.CharField(max_length=30)
+
+	def __unicode__(self):
+		return self.query
+	def get_date_added(self):
+		return self.date_added

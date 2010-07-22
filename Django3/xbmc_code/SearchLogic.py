@@ -32,16 +32,27 @@ def suggestSearch(text, type):
 #	import db_interaction as DB
 	#print('Suggesting Search for text: ' + text + 'and type: ' + type)
 	suggestions = []
+	last_word = text.split()[-1]
 
 	if type == fields[0]:
 		f = open('xbmc_code/suggestions/name.txt', 'rU')
+		fh = open('xbmc_code/suggestions/name_history.txt', 'rU')
 	elif type == fields[1]:
 		f = open('xbmc_code/suggestions/subject.txt', 'rU')
+		fh = open('xbmc_code/suggestions/subject_history.txt', 'rU')
 	elif type == fields[2]:
 		f = open('xbmc_code/suggestions/person.txt', 'rU')
+		fh = open('xbmc_code/suggestions/person_history.txt', 'rU')
 	elif type == fields[3]:
 		f = open('xbmc_code/suggestions/class.txt', 'rU')
+		fh = open('xbmc_code/suggestions/class_history.txt', 'rU')
 	elif type == 'Default':
+		f = open('xbmc_code/suggestions/name_history.txt', 'rU')
+		hisLines = f.readlines()
+		f.close()
+		getMatch(hisLines, text, suggestions)
+		lenSug = len(suggestions)
+
 		f = open('xbmc_code/suggestions/name.txt', 'rU')
 		dbString = f.read()
 		f.seek(0)
@@ -50,8 +61,8 @@ def suggestSearch(text, type):
 		dbWords = dbString.split()
 		getMatch(dbLines, text, suggestions)
 		suggestions = suggestions[:2]
-		if len(suggestions) == 0:
-			getMatch(dbWords, text.split()[-1], suggestions)
+		if lenSug == len(suggestions):
+			getMatch(dbWords, last_word, suggestions)
 		lenSug = len(suggestions)
 
 		f = open('xbmc_code/suggestions/subject.txt', 'rU')
@@ -63,7 +74,7 @@ def suggestSearch(text, type):
 		getMatch(dbLines, text, suggestions)
 		suggestions = suggestions[:3]
 		if lenSug == len(suggestions):
-			getMatch(dbWords, text.split()[-1], suggestions)
+			getMatch(dbWords, last_word, suggestions)
 		lenSug = len(suggestions)
 
 		f = open('xbmc_code/suggestions/person.txt', 'rU')
@@ -75,7 +86,7 @@ def suggestSearch(text, type):
 		getMatch(dbLines, text, suggestions)
 		suggestions = suggestions[:4]
 		if lenSug == len(suggestions):
-			getMatch(dbWords, text.split()[-1], suggestions)
+			getMatch(dbWords, last_word, suggestions)
 		lenSug = len(suggestions)
 
 		f = open('xbmc_code/suggestions/class.txt', 'rU')
@@ -87,7 +98,7 @@ def suggestSearch(text, type):
 		getMatch(dbLines, text, suggestions)
 		suggestions = suggestions[:5]
 		if lenSug == len(suggestions):
-			getMatch(dbWords, text.split()[-1], suggestions)
+			getMatch(dbWords, last_word, suggestions)
 		lenSug = len(suggestions)
 
 		f = open('xbmc_code/suggestions/en_US.dic', 'rU')
@@ -95,27 +106,34 @@ def suggestSearch(text, type):
 		f.close()
 	
 		suggestions = suggestions[:6]
-		getMatch(engWords, text.split()[-1], suggestions)
+		getMatch(engWords, last_word, suggestions)
 
 		return suggestions[:7]
 	else:
 		return []
 	
+	# Suggest from Database
 	dbString = f.read()
 	f.seek(0)
 	dbLines = f.readlines()
 	f.close()
 	dbWords = dbString.split()
+	# Suggest from Automatic word completion
 	f = open('xbmc_code/suggestions/en_US.dic', 'rU')
 	engWords = f.readlines()
 	f.close()
+	# Suggest from previous history of Searches
+	hisLines = fh.readlines()
+	fh.close()
 	
+	# The order in which getMatch is called decided the priority of suggest too.
+	getMatch(hisLines, text, suggestions)
 	getMatch(dbLines, text, suggestions)
 	# This condition is implied because if match is found in dbLines then
 	# its atleast one part will again occur in dbWords.
 	if len(suggestions) == 0:
-		getMatch(dbWords, text.split()[-1], suggestions)
-	getMatch(engWords, text.split()[-1], suggestions)
+		getMatch(dbWords, last_word, suggestions)
+	getMatch(engWords, last_word, suggestions)
 
 #	os.environ['JYTHON_RUNNING'] = 'NO'
 	return suggestions[:6]
@@ -124,17 +142,23 @@ def populateSuggest():
 	"""
 	Used to populate suggestions. Reads database and fills files with data, which is used to suggest results.
 	"""
-	from video_lec.models import object, person, organization
+	from video_lec.models import object, person, organization, suggest_history
 	import db_interaction as DB
 	obos = object.objects.all()					# object objects
 	pos = person.objects.all()					# person objects
 	orgos = organization.objects.all()			# organization objects
+	sugos = suggest_history.objects.all()		# suggest_history objects
+	nhf = open('xbmc_code/suggestions/name_history.txt', 'w')
+	shf = open('xbmc_code/suggestions/subject_history.txt', 'w')
+	chf = open('xbmc_code/suggestions/class_history.txt', 'w')
+	phf = open('xbmc_code/suggestions/person_history.txt', 'w')
 	nf = open('xbmc_code/suggestions/name.txt', 'w')
 	sf = open('xbmc_code/suggestions/subject.txt', 'w')
 	cf = open('xbmc_code/suggestions/class.txt', 'w')
 	pf = open('xbmc_code/suggestions/person.txt', 'w')
 	orgf = open('xbmc_code/suggestions/organization.txt', 'w')
-	string_1 = ''; string_2 = ''; string_3 = ''; string_4 = ''; string_5 = ''; string_6 = ''
+	string_1 = ''; string_2 = ''; string_3 = ''; string_4 = ''; string_5 = ''
+	string_6 = ''; string_7 = ''; string_8 = ''; string_9 = '';
 	for o in obos:
 		string_1 += str(o.title) + '\n'
 		string_4 += str(o.subject) + '\n' + str(o.other_subject) + '\n'
@@ -143,21 +167,53 @@ def populateSuggest():
 		string_2 += str(o.name) + '\n'
 	for o in orgos:
 		string_3 += str(o.name) + '\n' + str(o.address) + '\n'
+	for o in sugos:
+		if o.field == fields[0]:
+			string_6 += str(o.query) + '\n'
+		elif o.field == fields[1]:
+			string_7 += str(o.query) + '\n'
+		elif o.field == fields[2]:
+			string_8 += str(o.query) + '\n'
+		elif o.field == fields[3]:
+			string_9 += str(o.query) + '\n'
 	string_1 = string_1.replace('None', '').replace('  ', ' ').replace('   ', ' ')
 	string_2 = string_2.replace('None', '').replace('  ', ' ').replace('   ', ' ')
 	string_3 = string_3.replace('None', '').replace('  ', ' ').replace('   ', ' ')
-	string_4 = string_3.replace('None', '').replace('  ', ' ').replace('   ', ' ')
-	string_5 = string_3.replace('None', '').replace('  ', ' ').replace('   ', ' ')
+	string_4 = string_4.replace('None', '').replace('  ', ' ').replace('   ', ' ')
+	string_5 = string_5.replace('None', '').replace('  ', ' ').replace('   ', ' ')
+	string_6 = string_6.replace('None', '').replace('  ', ' ').replace('   ', ' ')
+	string_7 = string_7.replace('None', '').replace('  ', ' ').replace('   ', ' ')
+	string_8 = string_8.replace('None', '').replace('  ', ' ').replace('   ', ' ')
+	string_9 = string_9.replace('None', '').replace('  ', ' ').replace('   ', ' ')
 	nf.write(string_1)
 	pf.write(string_2)
 	orgf.write(string_3)
-	sf.write(string_2)
-	cf.write(string_2)
+	sf.write(string_4)
+	cf.write(string_5)
+	nhf.write(string_6)
+	shf.write(string_7)
+	phf.write(string_8)
+	chf.write(string_9)
 	nf.close()
 	pf.close()
 	orgf.close()
 	sf.close()
 	cf.close()
+	nhf.close()
+	shf.close()
+	chf.close()
+	phf.close()
+
+def save_suggest(hashtable, sugos):
+	sugall = sugos.all()
+	for key in hashtable.keys():
+		if key == fields[0] or key == fields[1] or key == fields[2] \
+				or key == fields[3]:
+			value = hashtable.get(key)
+			if value != None and value != '' and value != CP.UNKNOWN:
+				bool = is_present(sugall, key, value)
+				if not bool:
+					sugos.create(field=key.strip(), query=value.strip())
 
 def finalSearch(string):
 	"""
@@ -182,13 +238,17 @@ def finalSearch(string):
 	# More methods to get valid search string can be included in getHashtable.
 	# Do not manipulate hashtable here. Only database queries go here.
 	os.environ['JYTHON_RUNNING'] = 'NO'
-	from video_lec.models import object, person, organization
+	from video_lec.models import object, person, organization, suggest_history
 	import db_interaction as DB
 	obos = object.objects					# object objects QuerySet
 	pos = person.objects					# person objects QuerySet
 	orgos = organization.objects			# organization objects QuerySet
+	sugos = suggest_history.objects
 	objects = []
 	mode = tup[1]
+
+	save_suggest(hashtable, sugos)
+
 	if mode == 0:
 		# Default Search with one search fields
 		objects = firstObjectSearch(hashtable[fields[0]], obos, pos, orgos)
@@ -614,6 +674,13 @@ def firstObjectSearch(value, obos, pos, orgos):
 		objects.append(l)
 	return objects
 
+def is_present(sugall, field, query):
+	for sh in sugall:
+		if sh.field == field:
+			if sh.query.upper() == query.strip().upper():
+				return True
+	return False
+
 def addObjectViaOrg(list1, list2):
 	"""
 	Retreives 'object' objects from a QuerySet on orgos.
@@ -745,10 +812,11 @@ def stripDelimiter(text):
 
 # To run is as a standalone script for testing.
 if __name__ == '__main__':
+	populateSuggest()
 	# This imitates the actual list that is passed for Search.
-	tup2 = (u"Search::::Name::an::::Class::unknown::::ContentType::Unknown::::VideoRes::Unknown::::UploadedAfterYear::Unknown::::UploadedAfterMonth::Unknown::::UploadedAfterDay::Unknown::::UploadedBeforeYear::Unknown::::UploadedBeforeMonth::Unknown::::UploadedBeforeDay::Unknown::::ContentDurationRadio::At least::::ContentDurationHour::Unknown::::ContentDurationMinute::Unknown::::checkboxSubject::[u'Hindi']::::checkboxMedia::[]::::checkboxLanguage::[]", 2)
+	tup2 = (u"Search::::Name::poiuyt::::Class::lkjh::::ContentType::Unknown::::VideoRes::Unknown::::UploadedAfterYear::Unknown::::UploadedAfterMonth::Unknown::::UploadedAfterDay::Unknown::::UploadedBeforeYear::Unknown::::UploadedBeforeMonth::Unknown::::UploadedBeforeDay::Unknown::::ContentDurationRadio::At least::::ContentDurationHour::Unknown::::ContentDurationMinute::Unknown::::checkboxSubject::[u'Hindi']::::checkboxMedia::[]::::checkboxLanguage::[]", 2)
 	#list = ['u', '', '', '']
-	print('----------------------Searching-----------------------' + str(sys.argv))
+	print('----------------------Searching-----------------------')
 	# Function that searches.
 	#tup = (getValidText(list), 1)
 	finalSearch(str(tup2))
@@ -756,5 +824,4 @@ if __name__ == '__main__':
 #	print('----------------------Suggesting-----------------------')
 	# This imitates Suggest.
 #	text = 'how'
-#	populateSuggest()
 #	suggestSearch(text, 'Name')

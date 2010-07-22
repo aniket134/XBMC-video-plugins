@@ -144,10 +144,10 @@ CONTENT_TYPES = [UNKNOWN, 'lecture',
 		'scratch_space', 'tmp',
 		'Other']
 
-CLASSES = ['unknown', 'preschool', '1', '2', '3', '4', '5', '6',
+CLASSES = [UNKNOWN, 'preschool', '1', '2', '3', '4', '5', '6',
 		'7', '8', '9', '10', '11', '12', 'college']
 
-AGES = ['unknown', 'preschool', '6', '7', '8', '9', '10', '11', '12',
+AGES = [UNKNOWN, 'preschool', '6', '7', '8', '9', '10', '11', '12',
 		'13', '14', '15', '16', '17', 'college']
 SIZE_UNIT = ['MB', 'KB', 'B']
 OBJECT_TYPE = ['Leaf', 'Node']

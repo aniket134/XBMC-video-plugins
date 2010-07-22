@@ -17,7 +17,7 @@ class ObjectInline(admin.StackedInline):
 class ObjectForm(ModelForm):
 	class Meta:
 		model = object
-	# Still not able to make multi ple choice fields of subject.
+	# Still not able to make multiple choice fields of subject.
 #	xna = forms.BooleanField()
 #	xna2 = forms.BooleanField()
 #	subject = forms.MultipleChoiceField(choices=CP.SUBJECT_CHOICES, widget=forms.CheckboxSelectMultiple())
