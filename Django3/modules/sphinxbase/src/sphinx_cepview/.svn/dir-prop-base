@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 73
+.deps
+.libs
+Makefile.in
+Makefile
+sphinx_cepview
+sphinx_cepview.exe
+Debug
+
+END

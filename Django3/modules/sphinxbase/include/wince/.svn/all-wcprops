@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/cmusphinx/!svn/ver/9453/trunk/sphinxbase/include/wince
+END
+sphinx_config.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/9453/trunk/sphinxbase/include/wince/sphinx_config.h
+END
+assert.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/cmusphinx/!svn/ver/6741/trunk/sphinxbase/include/wince/assert.h
+END
+string_wce.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/9087/trunk/sphinxbase/include/wince/string_wce.h
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/cmusphinx/!svn/ver/9086/trunk/sphinxbase/include/wince/config.h
+END
+errno.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/9087/trunk/sphinxbase/include/wince/errno.h
+END

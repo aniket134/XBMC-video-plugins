@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 47
+.deps
+.libs
+Makefile.in
+Makefile
+chgCase
+*.exe
+
+END

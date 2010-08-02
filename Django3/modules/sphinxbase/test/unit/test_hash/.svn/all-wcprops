@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_hash
+END
+_hash_delete3.res
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/unit/test_hash/_hash_delete3.res
+END
+_hash_delete4.res
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/unit/test_hash/_hash_delete4.res
+END
+_hash_delete5.res
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/unit/test_hash/_hash_delete5.res
+END
+test_hash_iter.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/10084/trunk/sphinxbase/test/unit/test_hash/test_hash_iter.c
+END
+deletehash.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/6129/trunk/sphinxbase/test/unit/test_hash/deletehash.c
+END
+displayhash.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/6129/trunk/sphinxbase/test/unit/test_hash/displayhash.c
+END
+display.res
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/unit/test_hash/display.res
+END
+_hash_delete1.test
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_hash/_hash_delete1.test
+END
+_hash_delete2.test
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_hash/_hash_delete2.test
+END
+_hash_delete3.test
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_hash/_hash_delete3.test
+END
+_hash_delete4.test
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_hash/_hash_delete4.test
+END
+_hash_delete5.test
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_hash/_hash_delete5.test
+END
+test_macros.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/8038/trunk/sphinxbase/test/unit/test_hash/test_macros.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_hash/Makefile.am
+END
+_hash_delete1.res
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/unit/test_hash/_hash_delete1.res
+END
+_hash_delete2.res
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/unit/test_hash/_hash_delete2.res
+END

@@ -1,0 +1,20 @@
+K 10
+svn:ignore
+V 159
+*.substvars
+files
+libsphinxbase-dev
+libsphinxbase1.postinst.debhelper
+libsphinxbase1.postrm.debhelper
+libsphinxbase1
+python2.5-sphinxbase
+sphinxbase-utils
+tmp
+
+K 13
+svn:mergeinfo
+V 198
+/branches/pocketsphinx-0.5/sphinxbase/debian:8806-8837
+/branches/pocketsphinx-0.6/sphinxbase/debian.maemo:10122-10128
+/trunk/sphinxbase/debian:9597-9859,9872,9906,9937,9942-9953,9964,9975-9977,10033
+END

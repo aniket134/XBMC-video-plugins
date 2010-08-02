@@ -1,0 +1,15 @@
+K 10
+svn:ignore
+V 105
+.deps
+.libs
+Makefile.in
+Makefile
+test_determinant
+test_eigen
+test_invert
+test_solve
+test_transpose
+*.exe
+
+END

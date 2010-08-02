@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/9453/trunk/sphinxbase/test/unit/Makefile.am
+END
+testfuncs.sh.in
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/9754/trunk/sphinxbase/test/unit/testfuncs.sh.in
+END

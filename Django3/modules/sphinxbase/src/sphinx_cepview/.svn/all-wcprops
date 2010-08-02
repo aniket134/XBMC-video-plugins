@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_cepview
+END
+main_cepview.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_cepview/main_cepview.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/8315/trunk/sphinxbase/src/sphinx_cepview/Makefile.am
+END

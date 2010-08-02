@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_alloc
+END
+test_ckd_alloc_abort.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cmusphinx/!svn/ver/7831/trunk/sphinxbase/test/unit/test_alloc/test_ckd_alloc_abort.c
+END
+test_ckd_alloc_fail.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cmusphinx/!svn/ver/7831/trunk/sphinxbase/test/unit/test_alloc/test_ckd_alloc_fail.c
+END
+test_listelem_alloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cmusphinx/!svn/ver/9988/trunk/sphinxbase/test/unit/test_alloc/test_listelem_alloc.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_alloc/Makefile.am
+END
+test_macros.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/7831/trunk/sphinxbase/test/unit/test_alloc/test_macros.h
+END
+test_ckd_alloc_abort.sh
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cmusphinx/!svn/ver/8375/trunk/sphinxbase/test/unit/test_alloc/test_ckd_alloc_abort.sh
+END
+test_ckd_alloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/7831/trunk/sphinxbase/test/unit/test_alloc/test_ckd_alloc.c
+END
+test_ckd_alloc_catch.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cmusphinx/!svn/ver/7831/trunk/sphinxbase/test/unit/test_alloc/test_ckd_alloc_catch.c
+END
+test_ckd_alloc_fail.sh
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cmusphinx/!svn/ver/7831/trunk/sphinxbase/test/unit/test_alloc/test_ckd_alloc_fail.sh
+END

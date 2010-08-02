@@ -1,0 +1,83 @@
+10
+
+dir
+10298
+https://cmusphinx.svn.sourceforge.net/svnroot/cmusphinx/trunk/sphinxbase/src
+https://cmusphinx.svn.sourceforge.net/svnroot/cmusphinx
+
+
+
+2010-07-23T22:49:30.671410Z
+10250
+daktari3
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+c60273ff-4a12-0410-8d58-82ceea6d4170
+
+sphinx_lmtools
+dir
+
+sphinx_fe
+dir
+
+sphinx_jsgf2fsg
+dir
+
+libsphinxad
+dir
+
+Makefile.am
+file
+
+
+
+
+2010-08-01T13:07:27.167065Z
+c344487f541dc140a33f21633f8e8148
+2008-05-13T20:30:28.476910Z
+8315
+dhdfu
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+113
+
+libsphinxbase
+dir
+
+sphinx_cepview
+dir
+
+sphinx_adtools
+dir
+

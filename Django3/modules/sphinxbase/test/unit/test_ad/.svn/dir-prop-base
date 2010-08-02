@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 65
+.deps
+.libs
+Makefile.in
+Makefile
+test_ad_copy
+test_ad_read
+*.exe
+
+END

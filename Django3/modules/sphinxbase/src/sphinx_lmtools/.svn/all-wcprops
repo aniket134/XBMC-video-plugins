@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_lmtools
+END
+sphinx_lm_convert.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_lmtools/sphinx_lm_convert.c
+END
+sphinx_lm_sort
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/8505/trunk/sphinxbase/src/sphinx_lmtools/sphinx_lm_sort
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/9570/trunk/sphinxbase/src/sphinx_lmtools/Makefile.am
+END
+sphinx_lm_eval.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_lmtools/sphinx_lm_eval.c
+END

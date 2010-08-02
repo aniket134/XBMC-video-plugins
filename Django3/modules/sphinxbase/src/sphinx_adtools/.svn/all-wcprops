@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/10235/trunk/sphinxbase/src/sphinx_adtools
+END
+sphinx_pitch.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10235/trunk/sphinxbase/src/sphinx_adtools/sphinx_pitch.c
+END
+cont_fileseg.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_adtools/cont_fileseg.c
+END
+cont_adseg.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_adtools/cont_adseg.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/8315/trunk/sphinxbase/src/sphinx_adtools/Makefile.am
+END

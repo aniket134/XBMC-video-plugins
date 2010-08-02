@@ -1,0 +1,14 @@
+K 10
+svn:ignore
+V 88
+.deps
+.libs
+Makefile.in
+Makefile
+test_feat
+test_feat_fe
+test_feat_live
+test_subvq
+*.exe
+
+END

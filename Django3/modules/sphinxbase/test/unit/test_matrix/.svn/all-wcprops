@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_matrix
+END
+_test_determinant.res
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cmusphinx/!svn/ver/6694/trunk/sphinxbase/test/unit/test_matrix/_test_determinant.res
+END
+_test_invert.test
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_matrix/_test_invert.test
+END
+_test_solve.test
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_matrix/_test_solve.test
+END
+_test_determinant.test
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_matrix/_test_determinant.test
+END
+test_invert.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/6694/trunk/sphinxbase/test/unit/test_matrix/test_invert.c
+END
+test_solve.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/5838/trunk/sphinxbase/test/unit/test_matrix/test_solve.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_matrix/Makefile.am
+END
+test_determinant.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/cmusphinx/!svn/ver/6694/trunk/sphinxbase/test/unit/test_matrix/test_determinant.c
+END
+_test_invert.res
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/6694/trunk/sphinxbase/test/unit/test_matrix/_test_invert.res
+END
+_test_solve.res
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/5838/trunk/sphinxbase/test/unit/test_matrix/_test_solve.res
+END

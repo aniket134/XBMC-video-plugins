@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/cmusphinx/!svn/ver/10279/trunk/sphinxbase/python
+END
+hufftest2.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/9628/trunk/sphinxbase/python/hufftest2.py
+END
+sphinxbase.pyx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/cmusphinx/!svn/ver/10245/trunk/sphinxbase/python/sphinxbase.pyx
+END
+sphinxbase.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cmusphinx/!svn/ver/10245/trunk/sphinxbase/python/sphinxbase.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/10279/trunk/sphinxbase/python/Makefile.am
+END
+setup_win32.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/9902/trunk/sphinxbase/python/setup_win32.py
+END
+sb_test.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/cmusphinx/!svn/ver/10245/trunk/sphinxbase/python/sb_test.py
+END
+setup.py.in
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/10279/trunk/sphinxbase/python/setup.py.in
+END
+sphinxbase.pxd
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/cmusphinx/!svn/ver/10245/trunk/sphinxbase/python/sphinxbase.pxd
+END

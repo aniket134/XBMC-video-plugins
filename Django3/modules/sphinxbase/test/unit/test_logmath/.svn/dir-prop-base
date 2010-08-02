@@ -1,0 +1,15 @@
+K 10
+svn:ignore
+V 109
+.deps
+.libs
+Makefile.in
+Makefile
+test_log_int16
+test_log_int8
+tmp.logadd
+test_log_shifted
+test_log_any
+*.exe
+
+END

@@ -1,0 +1,31 @@
+K 10
+svn:ignore
+V 493
+*.substvars
+files
+libsphinxbase-dev.debhelper.log
+libsphinxbase-dev
+libsphinxbase1.debhelper.log
+libsphinxbase1.postinst.debhelper
+libsphinxbase1.postrm.debhelper
+libsphinxbase1
+python-sphinxbase-dbg.debhelper.log
+python-sphinxbase-dbg.postinst.debhelper
+python-sphinxbase-dbg.prerm.debhelper
+python-sphinxbase-dbg
+python-sphinxbase.debhelper.log
+python-sphinxbase.postinst.debhelper
+python-sphinxbase.prerm.debhelper
+python-sphinxbase
+sphinxbase-utils.debhelper.log
+sphinxbase-utils
+tmp
+docs
+
+K 13
+svn:mergeinfo
+V 199
+/branches/pocketsphinx-0.5/sphinxbase/debian:8806-8837
+/branches/pocketsphinx-0.6/sphinxbase/debian.ubuntu:10122-10128
+/trunk/sphinxbase/debian:9597-9859,9872,9906,9937,9942-9953,9964,9975-9977,10033
+END

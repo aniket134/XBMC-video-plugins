@@ -1,0 +1,18 @@
+K 10
+svn:ignore
+V 177
+.deps
+.libs
+Makefile.in
+Makefile
+Debug
+blas_lite.f
+blas_routines.lst
+clapack_scrub.pyc
+fortran.pyc
+slapack_lite.f
+slapack_routines.lst
+unknown_routines.lst
+zlapack_routines.lst
+
+END

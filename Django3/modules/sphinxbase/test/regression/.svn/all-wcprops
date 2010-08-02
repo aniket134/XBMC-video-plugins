@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/cmusphinx/!svn/ver/10119/trunk/sphinxbase/test/regression
+END
+chan3-smoothspec.cepview
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/cmusphinx/!svn/ver/6115/trunk/sphinxbase/test/regression/chan3-smoothspec.cepview
+END
+test-sphinx_fe-dct.sh
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/7887/trunk/sphinxbase/test/regression/test-sphinx_fe-dct.sh
+END
+polite.gram
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/cmusphinx/!svn/ver/8930/trunk/sphinxbase/test/regression/polite.gram
+END
+chan3.sph
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/9754/trunk/sphinxbase/test/regression/chan3.sph
+END
+test-sphinx_pitch.sh
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/7887/trunk/sphinxbase/test/regression/test-sphinx_pitch.sh
+END
+chan3-logspec.cepview
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/5858/trunk/sphinxbase/test/regression/chan3-logspec.cepview
+END
+chan3.logspec
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/regression/chan3.logspec
+END
+tutorial-check.sh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/8250/trunk/sphinxbase/test/regression/tutorial-check.sh
+END
+test-cepview.sh
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/9902/trunk/sphinxbase/test/regression/test-cepview.sh
+END
+crontab
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cmusphinx/!svn/ver/6901/trunk/sphinxbase/test/regression/crontab
+END
+test-sphinx_jsgf2fsg.sh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/7887/trunk/sphinxbase/test/regression/test-sphinx_jsgf2fsg.sh
+END
+test.kleene.fsg
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10020/trunk/sphinxbase/test/regression/test.kleene.fsg
+END
+test.rightRecursion.fsg
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/cmusphinx/!svn/ver/10020/trunk/sphinxbase/test/regression/test.rightRecursion.fsg
+END
+test-sphinx_fe.sh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/8220/trunk/sphinxbase/test/regression/test-sphinx_fe.sh
+END
+chan3-dither.cepview
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/regression/chan3-dither.cepview
+END
+chan3.2chan.wav
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10119/trunk/sphinxbase/test/regression/chan3.2chan.wav
+END
+chan3.raw
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/regression/chan3.raw
+END
+chan3.wav
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/9754/trunk/sphinxbase/test/regression/chan3.wav
+END
+test-sphinx_fe-ctl.sh
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/10119/trunk/sphinxbase/test/regression/test-sphinx_fe-ctl.sh
+END
+launchCompileCheck.sh
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/8250/trunk/sphinxbase/test/regression/launchCompileCheck.sh
+END
+test-sphinx_fe-smoothspec.sh
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cmusphinx/!svn/ver/7887/trunk/sphinxbase/test/regression/test-sphinx_fe-smoothspec.sh
+END
+testfuncs.sh.in
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/9753/trunk/sphinxbase/test/regression/testfuncs.sh.in
+END
+chan3.cepview
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/regression/chan3.cepview
+END
+chan3.f0
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/cmusphinx/!svn/ver/7887/trunk/sphinxbase/test/regression/chan3.f0
+END
+chan3.mfc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/test/regression/chan3.mfc
+END
+test-sphinx_fe-logspec.sh
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cmusphinx/!svn/ver/7887/trunk/sphinxbase/test/regression/test-sphinx_fe-logspec.sh
+END
+checkCompileStatus.sh
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/8250/trunk/sphinxbase/test/regression/checkCompileStatus.sh
+END
+test.gram
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/7234/trunk/sphinxbase/test/regression/test.gram
+END
+test-sphinx_fe-dither-seed.sh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cmusphinx/!svn/ver/7887/trunk/sphinxbase/test/regression/test-sphinx_fe-dither-seed.sh
+END
+test.nulltest.fsg
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10087/trunk/sphinxbase/test/regression/test.nulltest.fsg
+END
+test.nestedRightRecursion.fsg
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cmusphinx/!svn/ver/10087/trunk/sphinxbase/test/regression/test.nestedRightRecursion.fsg
+END
+testfuncs_cygwin.sh
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/10043/trunk/sphinxbase/test/regression/testfuncs_cygwin.sh
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/cmusphinx/!svn/ver/10119/trunk/sphinxbase/test/regression/Makefile.am
+END
+test.command.fsg
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10087/trunk/sphinxbase/test/regression/test.command.fsg
+END
+test-sphinx_fe-logspec2cep.sh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cmusphinx/!svn/ver/7887/trunk/sphinxbase/test/regression/test-sphinx_fe-logspec2cep.sh
+END
+chan3.ctl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/10119/trunk/sphinxbase/test/regression/chan3.ctl
+END

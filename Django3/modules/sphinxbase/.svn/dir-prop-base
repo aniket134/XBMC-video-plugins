@@ -1,0 +1,43 @@
+K 10
+svn:ignore
+V 363
+sphinxbase.opt
+sphinxbase.ncb
+INSTALL
+Makefile.in
+Makefile
+aclocal.m4
+autom4te.cache
+config.guess
+config.log
+config.status
+config.sub
+configure
+depcomp
+install-sh
+libtool
+ltmain.sh
+missing
+bin
+lib
+sphinxbase.vcb
+sphinxbase.vco
+Debug
+sphinxbase.pc
+compile
+config.status.lineno
+*.suo
+mkinstalldirs
+ylwrap
+confdefs.h
+autoscan.log
+sphinxbase-0.6.0.tar.gz
+build-stamp
+
+K 13
+svn:mergeinfo
+V 177
+/branches/pocketsphinx-0.5/sphinxbase:8806-8837
+/branches/pocketsphinx-0.6/sphinxbase:9597-9900,10040-10042,10122-10128
+/trunk/PocketSphinxAndroidDemo/jni/sphinxbase:10188-10203
+END

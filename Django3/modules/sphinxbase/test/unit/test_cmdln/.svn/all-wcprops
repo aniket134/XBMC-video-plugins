@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_cmdln
+END
+_test_parse_multiple.test
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_multiple.test
+END
+_test_parse_badargs.res
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cmusphinx/!svn/ver/9908/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_badargs.res
+END
+cmdln_parse_multiple.c
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/cmusphinx/!svn/ver/8132/trunk/sphinxbase/test/unit/test_cmdln/cmdln_parse_multiple.c
+END
+_test_parse_goodargs.res
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cmusphinx/!svn/ver/7069/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_goodargs.res
+END
+_test_parse_defaults.res
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cmusphinx/!svn/ver/7079/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_defaults.res
+END
+_test_parse_defaults_r.res
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/cmusphinx/!svn/ver/7736/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_defaults_r.res
+END
+cmdln_parse.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/8833/trunk/sphinxbase/test/unit/test_cmdln/cmdln_parse.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_cmdln/Makefile.am
+END
+_test_parse_badargs.test
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cmusphinx/!svn/ver/9908/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_badargs.test
+END
+cmdln_parse_r.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/8132/trunk/sphinxbase/test/unit/test_cmdln/cmdln_parse_r.c
+END
+_test_parse_goodargs.test
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_goodargs.test
+END
+_test_parse_multiple.res
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svnroot/cmusphinx/!svn/ver/7078/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_multiple.res
+END
+_test_parse_defaults.test
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_defaults.test
+END
+_test_parse_defaults_r.test
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cmusphinx/!svn/ver/9719/trunk/sphinxbase/test/unit/test_cmdln/_test_parse_defaults_r.test
+END

@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 51
+Makefile.in
+.deps
+.libs
+Makefile
+test_bitvec
+*.exe
+
+END

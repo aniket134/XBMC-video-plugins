@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/cmusphinx/!svn/ver/10243/trunk/sphinxbase/include
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/Makefile.am
+END
+sphinx_config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/9902/trunk/sphinxbase/include/sphinx_config.h.in
+END

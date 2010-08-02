@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_case
+END
+_ucase2.test
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/9711/trunk/sphinxbase/test/unit/test_case/_ucase2.test
+END
+_ucase3.test
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/9711/trunk/sphinxbase/test/unit/test_case/_ucase3.test
+END
+_lcase1.test
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/9711/trunk/sphinxbase/test/unit/test_case/_lcase1.test
+END
+_lcase2.test
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/9711/trunk/sphinxbase/test/unit/test_case/_lcase2.test
+END
+_strcmp1.test
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/9711/trunk/sphinxbase/test/unit/test_case/_strcmp1.test
+END
+_lcase3.test
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/9711/trunk/sphinxbase/test/unit/test_case/_lcase3.test
+END
+_strcmp2.test
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/9711/trunk/sphinxbase/test/unit/test_case/_strcmp2.test
+END
+_strcmp3.test
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/9711/trunk/sphinxbase/test/unit/test_case/_strcmp3.test
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_case/Makefile.am
+END
+_ucase1.test
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/9711/trunk/sphinxbase/test/unit/test_case/_ucase1.test
+END
+chgCase.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/5784/trunk/sphinxbase/test/unit/test_case/chgCase.c
+END

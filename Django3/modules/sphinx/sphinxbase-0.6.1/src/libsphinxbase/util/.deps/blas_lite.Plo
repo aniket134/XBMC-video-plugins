@@ -1,0 +1,3 @@
+blas_lite.lo: blas_lite.c ../../../include/f2c.h
+
+../../../include/f2c.h:

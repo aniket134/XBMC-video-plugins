@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_util
+END
+test_filename.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/9780/trunk/sphinxbase/test/unit/test_util/test_filename.c
+END
+test_huff_code.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/9628/trunk/sphinxbase/test/unit/test_util/test_huff_code.c
+END
+test_build_directory.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cmusphinx/!svn/ver/9780/trunk/sphinxbase/test/unit/test_util/test_build_directory.c
+END
+test_fopen.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/9453/trunk/sphinxbase/test/unit/test_util/test_fopen.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_util/Makefile.am
+END
+test_macros.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/9453/trunk/sphinxbase/test/unit/test_util/test_macros.h
+END
+test_bit_encode.c
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/9530/trunk/sphinxbase/test/unit/test_util/test_bit_encode.c
+END
+test_heap.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/9973/trunk/sphinxbase/test/unit/test_util/test_heap.c
+END

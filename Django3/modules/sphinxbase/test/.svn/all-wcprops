@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test
+END
+compare_table.pl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/7073/trunk/sphinxbase/test/compare_table.pl
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/cmusphinx/!svn/ver/8315/trunk/sphinxbase/test/Makefile.am
+END

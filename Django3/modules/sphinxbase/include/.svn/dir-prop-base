@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 76
+Makefile.in
+Makefile
+config.h
+config.h.in
+sphinx_config.h
+stamp-h1
+stamp-h2
+
+END

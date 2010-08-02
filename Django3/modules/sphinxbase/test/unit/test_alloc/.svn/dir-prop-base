@@ -1,0 +1,15 @@
+K 10
+svn:ignore
+V 136
+Makefile.in
+.deps
+.libs
+Makefile
+test_ckd_alloc
+test_ckd_alloc_abort
+test_ckd_alloc_catch
+test_ckd_alloc_fail
+test_listelem_alloc
+*.exe
+
+END

@@ -1,0 +1,46 @@
+10
+
+dir
+10298
+https://cmusphinx.svn.sourceforge.net/svnroot/cmusphinx/trunk/sphinxbase/win32
+https://cmusphinx.svn.sourceforge.net/svnroot/cmusphinx
+
+
+
+2010-05-01T20:22:37.860849Z
+10043
+dhdfu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c60273ff-4a12-0410-8d58-82ceea6d4170
+
+sphinx_pitch
+dir
+
+sphinx_lm_convert
+dir
+
+sphinx_fe
+dir
+
+sphinx_jsgf2fsg
+dir
+
+sphinxbase
+dir
+
+sphinx_cepview
+dir
+

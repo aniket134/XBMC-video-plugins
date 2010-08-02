@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 72
+Makefile.in
+Makefile
+.deps
+.libs
+sphinx_lm_eval
+*.exe
+sphinx_lm_convert
+
+END

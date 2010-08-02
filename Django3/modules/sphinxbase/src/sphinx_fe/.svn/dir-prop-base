@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 57
+.deps
+.libs
+Makefile.in
+Makefile
+sphinx_fe
+sphinx_fe.exe
+
+END

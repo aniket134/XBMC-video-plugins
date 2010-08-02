@@ -1,0 +1,16 @@
+K 10
+svn:ignore
+V 151
+Makefile.in
+Makefile
+*.err
+*.out
+test-sphinx_fe.cepview
+test-sphinx_fe.mfc
+testfuncs.sh
+test-sphinx_pitch.f0
+chan3.raw.mfc
+chan3.sph.mfc
+chan3.wav.mfc
+
+END

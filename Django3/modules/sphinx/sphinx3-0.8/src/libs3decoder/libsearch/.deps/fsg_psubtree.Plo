@@ -1,0 +1,270 @@
+fsg_psubtree.lo: fsg_psubtree.c /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/bits/predefs.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-32.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.1/include/stddef.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.1/include/stdarg.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/bits/stdio2.h \
+ /usr/include/string.h /usr/include/xlocale.h /usr/include/bits/string.h \
+ /usr/include/bits/string2.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/stdlib.h /usr/include/bits/string3.h /usr/include/assert.h \
+ /usr/local/include/sphinxbase/ckd_alloc.h /usr/include/sys/types.h \
+ /usr/include/time.h /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/bits/time.h \
+ /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/alloca.h /usr/include/bits/stdlib.h /usr/include/setjmp.h \
+ /usr/include/bits/setjmp.h \
+ /usr/local/include/sphinxbase/sphinxbase_export.h \
+ /usr/local/include/sphinxbase/prim_type.h \
+ /usr/local/include/sphinxbase/sphinx_config.h \
+ /usr/local/include/sphinxbase/err.h /usr/include/errno.h \
+ /usr/include/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/asm/errno.h /usr/include/asm-generic/errno.h \
+ /usr/include/asm-generic/errno-base.h ../../../include/fsg_psubtree.h \
+ /usr/local/include/sphinxbase/cmd_ln.h \
+ /usr/local/include/sphinxbase/logmath.h ../../../include/s3types.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.1/include/float.h \
+ ../../../include/sphinx3_export.h ../../../include/word_fsg.h \
+ ../../../include/s3types.h /usr/local/include/sphinxbase/glist.h \
+ ../../../include/fsg.h ../../../include/kbcore.h \
+ /usr/local/include/sphinxbase/feat.h /usr/local/include/sphinxbase/fe.h \
+ /usr/local/include/sphinxbase/fixpoint.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.1/include-fixed/limits.h \
+ /usr/lib/gcc/i486-linux-gnu/4.4.1/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h /usr/local/include/sphinxbase/cmn.h \
+ /usr/local/include/sphinxbase/agc.h ../../../include/cont_mgau.h \
+ ../../../include/ms_mgau.h ../../../include/ms_gauden.h \
+ ../../../include/vector.h ../../../include/ms_senone.h \
+ ../../../include/ms_gauden.h ../../../include/interp.h \
+ ../../../include/mdef.h /usr/local/include/sphinxbase/hash_table.h \
+ ../../../include/ascr.h ../../../include/s2_semi_mgau.h \
+ ../../../include/ascr.h ../../../include/fast_algo_struct.h \
+ ../../../include/kdtree.h ../../../include/mdef.h \
+ ../../../include/dict.h ../../../include/lts.h \
+ ../../../include/dict2pid.h ../../../include/ctxt_table.h \
+ ../../../include/dict.h ../../../include/fillpen.h ../../../include/lm.h \
+ ../../../include/lmclass.h ../../../include/tmat.h \
+ ../../../include/subvq.h ../../../include/gs.h ../../../include/tmat.h \
+ ../../../include/ctxt_table.h ../../../include/fsg.h \
+ ../../../include/hmm.h ../../../include/logs3.h ../../../include/hmm.h \
+ ../../../include/search.h
+
+/usr/include/stdio.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-32.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.1/include/stddef.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.1/include/stdarg.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/bits/stdio2.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/bits/string.h:
+
+/usr/include/bits/string2.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/string3.h:
+
+/usr/include/assert.h:
+
+/usr/local/include/sphinxbase/ckd_alloc.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+/usr/include/bits/stdlib.h:
+
+/usr/include/setjmp.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/local/include/sphinxbase/sphinxbase_export.h:
+
+/usr/local/include/sphinxbase/prim_type.h:
+
+/usr/local/include/sphinxbase/sphinx_config.h:
+
+/usr/local/include/sphinxbase/err.h:
+
+/usr/include/errno.h:
+
+/usr/include/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+../../../include/fsg_psubtree.h:
+
+/usr/local/include/sphinxbase/cmd_ln.h:
+
+/usr/local/include/sphinxbase/logmath.h:
+
+../../../include/s3types.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.1/include/float.h:
+
+../../../include/sphinx3_export.h:
+
+../../../include/word_fsg.h:
+
+../../../include/s3types.h:
+
+/usr/local/include/sphinxbase/glist.h:
+
+../../../include/fsg.h:
+
+../../../include/kbcore.h:
+
+/usr/local/include/sphinxbase/feat.h:
+
+/usr/local/include/sphinxbase/fe.h:
+
+/usr/local/include/sphinxbase/fixpoint.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.1/include-fixed/limits.h:
+
+/usr/lib/gcc/i486-linux-gnu/4.4.1/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/bits/posix2_lim.h:
+
+/usr/local/include/sphinxbase/cmn.h:
+
+/usr/local/include/sphinxbase/agc.h:
+
+../../../include/cont_mgau.h:
+
+../../../include/ms_mgau.h:
+
+../../../include/ms_gauden.h:
+
+../../../include/vector.h:
+
+../../../include/ms_senone.h:
+
+../../../include/ms_gauden.h:
+
+../../../include/interp.h:
+
+../../../include/mdef.h:
+
+/usr/local/include/sphinxbase/hash_table.h:
+
+../../../include/ascr.h:
+
+../../../include/s2_semi_mgau.h:
+
+../../../include/ascr.h:
+
+../../../include/fast_algo_struct.h:
+
+../../../include/kdtree.h:
+
+../../../include/mdef.h:
+
+../../../include/dict.h:
+
+../../../include/lts.h:
+
+../../../include/dict2pid.h:
+
+../../../include/ctxt_table.h:
+
+../../../include/dict.h:
+
+../../../include/fillpen.h:
+
+../../../include/lm.h:
+
+../../../include/lmclass.h:
+
+../../../include/tmat.h:
+
+../../../include/subvq.h:
+
+../../../include/gs.h:
+
+../../../include/tmat.h:
+
+../../../include/ctxt_table.h:
+
+../../../include/fsg.h:
+
+../../../include/hmm.h:
+
+../../../include/logs3.h:
+
+../../../include/hmm.h:
+
+../../../include/search.h:

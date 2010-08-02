@@ -1,0 +1,13 @@
+K 10
+svn:ignore
+V 86
+Makefile.in
+.deps
+.libs
+Makefile
+cmdln_parse
+cmdln_parse_multiple
+cmdln_parse_r
+*.exe
+
+END

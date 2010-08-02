@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/doc
+END
+sphinx_cepview.1.in
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cmusphinx/!svn/ver/8292/trunk/sphinxbase/doc/sphinx_cepview.1.in
+END
+args2man.pl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/cmusphinx/!svn/ver/8292/trunk/sphinxbase/doc/args2man.pl
+END
+sphinx_pitch.1.in
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/8292/trunk/sphinxbase/doc/sphinx_pitch.1.in
+END
+sphinx_lm_convert.1.in
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/9902/trunk/sphinxbase/doc/sphinx_lm_convert.1.in
+END
+sphinx_fe.1.in
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/cmusphinx/!svn/ver/7203/trunk/sphinxbase/doc/sphinx_fe.1.in
+END
+sphinx_lm_sort.1
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cmusphinx/!svn/ver/8505/trunk/sphinxbase/doc/sphinx_lm_sort.1
+END
+doxyfile.in
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/cmusphinx/!svn/ver/9902/trunk/sphinxbase/doc/doxyfile.in
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/doc/Makefile.am
+END
+sphinx_cont_fileseg.1
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/8292/trunk/sphinxbase/doc/sphinx_cont_fileseg.1
+END
+sphinx_lm_eval.1.in
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cmusphinx/!svn/ver/8294/trunk/sphinxbase/doc/sphinx_lm_eval.1.in
+END
+sphinx_cont_adseg.1
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cmusphinx/!svn/ver/8292/trunk/sphinxbase/doc/sphinx_cont_adseg.1
+END

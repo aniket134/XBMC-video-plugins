@@ -1,0 +1,144 @@
+10
+
+dir
+10298
+https://cmusphinx.svn.sourceforge.net/svnroot/cmusphinx/trunk/sphinxbase/test/unit
+https://cmusphinx.svn.sourceforge.net/svnroot/cmusphinx
+
+
+
+2010-07-12T03:47:23.031077Z
+10208
+dhdfu
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+c60273ff-4a12-0410-8d58-82ceea6d4170
+
+test_hash
+dir
+
+test_ad
+dir
+
+test_fe
+dir
+
+test_alloc
+dir
+
+test_logmath
+dir
+
+test_dag
+dir
+
+test_cmdln
+dir
+
+testfuncs.sh.in
+file
+
+
+
+
+2010-08-01T13:07:06.215065Z
+3cdfb7f06ad55bf17922d05d16388c1a
+2010-02-28T19:08:15.890880Z
+9754
+dhdfu
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1038
+
+test_ngram
+dir
+
+test_matrix
+dir
+
+test_string
+dir
+
+test_thread
+dir
+
+Makefile.am
+file
+
+
+
+
+2010-08-01T13:07:06.215065Z
+3797be1f077ab86cefcba433f48683e7
+2009-11-19T01:53:00.308201Z
+9453
+dhdfu
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+361
+
+test_case
+dir
+
+test_bitvec
+dir
+
+test_util
+dir
+
+test_fsg
+dir
+
+test_feat
+dir
+

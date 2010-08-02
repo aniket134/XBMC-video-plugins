@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/10250/trunk/sphinxbase/src/libsphinxbase/fe
+END
+yin.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/cmusphinx/!svn/ver/10250/trunk/sphinxbase/src/libsphinxbase/fe/yin.c
+END
+fe_warp_affine.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_warp_affine.h
+END
+fe_warp_inverse_linear.c
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_warp_inverse_linear.c
+END
+fe_warp_piecewise_linear.c
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_warp_piecewise_linear.c
+END
+fe_interface.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_interface.c
+END
+fe_warp_inverse_linear.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_warp_inverse_linear.h
+END
+fe_warp_piecewise_linear.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_warp_piecewise_linear.h
+END
+fe_sigproc.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_sigproc.c
+END
+fe_warp.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_warp.c
+END
+fixlog.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fixlog.c
+END
+fe_warp.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/8448/trunk/sphinxbase/src/libsphinxbase/fe/fe_warp.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/Makefile.am
+END
+make_log_table.py
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/7435/trunk/sphinxbase/src/libsphinxbase/fe/make_log_table.py
+END
+fe_warp_affine.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_warp_affine.c
+END
+fe_internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/fe/fe_internal.h
+END

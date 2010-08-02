@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/10243/trunk/sphinxbase/include/sphinxbase
+END
+hash_table.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/hash_table.h
+END
+logmath.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/logmath.h
+END
+fsg_model.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/fsg_model.h
+END
+byteorder.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/byteorder.h
+END
+yin.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/yin.h
+END
+profile.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/profile.h
+END
+mmio.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/mmio.h
+END
+sphinxbase_export.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/sphinxbase_export.h
+END
+prim_type.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/prim_type.h
+END
+f2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/f2c.h
+END
+ckd_alloc.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/ckd_alloc.h
+END
+heap.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/heap.h
+END
+genrand.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/genrand.h
+END
+feat.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/feat.h
+END
+unlimit.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/unlimit.h
+END
+glist.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/glist.h
+END
+err.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/err.h
+END
+jsgf.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/jsgf.h
+END
+agc.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/agc.h
+END
+fe.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/fe.h
+END
+info.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/info.h
+END
+cmd_ln.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/cmd_ln.h
+END
+sbthread.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/sbthread.h
+END
+fixpoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/fixpoint.h
+END
+matrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/matrix.h
+END
+libutil.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/libutil.h
+END
+cont_ad.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/cont_ad.h
+END
+strfuncs.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/strfuncs.h
+END
+bio.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/10243/trunk/sphinxbase/include/sphinxbase/bio.h
+END
+case.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/case.h
+END
+clapack_lite.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/clapack_lite.h
+END
+bitvec.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/bitvec.h
+END
+cmn.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/cmn.h
+END
+filename.h
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/filename.h
+END
+huff_code.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/huff_code.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10212/trunk/sphinxbase/include/sphinxbase/Makefile.am
+END
+ad.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/ad.h
+END
+ngram_model.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/ngram_model.h
+END
+mulaw.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/mulaw.h
+END
+pio.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/pio.h
+END
+listelem_alloc.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/include/sphinxbase/listelem_alloc.h
+END

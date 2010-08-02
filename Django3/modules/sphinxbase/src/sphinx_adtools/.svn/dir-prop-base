@@ -1,0 +1,13 @@
+K 10
+svn:ignore
+V 90
+.deps
+.libs
+Makefile.in
+Makefile
+sphinx_cont_adseg
+sphinx_cont_fileseg
+sphinx_pitch
+*.exe
+
+END

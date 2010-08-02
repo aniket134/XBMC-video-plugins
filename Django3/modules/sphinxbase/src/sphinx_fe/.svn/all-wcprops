@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_fe
+END
+sphinx_wave2feat.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10157/trunk/sphinxbase/src/sphinx_fe/sphinx_wave2feat.h
+END
+sphinx_fe.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_fe/sphinx_fe.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/cmusphinx/!svn/ver/10121/trunk/sphinxbase/src/sphinx_fe/Makefile.am
+END
+cmd_ln_defn.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/sphinx_fe/cmd_ln_defn.h
+END

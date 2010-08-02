@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svnroot/cmusphinx/!svn/ver/10279/trunk/sphinxbase
+END
+.bzrignore
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/cmusphinx/!svn/ver/9530/trunk/sphinxbase/.bzrignore
+END
+build_for_iphone.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/9747/trunk/sphinxbase/build_for_iphone.sh
+END
+config.rpath
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/cmusphinx/!svn/ver/8642/trunk/sphinxbase/config.rpath
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/cmusphinx/!svn/ver/5991/trunk/sphinxbase/LICENSE
+END
+AUTHORS
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/cmusphinx/!svn/ver/5584/trunk/sphinxbase/AUTHORS
+END
+configure.in
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/cmusphinx/!svn/ver/10264/trunk/sphinxbase/configure.in
+END
+ChangeLog
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/cmusphinx/!svn/ver/6416/trunk/sphinxbase/ChangeLog
+END
+indent.sh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/cmusphinx/!svn/ver/8250/trunk/sphinxbase/indent.sh
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/cmusphinx/!svn/ver/9769/trunk/sphinxbase/README
+END
+sphinxbase.sln
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/cmusphinx/!svn/ver/10043/trunk/sphinxbase/sphinxbase.sln
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/cmusphinx/!svn/ver/9563/trunk/sphinxbase/COPYING
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/cmusphinx/!svn/ver/10043/trunk/sphinxbase/Makefile.am
+END
+sphinxbase.pc.in
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/cmusphinx/!svn/ver/8315/trunk/sphinxbase/sphinxbase.pc.in
+END
+autogen.sh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/cmusphinx/!svn/ver/10016/trunk/sphinxbase/autogen.sh
+END
+NEWS
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/cmusphinx/!svn/ver/7258/trunk/sphinxbase/NEWS
+END

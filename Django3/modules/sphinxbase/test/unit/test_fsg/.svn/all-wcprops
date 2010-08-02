@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_fsg
+END
+polite.gram
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/8070/trunk/sphinxbase/test/unit/test_fsg/polite.gram
+END
+goforward.fsg
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/8070/trunk/sphinxbase/test/unit/test_fsg/goforward.fsg
+END
+test_fsg_jsgf.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/8073/trunk/sphinxbase/test/unit/test_fsg/test_fsg_jsgf.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_fsg/Makefile.am
+END
+test_macros.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/8070/trunk/sphinxbase/test/unit/test_fsg/test_macros.h
+END
+test_fsg_read.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10083/trunk/sphinxbase/test/unit/test_fsg/test_fsg_read.c
+END
+test_fsg_write_fsm.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/8930/trunk/sphinxbase/test/unit/test_fsg/test_fsg_write_fsm.c
+END

@@ -1,0 +1,13 @@
+K 10
+svn:ignore
+V 77
+Makefile.in
+.deps
+.libs
+Makefile
+strtest
+test_atof
+strtest.exe
+test_atof.exe
+
+END

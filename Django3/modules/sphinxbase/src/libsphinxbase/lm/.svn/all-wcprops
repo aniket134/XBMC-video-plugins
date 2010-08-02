@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/10244/trunk/sphinxbase/src/libsphinxbase/lm
+END
+fsg_model.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/fsg_model.c
+END
+ngram_model_set.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/ngram_model_set.c
+END
+jsgf_scanner.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/10142/trunk/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.c
+END
+ngram_model_set.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/8443/trunk/sphinxbase/src/libsphinxbase/lm/ngram_model_set.h
+END
+jsgf_parser.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/jsgf_parser.c
+END
+jsgf_scanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/10142/trunk/sphinxbase/src/libsphinxbase/lm/jsgf_scanner.h
+END
+jsgf_parser.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10015/trunk/sphinxbase/src/libsphinxbase/lm/jsgf_parser.h
+END
+_jsgf_scanner.l
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/10142/trunk/sphinxbase/src/libsphinxbase/lm/_jsgf_scanner.l
+END
+lm3g_templates.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/10237/trunk/sphinxbase/src/libsphinxbase/lm/lm3g_templates.c
+END
+lm3g_model.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10244/trunk/sphinxbase/src/libsphinxbase/lm/lm3g_model.c
+END
+ngram_model.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/ngram_model.c
+END
+ngram_model_dmp.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.c
+END
+ngram_model_internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/ngram_model_internal.h
+END
+ngram_model_arpa.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/cmusphinx/!svn/ver/10237/trunk/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.c
+END
+lm3g_model.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/lm3g_model.h
+END
+plan.txt
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/7462/trunk/sphinxbase/src/libsphinxbase/lm/plan.txt
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/Makefile.am
+END
+jsgf.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/jsgf.c
+END
+ngram_model_dmp.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp.h
+END
+ngram_model_dmp32.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/ngram_model_dmp32.c
+END
+jsgf_internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/jsgf_internal.h
+END
+jsgf_parser.y
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/lm/jsgf_parser.y
+END
+ngram_model_arpa.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/9569/trunk/sphinxbase/src/libsphinxbase/lm/ngram_model_arpa.h
+END

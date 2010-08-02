@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo
+END
+control
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/control
+END
+libsphinxbase1.install
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/libsphinxbase1.install
+END
+sphinx_fe.1
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/sphinx_fe.1
+END
+compat
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/compat
+END
+changelog
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/changelog
+END
+docs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/docs
+END
+sphinx_cepview.1
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/sphinx_cepview.1
+END
+rules
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/rules
+END
+pycompat
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/pycompat
+END
+sphinxbase-utils.manpages
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/sphinxbase-utils.manpages
+END
+sphinx_pitch.1
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/sphinx_pitch.1
+END
+sphinx_jsgf2fsg.1
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/sphinx_jsgf2fsg.1
+END
+sphinxbase-utils.install
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/sphinxbase-utils.install
+END
+sphinx_lm_eval.1
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/sphinx_lm_eval.1
+END
+copyright
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/copyright
+END
+libsphinxbase-dev.install
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/libsphinxbase-dev.install
+END
+python2.5-sphinxbase.install
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/cmusphinx/!svn/ver/10131/trunk/sphinxbase/debian.maemo/python2.5-sphinxbase.install
+END

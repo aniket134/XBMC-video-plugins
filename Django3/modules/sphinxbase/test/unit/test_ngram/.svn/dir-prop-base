@@ -1,0 +1,22 @@
+K 10
+svn:ignore
+V 201
+Makefile.in
+.deps
+Makefile
+.libs
+test_lm_mmap
+test_lm_read
+test_lm_add
+test_lm_recode
+test_lm_score
+test_lm_class
+test_lm_set
+test_lm_iter
+*.exe
+100.tmp.DMP
+100.tmp.arpa
+test_lm_write
+test_lm_casefold
+
+END

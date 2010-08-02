@@ -1,0 +1,227 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cmusphinx/!svn/ver/10243/trunk/sphinxbase/src/libsphinxbase/util
+END
+profile.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/profile.c
+END
+mmio.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/mmio.c
+END
+clapack_scrub.py
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/7435/trunk/sphinxbase/src/libsphinxbase/util/clapack_scrub.py
+END
+ckd_alloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/ckd_alloc.c
+END
+heap.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/heap.c
+END
+genrand.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/genrand.c
+END
+fortran.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/7435/trunk/sphinxbase/src/libsphinxbase/util/fortran.py
+END
+unlimit.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/unlimit.c
+END
+glist.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/glist.c
+END
+dtoa.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/dtoa.c
+END
+err.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/err.c
+END
+info.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/info.c
+END
+sbthread.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/sbthread.c
+END
+README.python
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/7435/trunk/sphinxbase/src/libsphinxbase/util/README.python
+END
+cmd_ln.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/cmd_ln.c
+END
+blas_lite.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/blas_lite.c
+END
+make_lite.py
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/7435/trunk/sphinxbase/src/libsphinxbase/util/make_lite.py
+END
+matrix.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/matrix.c
+END
+string_wce.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/9087/trunk/sphinxbase/src/libsphinxbase/util/string_wce.c
+END
+slamch.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/slamch.c
+END
+strfuncs.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/strfuncs.c
+END
+bio.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/10243/trunk/sphinxbase/src/libsphinxbase/util/bio.c
+END
+wrapped_routines
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/7435/trunk/sphinxbase/src/libsphinxbase/util/wrapped_routines
+END
+case.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/case.c
+END
+bitvec.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/bitvec.c
+END
+err_wince.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/err_wince.c
+END
+filename.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/filename.c
+END
+huff_code.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/huff_code.c
+END
+errno.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/9087/trunk/sphinxbase/src/libsphinxbase/util/errno.c
+END
+utf8.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/utf8.c
+END
+pio.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/pio.c
+END
+f2c_lite.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/f2c_lite.c
+END
+listelem_alloc.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/listelem_alloc.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/Makefile.am
+END
+hash_table.c
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/hash_table.c
+END
+slapack_lite.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/slapack_lite.c
+END
+logmath.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/src/libsphinxbase/util/logmath.c
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/cmusphinx/!svn/ver/9776/trunk/sphinxbase/m4
+END
+lib-link.m4
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/cmusphinx/!svn/ver/9348/trunk/sphinxbase/m4/lib-link.m4
+END
+lib-prefix.m4
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/cmusphinx/!svn/ver/9348/trunk/sphinxbase/m4/lib-prefix.m4
+END
+pkg.m4
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/cmusphinx/!svn/ver/9776/trunk/sphinxbase/m4/pkg.m4
+END
+lib-ld.m4
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/cmusphinx/!svn/ver/9348/trunk/sphinxbase/m4/lib-ld.m4
+END
+iconv.m4
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/cmusphinx/!svn/ver/9348/trunk/sphinxbase/m4/iconv.m4
+END

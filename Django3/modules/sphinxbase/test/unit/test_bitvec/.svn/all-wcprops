@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_bitvec
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_bitvec/Makefile.am
+END
+test_macros.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/7837/trunk/sphinxbase/test/unit/test_bitvec/test_macros.h
+END
+test_bitvec.c
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/7838/trunk/sphinxbase/test/unit/test_bitvec/test_bitvec.c
+END

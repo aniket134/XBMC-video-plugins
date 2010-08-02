@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_logmath
+END
+test_log_int16.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/cmusphinx/!svn/ver/7359/trunk/sphinxbase/test/unit/test_logmath/test_log_int16.c
+END
+test_log_int8.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/cmusphinx/!svn/ver/7359/trunk/sphinxbase/test/unit/test_logmath/test_log_int8.c
+END
+test_log_shifted.c
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svnroot/cmusphinx/!svn/ver/7359/trunk/sphinxbase/test/unit/test_logmath/test_log_shifted.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/cmusphinx/!svn/ver/10208/trunk/sphinxbase/test/unit/test_logmath/Makefile.am
+END
+test_macros.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/cmusphinx/!svn/ver/7324/trunk/sphinxbase/test/unit/test_logmath/test_macros.h
+END
